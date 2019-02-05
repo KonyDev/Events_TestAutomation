@@ -1,0 +1,67 @@
+{
+    "classname": "eventpreview",
+    "definitions": {
+        "apis": {
+            "custom": [
+                {
+                    "group": "General",
+                    "kuid": "bba93510975f4db2b94a0afb9a98957b",
+                    "paramList": [
+                        {
+                            "name": "eventDetails"
+                        }
+                    ],
+                    "propertyKey": "setEventDetails",
+                    "pw": {
+                        "displayName": "setEventDetails",
+                        "uiRepresentation": "Label-Label-Button-Button"
+                    },
+                    "srcWgtKUID": "dd3e464d49224bbdb27551db33059f75",
+                    "type": "event"
+                }
+            ],
+            "passthrough": []
+        },
+        "events": {
+            "custom": [],
+            "passthrough": [
+                {
+                    "access": "Enable",
+                    "group": "General",
+                    "kuid": "b7b92ed0a41b4a0882f9454472c94937",
+                    "originalPropertyKey": "onClick",
+                    "propertyIndex": 1,
+                    "propertyKey": "onPrevBack",
+                    "pw": {
+                        "access": "readwrite",
+                        "category": "action",
+                        "displayName": "onPrevBack",
+                        "srcWidget": "FlexEventPreviewBack",
+                        "type": "action",
+                        "uiRepresentation": "Label-Label-Button-Button",
+                        "wType": "FlexContainer"
+                    },
+                    "srcWgtKUID": "c30194728dc24fd0b83c3685661b3346"
+                }
+            ]
+        },
+        "groups": {
+            "apis": [
+                "General"
+            ],
+            "events": [],
+            "properties": [],
+            "widgets": []
+        },
+        "properties": {
+            "custom": [],
+            "passthrough": []
+        },
+        "widgets": {
+            "expose": [],
+            "passthrough": []
+        }
+    },
+    "namespace": "com.konyenb",
+    "version": "1.0.0"
+}

@@ -1,0 +1,155 @@
+<project name="sgconfig" basedir="." default="update">
+
+	<property name="ProjectName" value="../konymobilebanking/test/TestNG"/>
+   
+	<!-- now you can load activation.jar and mail.jar into the project's classpath -->
+	<macrodef name="sgconfig">
+		<attribute name="file" />
+		<attribute name="username" />
+		<attribute name="password" />
+		<attribute name="username2" />
+		<attribute name="password2" />
+		<attribute name="dbusername" />
+		<attribute name="dbpassword" />
+		<attribute name="appname" />
+		<attribute name="apppackage" />
+		<attribute name="launchactivity" />
+		<attribute name="pathToApkRootDir" />
+		<attribute name="screenshotsRootDirectory" />
+		<attribute name="logRootDir" />
+		<attribute name="Device" />
+		<attribute name="iosDeviceType" />
+		<attribute name="isMobileOrDesktop" />
+		<attribute name="platformOS" />
+		<attribute name="mobileOS" />
+		<attribute name="mobilePlatformName" />
+		<attribute name="androidVersion" />
+		<attribute name="iOSDeviceName" />
+		<attribute name="iOSVersion" />
+		<attribute name="browser" />
+		<attribute name="browserURL" />
+		<attribute name="driverPath" />
+		<attribute name="bundleid" />
+		<attribute name="autoStartAppium" />
+		<attribute name="automationName" />
+		<attribute name="udid" />
+		<attribute name="xcodeOrgId" />
+		<attribute name="xcodeSigningId" />
+		<attribute name="DeviceSerialNumber" />
+		<attribute name="CodeCoverage" />
+		
+		
+		<sequential>
+			<echo>** Updating sgconfig  **</echo>
+			<propertyfile file="@{file}" comment="Sgconfiguration">		
+				<entry key="username" value="@{username}" />
+				<entry key="password" value="@{password}" />
+				<entry key="username2" value="@{username2}" />
+				<entry key="password2" value="@{password2}" />
+				<entry key="dbusername" value="${dbusername}" />
+				<entry key="dbpassword" value="${dbpassword}" />
+				<entry key="appname" value="${appname}" />
+				<entry key="apppackage" value="${apppackage}" />
+				<entry key="launchactivity" value="${launchactivity}" />
+				<entry key="pathToApkRootDir" value="${pathToApkRootDir}" />
+				<entry key="screenshotsRootDirectory" value="${screenshotsRootDirectory}" />
+				<entry key="logRootDir" value="${logRootDir}" />
+				<entry key="Device" value="${Device}" />
+				<entry key="iosDeviceType" value="${iosDeviceType}"/>
+				<entry key="isMobileOrDesktop" value="${isMobileOrDesktop}" />
+				<entry key="platformOS" value="${platformOS}" />
+				<entry key="mobileOS" value="${mobileOS}" />
+				<entry key="mobilePlatformName" value="${mobilePlatformName}" />
+				<entry key="androidVersion" value="${androidVersion}" />
+				<entry key="iOSDeviceName" value="${iOSDeviceName}" />
+				<entry key="iOSVersion" value="${iOSVersion}" />
+				<entry key="browser" value="${browser}" />
+				<entry key="browserURL" value="${browserURL}" />
+				<entry key="driverPath" value="${driverPath}" />
+				<entry key="bundleid" value="${bundleid}" />
+				<entry key="autoStartAppium" value="${autoStartAppium}"/>
+				<entry key="automationName" value="${automationName}"/>
+				<entry key="udid" value="${udid}"/>
+				<entry key="xcodeOrgId" value="${xcodeOrgId}"/>
+				<entry key="xcodeSigningId" value="${xcodeSigningId}"/>			
+				<entry key="DeviceSerialNumber" value="${DeviceSerialNumber}"/>
+				<entry key="CodeCoverage" value="${CodeCoverage}"/> 
+				
+			</propertyfile>
+		</sequential>
+	</macrodef>
+		
+	<target name="update">		 
+		<property name="username" value='${username}' />
+		<property name="password" value='${password}' />
+		<property name="username2" value='${username2}' />		
+		<property name="password2" value='${password2}' />
+		<property name="dbusername" value='${dbusername}' />
+		<property name="dbpassword" value='${dbpassword}' />
+		<property name="appname" value='${appname}' />
+		<property name="apppackage" value='${apppackage}' />
+		<property name="launchactivity" value='${launchactivity}' />
+		<property name="bundleid" value='${bundleid}' />
+		<property name="pathToApkRootDir" value='${pathToApkRootDir}' />
+		<property name="screenshotsRootDirectory" value='${screenshotsRootDirectory}' />
+		<property name="logRootDir" value='${logRootDir}' />
+		<property name="Device" value='${Device}' />
+		<property name="iosDeviceType" value='${iosDeviceType}'/>
+		<property name="iosDeviceType" value='${iosDeviceType}' />
+		<property name="platformOS" value='${platformOS}' />
+		<property name="mobileOS" value='${mobileOS}' />
+		<property name="mobilePlatformName" value='${mobilePlatformName}' />
+		<property name="androidVersion" value='${androidVersion}' />
+		<property name="iOSDeviceName" value='${iOSDeviceName}' />
+		<property name="iOSVersion" value='${iOSVersion}' />
+		<property name="browser" value='${browser}' />
+		<property name="browserURL" value='${browserURL}' />
+		<property name="driverPath" value='${driverPath}' />		
+		<property name="autoStartAppium" value='${autoStartAppium}'/>
+		<property name="automationName" value='${automationName}'/>
+		<property name="udid" value='${udid}'/>
+		<property name="xcodeOrgId" value='${xcodeOrgId}'/>
+		<property name="xcodeSigningId" value='${xcodeSigningId}'/>			
+		<property name="DeviceSerialNumber" value='${DeviceSerialNumber}'/>
+		<property name="CodeCoverage" value='${CodeCoverage}'/> 
+		
+		<sgconfig 
+			file="../../${ProjectName}"			
+			username="${username}"
+			password="${password}"
+			username2="${username2}"
+			password2="${password2}"
+			dbusername="${dbusername}" 
+			dbpassword="${dbpassword}"
+			appname="${appname}"
+			apppackage="${apppackage}"
+			launchactivity="${launchactivity}"
+			pathToApkRootDir="${pathToApkRootDir}"
+			screenshotsRootDirectory="${screenshotsRootDirectory}"
+			logRootDir="${logRootDir}"
+			Device="${Device}"
+			iosDeviceType="${iosDeviceType}"
+			isMobileOrDesktop="${isMobileOrDesktop}"
+			platformOS="${platformOS}"
+			mobileOS="${mobileOS}"
+			mobilePlatformName="${mobilePlatformName}"
+			androidVersion="${androidVersion}"
+			iOSDeviceName="${iOSDeviceName}"
+			iOSVersion="${iOSVersion}"
+			browser="${browser}"
+			browserURL="${browserURL}"
+			driverPath="${driverPath}"
+			bundleid="${bundleid}"
+			autoStartAppium="${autoStartAppium}"
+			automationName="${automationName}"
+			udid="${udid}"
+			xcodeOrgId="${xcodeOrgId}"
+			xcodeSigningId="${xcodeSigningId}"			
+			DeviceSerialNumber="${DeviceSerialNumber}"
+			CodeCoverage="${CodeCoverage}" >
+		</sgconfig>
+		
+		
+	</target>
+	
+</project>
