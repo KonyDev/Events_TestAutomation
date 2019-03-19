@@ -80,11 +80,11 @@ define("frmImageGallery", function() {
                 "zIndex": 1
             }, {}, {});
             flxClose.setDefaultUnit(kony.flex.DP);
-            var CopyimgClose0b5d019ef07b44c = new kony.ui.Image2({
+            var imgClose = new kony.ui.Image2({
                 "centerX": "50%",
                 "centerY": "50%",
                 "height": "20dp",
-                "id": "CopyimgClose0b5d019ef07b44c",
+                "id": "imgClose",
                 "isVisible": true,
                 "skin": "slImage",
                 "src": "closeicon.png",
@@ -95,7 +95,7 @@ define("frmImageGallery", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            flxClose.add(CopyimgClose0b5d019ef07b44c);
+            flxClose.add(imgClose);
             var lblHeader = new kony.ui.Label({
                 "centerX": "50%",
                 "centerY": "50%",
@@ -126,10 +126,26 @@ define("frmImageGallery", function() {
                 "left": "0dp",
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
                 "isModalContainer": false,
-                "skin": "sknFlxImageGalleryComponentRoot",
+                "skin": "sknCompBG00080",
                 "top": "9%",
-                "width": "100%"
-            }, {}, {});
+                "width": "100%",
+                "overrides": {
+                    "ImageGallery": {
+                        "right": "viz.val_cleared",
+                        "bottom": "viz.val_cleared",
+                        "minWidth": "viz.val_cleared",
+                        "minHeight": "viz.val_cleared",
+                        "maxWidth": "viz.val_cleared",
+                        "maxHeight": "viz.val_cleared",
+                        "centerX": "viz.val_cleared",
+                        "centerY": "viz.val_cleared"
+                    }
+                }
+            }, {
+                "overrides": {}
+            }, {
+                "overrides": {}
+            });
             ImageGallery.appUserID = "null";
             ImageGallery.rootFolderID = "0";
             flxRoot.add(flxHeader, ImageGallery);

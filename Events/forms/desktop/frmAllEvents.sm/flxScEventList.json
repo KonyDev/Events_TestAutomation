@@ -7,7 +7,7 @@
     },
     "_left_": {
         "type": "string",
-        "value": "30dp"
+        "value": "0dp"
     },
     "_margin_": [
         0,
@@ -30,13 +30,17 @@
     },
     "_width_": {
         "type": "string",
-        "value": "97%"
+        "value": "100%"
     },
     "allboxes": [],
     "allowhorizontalbounce": false,
     "allowverticalbounce": true,
     "bounces": true,
     "canUpdateUI": true,
+    "centerx": {
+        "type": "string",
+        "value": "50%"
+    },
     "children": [],
     "clipbounds": true,
     "containerweight": 100,
@@ -59,6 +63,12 @@
     "pagingenabled": false,
     "parent": "flxEventLIstContainer",
     "pf": "frmAllEvents",
+    "responsiveData": {
+        "b3": {},
+        "b4": {
+            "zIndex": 3
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "scrolldirection": 2,
@@ -68,5 +78,5 @@
     "verticalscrollindicator": true,
     "wType": "FlexScrollContainer",
     "widgetalignment": 1,
-    "zindex": 10
+    "zindex": 1
 }

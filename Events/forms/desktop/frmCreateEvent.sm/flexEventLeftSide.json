@@ -33,7 +33,6 @@
         "value": "48%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
         "flexBasicInfoTitl",
@@ -41,8 +40,8 @@
         "listCategory",
         "txtShort",
         "txtEventLDesc",
-        "flexDate",
-        "CopyflexDate0f477e9bc156043",
+        "flexStartDate",
+        "flexEndDate",
         "flexBannerUploadTitl",
         "flexUploadBannerImageValue",
         "startTime",
@@ -61,6 +60,30 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flexScrollEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b2": {
+            "height": {
+                "type": "string",
+                "value": "180%"
+            }
+        },
+        "b3": {
+            "height": {
+                "type": "string",
+                "value": "170%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        },
+        "b4": {
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

@@ -47,6 +47,28 @@
     "onclick": "AS_Button_afc005346af041ea99edbfd77be06a8e",
     "parent": "flxEventDropdownContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b3": {
+            "left": {
+                "type": "string",
+                "value": "5%"
+            },
+            "width": {
+                "type": "string",
+                "value": "20%"
+            }
+        },
+        "b4": {
+            "left": {
+                "type": "string",
+                "value": "5%"
+            },
+            "width": {
+                "type": "string",
+                "value": "20%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "wType": "Button",

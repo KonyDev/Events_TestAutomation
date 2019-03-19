@@ -3,24 +3,33 @@
   * @function getEventDescCompgetEventDescComp
   * @description - This function dynamically create the event component dynamically
   */
- function getEventDescComp(id, left, top, eventObj, context) {
+ function getEventDescComp(id, left, top, width, height, eventObj, context) {
  	try {
  		var event = new com.konyenb.event({
  				"autogrowMode": kony.flex.AUTOGROW_NONE,
  				"clipBounds": true,
- 				"height": "340dp",
+ 				"height": height+"dp",
  				"id": "event" + id,
  				"isVisible": true,
  				"layoutType": kony.flex.FLOW_VERTICAL,
- 				"left": left + "dp",
+ 				"left": left + "%",
  				"masterType": constants.MASTER_TYPE_USERWIDGET,
  				"skin": "sknFlxEventRoot",
  				"top": top + "dp",
- 				"width": "322dp"
+ 				"width": width+"%"
  			}, {}, {});
  		event.setEvent(eventObj);
- 		event.onRemove = context.onEventRemove;
- 		event.onEdit = context.onEventEdit;
+        if(EVENT_CONSTANS.MODE.USERROLE === EVENT_CONSTANS.USERROLE.ADMIN){
+          event.onRemove = context.onEventRemove;
+ 		  event.onEdit = context.onEventEdit;
+          event.isRemoveVisible = true;
+          event.isEditVisible = true;
+          event.isRegisteredVisible = false;
+        }else if(EVENT_CONSTANS.MODE.USERROLE === EVENT_CONSTANS.USERROLE.CONSUMER){
+          event.isRemoveVisible = false;
+          event.isEditVisible = false;
+          event.isRegisteredVisible =eventObj.isRegister
+        }
         event.onView = context.onViewEvent;
  		return event;
  	} catch (err) {

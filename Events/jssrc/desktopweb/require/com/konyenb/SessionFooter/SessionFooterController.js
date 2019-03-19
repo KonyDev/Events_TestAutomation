@@ -1,4 +1,16 @@
-define(function() {
+define('com/konyenb/SessionFooter/userSessionFooterController',[],function() {
+    return {
+        constructor: function(baseConfig, layoutConfig, pspConfig) {},
+        //Logic for getters/setters of custom properties
+        initGettersSetters: function() {}
+    };
+});
+define('com/konyenb/SessionFooter/SessionFooterControllerActions',{
+    /*
+          This is an auto generated file and any modifications to it may result in corruption of the action sequence.
+        */
+});
+define('com/konyenb/SessionFooter/SessionFooterController',["com/konyenb/SessionFooter/userSessionFooterController", "com/konyenb/SessionFooter/SessionFooterControllerActions"], function() {
     var controller = require("com/konyenb/SessionFooter/userSessionFooterController");
     var actions = require("com/konyenb/SessionFooter/SessionFooterControllerActions");
     for (var key in actions) {

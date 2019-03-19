@@ -7,6 +7,7 @@ define("flxCalloutTemp", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknFlxDeepBlue",
             "top": "0dp",
             "width": "70%"

@@ -8,7 +8,8 @@ define("flexImageSet", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
-            "skin": "CopyslFbox0fc0e4734319348",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "top": "0dp",
             "width": "100%"
         }, {}, {});
@@ -21,6 +22,7 @@ define("flexImageSet", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "100%",

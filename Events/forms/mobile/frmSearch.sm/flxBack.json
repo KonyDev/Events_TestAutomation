@@ -53,6 +53,7 @@
     "kuid": "a83e0183c4484922898b66def3458ff5",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_fd26169aa27a4ee4a8aae7a4d9b1800b",
     "parent": "flexEventHeader",
     "pf": "frmSearch",
     "retaincontentalignment": false,

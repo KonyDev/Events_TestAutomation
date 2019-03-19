@@ -21,7 +21,7 @@ define("com/konyenb/menuItem2/usermenuItem2Controller", function() {
                     case 3:
                         this._selectedFlex.skin = "slFbox";
                         this.view.flxManageUser.skin = "sknFlxMenuClick";
-                        this._selectedFlex = this.view.flxCreateNewEvent;
+                        this._selectedFlex = this.view.flxManageUser;
                         break;
                     default:
                         kony.print("Not Valid");
@@ -145,11 +145,6 @@ define("com/konyenb/menuItem2/menuItem2ControllerActions", {
     AS_FlexContainer_i147b740346b4812948872c3910b1502: function AS_FlexContainer_i147b740346b4812948872c3910b1502(eventobject) {
         var self = this;
         this.getSettings();
-    },
-    /** onRowClick defined for SegOptions **/
-    AS_Segment_ade71abaef944d1684c7397098a54f7d: function AS_Segment_ade71abaef944d1684c7397098a54f7d(eventobject, sectionNumber, rowNumber) {
-        var self = this;
-        this.onMenuClick();
     }
 });
 define("com/konyenb/menuItem2/menuItem2Controller", ["com/konyenb/menuItem2/usermenuItem2Controller", "com/konyenb/menuItem2/menuItem2ControllerActions"], function() {
@@ -159,11 +154,41 @@ define("com/konyenb/menuItem2/menuItem2Controller", ["com/konyenb/menuItem2/user
         controller[key] = actions[key];
     }
     controller.initializeProperties = function() {
-        defineSetter(this, "username", function(val) {
-            this.view.lblUserName.text = val;
+        defineSetter(this, "option1Image", function(val) {
+            this.view.imgAllNewEvent.isVisible = val;
         });
-        defineGetter(this, "username", function() {
-            return this.view.lblUserName.text;
+        defineGetter(this, "option1Image", function() {
+            return this.view.imgAllNewEvent.isVisible;
+        });
+        defineSetter(this, "option1Text", function(val) {
+            this.view.lblAllEvent.text = val;
+        });
+        defineGetter(this, "option1Text", function() {
+            return this.view.lblAllEvent.text;
+        });
+        defineSetter(this, "option2Image", function(val) {
+            this.view.imgCreateNewEvent.isVisible = val;
+        });
+        defineGetter(this, "option2Image", function() {
+            return this.view.imgCreateNewEvent.isVisible;
+        });
+        defineSetter(this, "option2Text", function(val) {
+            this.view.lblCreateNewEvent.text = val;
+        });
+        defineGetter(this, "option2Text", function() {
+            return this.view.lblCreateNewEvent.text;
+        });
+        defineSetter(this, "option3Image", function(val) {
+            this.view.imgManageUser.isVisible = val;
+        });
+        defineGetter(this, "option3Image", function() {
+            return this.view.imgManageUser.isVisible;
+        });
+        defineSetter(this, "option3Text", function(val) {
+            this.view.lblManageUser.text = val;
+        });
+        defineGetter(this, "option3Text", function() {
+            return this.view.lblManageUser.text;
         });
         if (this.initGettersSetters) {
             this.initGettersSetters.apply(this, arguments);

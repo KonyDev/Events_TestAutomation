@@ -45,6 +45,14 @@
     "name": "kony.ui.Button",
     "parent": "FlexScrollSession",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b3": {
+            "width": {
+                "type": "ref",
+                "value": "preferred"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "wType": "Button",

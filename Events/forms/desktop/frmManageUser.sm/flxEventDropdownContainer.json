@@ -33,8 +33,11 @@
         "value": "100%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "children": [
         "listBoxEvent",
         "btnProceed"
@@ -51,6 +54,64 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flxInfoItemContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b1": {
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            },
+            "top": {
+                "type": "string",
+                "value": "25px"
+            },
+            "width": {
+                "type": "string",
+                "value": "97.50%"
+            }
+        },
+        "b2": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "left": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "95%"
+            }
+        },
+        "b3": {
+            "height": {
+                "type": "string",
+                "value": "40px"
+            },
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            },
+            "width": {
+                "type": "string",
+                "value": "90%"
+            }
+        },
+        "b4": {
+            "height": {
+                "type": "string",
+                "value": "40px"
+            },
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            },
+            "width": {
+                "type": "string",
+                "value": "90%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

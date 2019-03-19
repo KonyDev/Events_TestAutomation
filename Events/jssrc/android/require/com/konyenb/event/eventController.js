@@ -51,6 +51,11 @@ define("com/konyenb/event/usereventController", function() {
                         location = event["location"][0]["cityname"];
                     }
                 }
+                if (location == "Online") {
+                    event["location_processed"] = event["location"][0]["location"];
+                } else {
+                    event["location_processed"] = location;
+                }
                 this.view.lblEventDescLocationText.text = location;
                 this.setImages(event["event_images"]);
                 konysa.logger.trace("----------Exiting setEvent function---------", konysa.logger.FUNCTION_ENTRY);
@@ -161,11 +166,6 @@ define("com/konyenb/event/eventControllerActions", {
     /*
       This is an auto generated file and any modifications to it may result in corruption of the action sequence.
     */
-    /** onClick defined for flxBannerContainer **/
-    AS_FlexContainer_caccfc41878d41edb99ad5315af8d7b8: function AS_FlexContainer_caccfc41878d41edb99ad5315af8d7b8(eventobject) {
-        var self = this;
-        this.onViewHandler();
-    },
     /** onClick defined for btnRemove **/
     AS_Button_e873b0b9e6ee4f2e95d34b1fd1d69980: function AS_Button_e873b0b9e6ee4f2e95d34b1fd1d69980(eventobject) {
         var self = this;
@@ -175,6 +175,11 @@ define("com/konyenb/event/eventControllerActions", {
     AS_Button_ae1ced44a04e45db98e67a006c9c9c2e: function AS_Button_ae1ced44a04e45db98e67a006c9c9c2e(eventobject) {
         var self = this;
         this.onEditHandler();
+    },
+    /** onClick defined for event **/
+    AS_FlexContainer_dfc085c89ad2463a95577ed737bff289: function AS_FlexContainer_dfc085c89ad2463a95577ed737bff289(eventobject) {
+        var self = this;
+        this.onViewHandler();
     }
 });
 define("com/konyenb/event/eventController", ["com/konyenb/event/usereventController", "com/konyenb/event/eventControllerActions"], function() {
@@ -184,6 +189,24 @@ define("com/konyenb/event/eventController", ["com/konyenb/event/usereventControl
         controller[key] = actions[key];
     }
     controller.initializeProperties = function() {
+        defineSetter(this, "isRemoveVisible", function(val) {
+            this.view.btnRemove.isVisible = val;
+        });
+        defineGetter(this, "isRemoveVisible", function() {
+            return this.view.btnRemove.isVisible;
+        });
+        defineSetter(this, "isEditVisible", function(val) {
+            this.view.btnEdit.isVisible = val;
+        });
+        defineGetter(this, "isEditVisible", function() {
+            return this.view.btnEdit.isVisible;
+        });
+        defineSetter(this, "isRegisteredVisible", function(val) {
+            this.view.imageRegister.isVisible = val;
+        });
+        defineGetter(this, "isRegisteredVisible", function() {
+            return this.view.imageRegister.isVisible;
+        });
         if (this.initGettersSetters) {
             this.initGettersSetters.apply(this, arguments);
         }

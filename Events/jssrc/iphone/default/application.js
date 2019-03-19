@@ -122,6 +122,25 @@ function mfgetidentityservice(idProviderName) {
     }
     return currentInstance.getIdentityService(idProviderName);
 };
+/**
+ * @function mfidentityserviceinvoker
+ * @description Invokes identity service
+ * @public
+ * @param {string} idProviderName
+ * @param {object} params {userid : <userid>, password : <password>, browserWidget : <browserwidget>, operation : "login/logout"}
+ * and other optional params like callerID and custom params in case of custom provider.
+ * @param {function} successCallback
+ * @param {function} failureCallback
+ */
+function mfidentityserviceinvoker(idProviderName, params, successCallback, failureCallback) {
+    var authorizationClient = mfgetidentityservice(idProviderName);
+    kony.print("Invoking identity service " + idProviderName + " through Kony Fabric.");
+    if (!params.operation || params.operation == "login") {
+        authorizationClient.login(params, successCallback, failureCallback);
+    } else {
+        authorizationClient.logout(successCallback, failureCallback, params);
+    }
+};
 
 function mfintegrationsecureinvokerasync(inputParam, serviceID, operationID, callBack) {
     var url = appConfig.secureurl;
@@ -322,3 +341,56 @@ function makeCall(eventobject) {
 };
 
 function initializeGlobalVariables() {};
+//To set the passthrough properties at constructor level
+function extendConfig(config, controllerConfig, id) {
+    var __extendOverrides__ = function(config, currentOverrides, isTopLevelSrc) {
+        Object.keys(currentOverrides).forEach(function(property) {
+            var FLEX_PROPS_SANS_ZINDEX = ["left", "right", "top", "bottom", "width", "height", "minWidth", "minHeight", "maxWidth", "maxHeight", "centerX", "centerY"];
+            /*If height is preferred,
+                For autogrowmode supported widgets, set autogrowmode and delete height from config.
+                For other widgets, delete height from config.
+            */
+            if (property === "autogrowMode" && isTopLevelSrc) {
+                delete config["height"];
+                config[property] = currentOverrides[property];
+            } else if (FLEX_PROPS_SANS_ZINDEX.indexOf(property) !== -1 && isTopLevelSrc) {
+                if (currentOverrides[property] == 'viz.val_cleared' || (property === "height" && currentOverrides.hasOwnProperty(property) && currentOverrides[property] == kony.flex.USE_PREFFERED_SIZE)) {
+                    delete config[property];
+                } else {
+                    config[property] = currentOverrides[property];
+                }
+            } else {
+                config[property] = currentOverrides[property];
+            }
+        });
+    };
+    var __parseComponentId__ = function(wgtOverrideId) {
+        //sample wgtOverrideId: "comp2.comp1.btnId"
+        var parentIdArr = wgtOverrideId.split('.');
+        return {
+            rootId: parentIdArr.splice(0, 1)[0],
+            childId: parentIdArr.join(".")
+        };
+    };
+    var widgetsOverrides = (controllerConfig && controllerConfig.overrides);
+    for (var wgtOverrides in widgetsOverrides) {
+        var currentOverrides = widgetsOverrides[wgtOverrides];
+        var idObj = __parseComponentId__(wgtOverrides);
+        var rootId = idObj.rootId;
+        var childId = idObj.childId;
+        if (rootId === id) {
+            if (config.overrides && childId) {
+                if (config.overrides[childId]) {
+                    __extendOverrides__(config.overrides[childId], currentOverrides);
+                } else {
+                    config.overrides[childId] = currentOverrides;
+                }
+            } else {
+                //isTopLevelSrc is to indicate that this is the root source widget (without any nesting)
+                var isTopLevelSrc = true;
+                __extendOverrides__(config, currentOverrides, isTopLevelSrc);
+            }
+        }
+    }
+    return config;
+};

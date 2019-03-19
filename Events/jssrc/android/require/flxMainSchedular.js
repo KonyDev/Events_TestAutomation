@@ -52,14 +52,14 @@ define("flxMainSchedular", function() {
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
-            "focusSkin": "CopyslFbox0b68e6cc1944d43",
+            "focusSkin": "sknflexBGfff100BR1px000OP0CT100",
             "height": "60dp",
             "id": "flexRoundCorner",
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
             "isModalContainer": false,
-            "skin": "CopyslFbox0b68e6cc1944d43",
+            "skin": "sknflexBGfff100BR1px000OP0CT100",
             "top": "0%",
             "width": "60dp",
             "zIndex": 1
@@ -72,7 +72,7 @@ define("flxMainSchedular", function() {
             "id": "lblNum",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0a8e7de80940947",
+            "skin": "sknlblBG00a0ddOP60RTFFF80",
             "text": "11:30AM",
             "textStyle": {
                 "letterSpacing": 0,
@@ -94,7 +94,7 @@ define("flxMainSchedular", function() {
             "id": "lblhorStr",
             "isVisible": false,
             "left": "52%",
-            "skin": "CopydefLabel0h754be040c1948",
+            "skin": "sknlblBG787878",
             "text": "Label",
             "textStyle": {
                 "letterSpacing": 0,
@@ -289,7 +289,7 @@ define("flxMainSchedular", function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
             "isModalContainer": false,
-            "skin": "CopyslFbox0a59e854ad02947",
+            "skin": "sknflxBR3d6d2d6OP50",
             "top": "0%",
             "width": "45%",
             "zIndex": 1
@@ -320,7 +320,7 @@ define("flxMainSchedular", function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "10%",
             "isModalContainer": false,
-            "skin": "CopyslFbox0a59e854ad02947",
+            "skin": "sknflxBR3d6d2d6OP50",
             "top": "0%",
             "width": "45%",
             "zIndex": 1
@@ -348,7 +348,7 @@ define("flxMainSchedular", function() {
             "id": "lblRem",
             "isVisible": false,
             "left": "13dp",
-            "skin": "CopydefLabel0afde2e8d2d3b47",
+            "skin": "sknlblBFfffOP50RTfff150",
             "text": "+4",
             "textStyle": {
                 "letterSpacing": 0,

@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var EventsHeader = new kony.ui.FlexContainer({
+        var EventsHeader = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "isMaster": true,
@@ -13,9 +13,9 @@ define(function() {
             "skin": "slFbox",
             "top": "10%",
             "width": "82.50%"
-        }, {}, {});
+        }, controller.args[0], "EventsHeader"), extendConfig({}, controller.args[1], "EventsHeader"), extendConfig({}, controller.args[2], "EventsHeader"));
         EventsHeader.setDefaultUnit(kony.flex.DP);
-        var flexHeader = new kony.ui.FlexContainer({
+        var flexHeader = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
@@ -28,14 +28,14 @@ define(function() {
             "top": "-2%",
             "width": "100%",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flexHeader"), extendConfig({}, controller.args[1], "flexHeader"), extendConfig({}, controller.args[2], "flexHeader"));
         flexHeader.setDefaultUnit(kony.flex.DP);
-        var LblTitle = new kony.ui.Label({
+        var LblTitle = new kony.ui.Label(extendConfig({
             "height": "100%",
             "id": "LblTitle",
             "isVisible": true,
             "left": "5%",
-            "skin": "CopysknLblHeader1",
+            "skin": "sknlbl00a0ddAL28px",
             "text": "Create New Event",
             "textStyle": {
                 "letterSpacing": 0,
@@ -44,14 +44,14 @@ define(function() {
             "top": "0dp",
             "width": "40%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "LblTitle"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "LblTitle"), extendConfig({
             "textCopyable": false
-        });
-        var lblUnderLineEventMain = new kony.ui.Label({
+        }, controller.args[2], "LblTitle"));
+        var lblUnderLineEventMain = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "1%",
             "id": "lblUnderLineEventMain",
@@ -65,18 +65,18 @@ define(function() {
             "top": "80%",
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblUnderLineEventMain"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblUnderLineEventMain"), extendConfig({
             "textCopyable": false
-        });
-        var FlexContainer0b6eb885d5c014c = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblUnderLineEventMain"));
+        var flexOperations = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
-            "id": "FlexContainer0b6eb885d5c014c",
+            "id": "flexOperations",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "isModalContainer": false,
@@ -85,9 +85,9 @@ define(function() {
             "top": "0%",
             "width": "31.43%",
             "zIndex": 7
-        }, {}, {});
-        FlexContainer0b6eb885d5c014c.setDefaultUnit(kony.flex.DP);
-        var flexBasic = new kony.ui.FlexContainer({
+        }, controller.args[0], "flexOperations"), extendConfig({}, controller.args[1], "flexOperations"), extendConfig({}, controller.args[2], "flexOperations"));
+        flexOperations.setDefaultUnit(kony.flex.DP);
+        var flexBasic = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
@@ -96,13 +96,13 @@ define(function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
             "isModalContainer": false,
-            "skin": "CopyslFbox0e504b685997547",
+            "skin": "slFbox",
             "top": "-7%",
             "width": "50%",
             "zIndex": 6
-        }, {}, {});
+        }, controller.args[0], "flexBasic"), extendConfig({}, controller.args[1], "flexBasic"), extendConfig({}, controller.args[2], "flexBasic"));
         flexBasic.setDefaultUnit(kony.flex.DP);
-        var lblundbas = new kony.ui.Label({
+        var lblundbas = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "3px",
             "id": "lblundbas",
@@ -116,14 +116,14 @@ define(function() {
             "top": "85%",
             "width": "100%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblundbas"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblundbas"), extendConfig({
             "textCopyable": false
-        });
-        var btnBasic = new kony.ui.Button({
+        }, controller.args[2], "lblundbas"));
+        var btnBasic = new kony.ui.Button(extendConfig({
             "centerX": "50%",
             "focusSkin": "sknbtnheadersel",
             "height": "100%",
@@ -135,13 +135,13 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 3
-        }, {
+        }, controller.args[0], "btnBasic"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "displayText": true,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblstep1 = new kony.ui.Label({
+        }, controller.args[1], "btnBasic"), extendConfig({}, controller.args[2], "btnBasic"));
+        var lblstep1 = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "18px",
             "id": "lblstep1",
@@ -156,15 +156,15 @@ define(function() {
             "top": "75%",
             "width": "18px",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblstep1"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblstep1"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblstep1"));
         flexBasic.add(lblundbas, btnBasic, lblstep1);
-        var flxSessions = new kony.ui.FlexContainer({
+        var flxSessions = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
@@ -173,13 +173,13 @@ define(function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
             "isModalContainer": false,
-            "skin": "CopyslFbox0e504b685997547",
+            "skin": "slFbox",
             "top": "-6%",
             "width": "50%",
             "zIndex": 6
-        }, {}, {});
+        }, controller.args[0], "flxSessions"), extendConfig({}, controller.args[1], "flxSessions"), extendConfig({}, controller.args[2], "flxSessions"));
         flxSessions.setDefaultUnit(kony.flex.DP);
-        var lblundSes = new kony.ui.Label({
+        var lblundSes = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "3px",
             "id": "lblundSes",
@@ -193,14 +193,14 @@ define(function() {
             "top": "85%",
             "width": "100%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblundSes"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblundSes"), extendConfig({
             "textCopyable": false
-        });
-        var btnSessions = new kony.ui.Button({
+        }, controller.args[2], "lblundSes"));
+        var btnSessions = new kony.ui.Button(extendConfig({
             "centerX": "50%",
             "focusSkin": "sknbtnheadernormal",
             "height": "100%",
@@ -212,13 +212,13 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 3
-        }, {
+        }, controller.args[0], "btnSessions"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "displayText": true,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblstep2 = new kony.ui.Label({
+        }, controller.args[1], "btnSessions"), extendConfig({}, controller.args[2], "btnSessions"));
+        var lblstep2 = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "18px",
             "id": "lblstep2",
@@ -233,16 +233,16 @@ define(function() {
             "top": "75%",
             "width": "18px",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblstep2"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblstep2"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblstep2"));
         flxSessions.add(lblundSes, btnSessions, lblstep2);
-        FlexContainer0b6eb885d5c014c.add(flexBasic, flxSessions);
-        flexHeader.add(LblTitle, lblUnderLineEventMain, FlexContainer0b6eb885d5c014c);
+        flexOperations.add(flexBasic, flxSessions);
+        flexHeader.add(LblTitle, lblUnderLineEventMain, flexOperations);
         EventsHeader.add(flexHeader);
         return EventsHeader;
     }

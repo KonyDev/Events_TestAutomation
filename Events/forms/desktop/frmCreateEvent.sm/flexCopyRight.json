@@ -36,7 +36,7 @@
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "Label0i622b0ec21994c"
+        "lblCopyright"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -50,6 +50,28 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flexScrollEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b2": {
+            "top": {
+                "type": "string",
+                "value": "182%"
+            }
+        },
+        "b3": {
+            "isVisible": false,
+            "top": {
+                "type": "string",
+                "value": "349%"
+            }
+        },
+        "b4": {
+            "isVisible": false,
+            "top": {
+                "type": "string",
+                "value": "340%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

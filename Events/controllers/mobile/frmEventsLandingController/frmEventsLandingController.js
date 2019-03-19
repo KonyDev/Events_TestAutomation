@@ -9,7 +9,7 @@ define({
 	segmentData: [],
 	user_event_data: [],
 
-	/**
+	/**reloadFromServer
 	 * @member of  frmEventsLandingController.js
 	 * @function onNavigate
 	 * @param params - The params from navigate Object
@@ -17,7 +17,6 @@ define({
 	 * This method checks the origin and loads the event list accordingly
 	 **/
 	onNavigate: function (params) {
-      debugger;
 		try {
 			if (params !== undefined) {
 				switch (params.origin) {
@@ -53,15 +52,7 @@ define({
 				}
 			} else {
 				this.view.flexEventRegConformation.isVisible = false;
-				KNYMobileFabric = new kony.sdk();
-                KNYMobileFabric.init("659e030bd0bd970d9c5e9dd794375049", 
-                                     "a8180ec5f9a1feca4cd4c4581e3fb454", 
-                                     "https://100017816.auth.konycloud.com/appconfig",
-                function(){
-                  this.checkIsLogin();
-                }.bind(this), function(error){
-                  kony.print("Error in Init "+error);
-                });
+				this.checkIsLogin();
 			}
 			this.setProfileData();
 			this.activityName = null;
@@ -270,12 +261,16 @@ define({
 		try {
 			this.view.lblNoEvents.isVisible = false;
 			this.startLoadingScreen();
-			var objSvc = kony.sdk.getCurrentInstance().getObjectService("EventOrchSDO", {
+			var objSvc = kony.sdk.getCurrentInstance().getObjectService("EventsSOS", {
 					"access": "online"
 				});
-			var dataObject = new kony.sdk.dto.DataObject("events_view");
+          
+			var dataObject = new kony.sdk.dto.DataObject("event");
 			var options = {
-				"dataObject": dataObject
+				"dataObject": dataObject,
+              	"queryParams": {
+               		"$expand":"location,event_banners"
+                }
 			};
 
 			objSvc.fetch(options,
@@ -294,7 +289,7 @@ define({
 	eventFetchSuccessCallback: function (response) {
 		try {
 			this.stopLoadingScreen();
-			if (response.records[0].event.length > 0) {
+          	if (response.records.length > 0) {
 				var eventList = processEventsOrchResponse(response);
 				switch (this.currentMode) {
 				case EVENT_CONSTANS.MODE.MYEVENTS:
@@ -865,7 +860,6 @@ define({
 	shows the hamburger menu
 	 **/
 	listMenuClick: function () {
-      
 		try {
 			this.view.flxCover.zIndex = 10;
 			this.view.flxCover.isVisible = true;

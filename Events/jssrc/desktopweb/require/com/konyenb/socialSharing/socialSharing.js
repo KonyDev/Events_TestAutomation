@@ -9,8 +9,9 @@ define(function() {
             "id": "socialSharing",
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
+            "isModalContainer": false,
             "right": 0,
-            "skin": "CopyslFbox0bc28f0666f0c46",
+            "skin": "slFbox",
             "width": "50dp"
         }, {}, {});
         socialSharing.setDefaultUnit(kony.flex.DP);
@@ -21,7 +22,6 @@ define(function() {
             "id": "imgShare",
             "isVisible": true,
             "onTouchStart": controller.AS_Image_f234df138ac14cf8832b2b4b4358ec0e,
-            "skin": "CopyslImage044c551bb9d8742",
             "src": "shareicon.png",
             "top": "10%",
             "width": kony.flex.USE_PREFFERED_SIZE,

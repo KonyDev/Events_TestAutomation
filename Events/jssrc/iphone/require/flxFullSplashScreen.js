@@ -8,6 +8,7 @@ define("flxFullSplashScreen", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknSplash",
             "top": "0dp",
             "width": "100%",
@@ -36,7 +37,7 @@ define("flxFullSplashScreen", function() {
             "id": "lblSplashDesc",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopyslRichText0jdb8aff0f4954b",
+            "skin": "sknrchtxtffffffOP70AL150",
             "text": "Explore events and Place holder content",
             "top": "5.00%",
             "width": "90%",
@@ -50,7 +51,6 @@ define("flxFullSplashScreen", function() {
         });
         var btnSkip = new kony.ui.Button({
             "centerX": "50%",
-            "focusSkin": "CopysknbtnSkipFocus0bf55323483724b",
             "height": "7%",
             "id": "btnSkip",
             "isVisible": true,

@@ -11,15 +11,14 @@
   <item type="id" name="flxMenuIcon"/>
   <item type="id" name="imgDashBoard"/>
   <item type="id" name="lblDashboard"/>
-  <item type="id" name="flxNotificationIcon"/>
-  <item type="id" name="imgNotification"/>
-  <item type="id" name="flexProfile"/>
   <item type="id" name="flexProfilePhotoANdTitle"/>
-  <item type="id" name="imgProfile"/>
+  <item type="id" name="btnUser"/>
   <item type="id" name="lblUserName"/>
+  <item type="id" name="imgProfile"/>
   <item type="id" name="event"/>
   <item type="id" name="flxBannerContainer"/>
   <item type="id" name="imgEventLogo"/>
+  <item type="id" name="imageRegister"/>
   <item type="id" name="flxEventDesc"/>
   <item type="id" name="lblEventTitle"/>
   <item type="id" name="lblSeparator1"/>
@@ -48,7 +47,7 @@
   <item type="id" name="flexHeader"/>
   <item type="id" name="LblTitle"/>
   <item type="id" name="lblUnderLineEventMain"/>
-  <item type="id" name="FlexContainer0b6eb885d5c014c"/>
+  <item type="id" name="flexOperations"/>
   <item type="id" name="flexBasic"/>
   <item type="id" name="lblundbas"/>
   <item type="id" name="btnBasic"/>
@@ -58,29 +57,29 @@
   <item type="id" name="btnSessions"/>
   <item type="id" name="lblstep2"/>
   <item type="id" name="ImageGallery"/>
-  <item type="id" name="lblTitle"/>
   <item type="id" name="flxImage"/>
   <item type="id" name="imgEvent"/>
   <item type="id" name="flxScThumbImage"/>
   <item type="id" name="flxItemTest"/>
   <item type="id" name="imgThumbTest"/>
-  <item type="id" name="menuItem"/>
-  <item type="id" name="flexCreateEventMain"/>
+  <item type="id" name="menu"/>
   <item type="id" name="flexEventLogo"/>
   <item type="id" name="imgLogo"/>
   <item type="id" name="lblUnderLineLogo"/>
-  <item type="id" name="lblUnderLineProfile"/>
+  <item type="id" name="flxCreateNewEvent"/>
+  <item type="id" name="lblUnderLineHam"/>
   <item type="id" name="flexAllNewEvent"/>
   <item type="id" name="imgAllNewEvent"/>
   <item type="id" name="lblAllEvent"/>
-  <item type="id" name="lblUnderLineHam"/>
-  <item type="id" name="flxCreateNewEvent"/>
   <item type="id" name="lblUnderLineHam2"/>
   <item type="id" name="flxManageUser"/>
   <item type="id" name="imgManageUser"/>
   <item type="id" name="lblManageUser"/>
   <item type="id" name="lblLine3"/>
+  <item type="id" name="menuItem"/>
+  <item type="id" name="flexCreateEventMain"/>
   <item type="id" name="flxNotification"/>
+  <item type="id" name="imgNotification"/>
   <item type="id" name="lblNotification"/>
   <item type="id" name="lblLine4"/>
   <item type="id" name="flxMyCalendar"/>
@@ -90,8 +89,14 @@
   <item type="id" name="flxSetting"/>
   <item type="id" name="imgSetting"/>
   <item type="id" name="lblSetting"/>
-  <item type="id" name="SegOptions"/>
   <item type="id" name="menuItem2"/>
+  <item type="id" name="profileheader"/>
+  <item type="id" name="flxProfile"/>
+  <item type="id" name="sessiondetails"/>
+  <item type="id" name="segSessionandSpeaker"/>
+  <item type="id" name="flexDateandStrip"/>
+  <item type="id" name="lblVertStrip"/>
+  <item type="id" name="lblDateMonth"/>
   <item type="id" name="SessionFooter"/>
   <item type="id" name="flexFooter"/>
   <item type="id" name="lblUnderLine"/>
@@ -100,10 +105,6 @@
   <item type="id" name="btnEditSEssion"/>
   <item type="id" name="btnDelSession"/>
   <item type="id" name="sessionpreview"/>
-  <item type="id" name="flexDateandStrip"/>
-  <item type="id" name="lblVertStrip"/>
-  <item type="id" name="lblDateMonth"/>
-  <item type="id" name="segSessionandSpeaker"/>
   <item type="id" name="sessionTemp"/>
   <item type="id" name="flexMainSession"/>
   <item type="id" name="flexBasicInfoTitl2"/>
@@ -145,7 +146,7 @@
   <item type="id" name="flxBotom"/>
   <item type="id" name="imgFooter"/>
   <item type="id" name="textFooter"/>
-  <item type="id" name="FlexContainer0e4681d0bdef643"/>
+  <item type="id" name="flexBottomActions"/>
   <item type="id" name="btnLogout"/>
   <item type="id" name="btnInfo"/>
   <item type="id" name="btnShare"/>
@@ -166,6 +167,7 @@
   <item type="id" name="socialSharing"/>
   <item type="id" name="imgShare"/>
   <item type="id" name="timeline"/>
+  <item type="id" name="lblTitle"/>
   <item type="id" name="btnClose"/>
   <item type="id" name="flexUpDown"/>
   <item type="id" name="flxUp"/>
@@ -179,14 +181,14 @@
   <item type="id" name="segImageSet"/>
   <item type="id" name="lblNameDetail"/>
   <item type="id" name="txtComments"/>
-  <item type="id" name="CopybtnClose0d8585f7b8db84b"/>
+  <item type="id" name="btnClose2"/>
   <item type="id" name="lblNoSessions"/>
   <item type="id" name="TimePicker"/>
   <item type="id" name="segTimingList"/>
   <item type="id" name="flexTimePicker"/>
   <item type="id" name="lblTime"/>
   <item type="id" name="lblDownArrow"/>
-  <item type="id" name="eventpreview"/>
+  <item type="id" name="eventdetail"/>
   <item type="id" name="flexEventPreviewHeader"/>
   <item type="id" name="FlexEventPreviewBack"/>
   <item type="id" name="imgPrevBack"/>
@@ -199,7 +201,23 @@
   <item type="id" name="imageBanner"/>
   <item type="id" name="flexDateRange"/>
   <item type="id" name="lblDateRange"/>
+  <item type="id" name="lblMonthYear"/>
+  <item type="id" name="rchDateRange"/>
+  <item type="id" name="flexEventDateTimeMapPrev"/>
+  <item type="id" name="btnRegister"/>
+  <item type="id" name="flexDatePrev"/>
+  <item type="id" name="lblDatePrev"/>
+  <item type="id" name="lblDateValuePrev"/>
+  <item type="id" name="flexLocationPrev"/>
+  <item type="id" name="lblLocationPrev"/>
+  <item type="id" name="lblLocationValuePrev"/>
+  <item type="id" name="flexGoogleMap"/>
+  <item type="id" name="mapGoogleMap"/>
   <item type="id" name="flexEventDetailsPreview"/>
+  <item type="id" name="flexDateTM"/>
+  <item type="id" name="lblDateTM"/>
+  <item type="id" name="lblDateValueTM"/>
+  <item type="id" name="lblUnderLineTM"/>
   <item type="id" name="lblDesc"/>
   <item type="id" name="btnShowMore"/>
   <item type="id" name="lblGalleryTitle"/>
@@ -218,22 +236,16 @@
   <item type="id" name="imgItem5"/>
   <item type="id" name="flexRemainingImageCount"/>
   <item type="id" name="lblRemaingImageCount"/>
-  <item type="id" name="CopylblGalleryTitle0b1a4c0d9e57341"/>
+  <item type="id" name="flexLocationPrevTM"/>
+  <item type="id" name="lblLocationPrevTbM"/>
+  <item type="id" name="lblLocationValuePrevTM"/>
+  <item type="id" name="flexGoogleMapTM"/>
+  <item type="id" name="mapGoogleMapTM"/>
+  <item type="id" name="lblSessionTitleDet"/>
   <item type="id" name="flexSessionsandSpeakers"/>
-  <item type="id" name="CopybtnRegister0j46a868969fb48"/>
-  <item type="id" name="FlexContainer0h9e3b693ead144"/>
-  <item type="id" name="flexEventDateTimeMapPrev"/>
-  <item type="id" name="btnRegister"/>
-  <item type="id" name="flexDatePrev"/>
-  <item type="id" name="lblDatePrev"/>
-  <item type="id" name="lblDateValuePrev"/>
-  <item type="id" name="flexLocationPrev"/>
-  <item type="id" name="lblLocationPrev"/>
-  <item type="id" name="lblLocationValuePrev"/>
-  <item type="id" name="flexGoogleMap"/>
-  <item type="id" name="mapGoogleMap"/>
-  <item type="id" name="flexCopyRight"/>
-  <item type="id" name="Label0i622b0ec21994c"/>
+  <item type="id" name="btnRegisterBottom"/>
+  <item type="id" name="eventpreview"/>
+  <item type="id" name="flexDummyForSpace"/>
   <item type="id" name="segSplash"/>
   <item type="id" name="flxFullSplashScreen"/>
   <item type="id" name="imgGetStart"/>
@@ -242,7 +254,6 @@
   <item type="id" name="tempSegEventList"/>
   <item type="id" name="tempMainFlexEventList"/>
   <item type="id" name="flexEvent"/>
-  <item type="id" name="imageRegister"/>
   <item type="id" name="flexEventShortDetails"/>
   <item type="id" name="flexDateAndTime"/>
   <item type="id" name="rchTextDate"/>
@@ -393,7 +404,7 @@
   <item type="id" name="flxContent2"/>
   <item type="id" name="flexSk2"/>
   <item type="id" name="flex2"/>
-  <item type="id" name="CopyimageBanner0jf95282f44754c"/>
+  <item type="id" name="imgBanner2"/>
   <item type="id" name="flxSkeleton2"/>
   <item type="id" name="flxImage1"/>
   <item type="id" name="flxHeading1"/>
@@ -401,13 +412,10 @@
   <item type="id" name="flxContent4"/>
   <item type="id" name="hamburger"/>
   <item type="id" name="flxShadow"/>
-  <item type="id" name="flxTemp"/>
-  <item type="id" name="img2"/>
   <item type="id" name="flxSharing"/>
   <item type="id" name="frmImageGallery"/>
   <item type="id" name="flxBack"/>
   <item type="id" name="imgBack"/>
-  <item type="id" name="CopyimgClose0b5d019ef07b44c"/>
   <item type="id" name="lblHeader"/>
   <item type="id" name="frmLocation"/>
   <item type="id" name="imgLoc"/>

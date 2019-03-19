@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var boxfileupload = new kony.ui.FlexContainer({
+        var boxfileupload = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "centerY": "50%",
@@ -15,9 +15,9 @@ define(function() {
             "skin": "sknFlxFileUpload",
             "top": "0dp",
             "width": "300dp"
-        }, {}, {});
+        }, controller.args[0], "boxfileupload"), extendConfig({}, controller.args[1], "boxfileupload"), extendConfig({}, controller.args[2], "boxfileupload"));
         boxfileupload.setDefaultUnit(kony.flex.DP);
-        var btnSelectFile = new kony.ui.Button({
+        var btnSelectFile = new kony.ui.Button(extendConfig({
             "centerX": "50%",
             "focusSkin": "defBtnFocus",
             "height": "50dp",
@@ -30,13 +30,13 @@ define(function() {
             "top": "88dp",
             "width": "260dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "btnSelectFile"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "displayText": true,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var btnUpload = new kony.ui.Button({
+        }, controller.args[1], "btnSelectFile"), extendConfig({}, controller.args[2], "btnSelectFile"));
+        var btnUpload = new kony.ui.Button(extendConfig({
             "centerX": "50%",
             "focusSkin": "defBtnFocus",
             "height": "50dp",
@@ -48,12 +48,12 @@ define(function() {
             "top": "217dp",
             "width": "260dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "btnUpload"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "displayText": true,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "btnUpload"), extendConfig({}, controller.args[2], "btnUpload"));
         boxfileupload.add(btnSelectFile, btnUpload);
         return boxfileupload;
     }

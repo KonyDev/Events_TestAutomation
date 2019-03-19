@@ -23,19 +23,20 @@ define("userfrmSchedularController", {
     getSchedule: function(eventID) {
         try {
             var sdkClient = new kony.sdk.getCurrentInstance();
-            var objectInstance = sdkClient.getObjectService("EventOrchSDO", {
+            var objectInstance = sdkClient.getObjectService("EventsSOS", {
                 "access": "online"
             });
             if (objectInstance === null || objectInstance === undefined) {
                 alert("Please connect app to MF");
                 return;
             }
-            var dataObject = new kony.sdk.dto.DataObject("event_session_presenter");
+            var dataObject = new kony.sdk.dto.DataObject("event_sessions");
             var options = {
                 "dataObject": dataObject,
                 "headers": {},
                 "queryParams": {
-                    "$filter": "event_id eq " + "'" + eventID + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))"
+                    "$filter": "event_id eq " + "'" + eventID + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))",
+                    "$expand": "presenter"
                 }
             };
             showLoading();
@@ -63,7 +64,7 @@ define("userfrmSchedularController", {
             var data = [];
             var procesedRecords = [];
             var timelineData = {};
-            if (response.records[0].event_sessions.length > 0) procesedRecords = groupRecord(processSessionAndPresenters(response));
+            if (response.records.length > 0) procesedRecords = groupRecord(processSessionAndPresenters(response));
             if (procesedRecords.length > 0) {
                 for (var i = 0; i < procesedRecords.length; i++) {
                     var session = {};

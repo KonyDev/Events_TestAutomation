@@ -35,6 +35,10 @@
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "children": [
         "LblTitle",
         "lblUnderLineEventMain"
@@ -51,11 +55,37 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flxInfoItemContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b1": {
+            "centerX": {
+                "type": "string",
+                "value": "50.00%"
+            },
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            },
+            "top": {
+                "type": "string",
+                "value": "0dp"
+            },
+            "width": {
+                "type": "string",
+                "value": "95%"
+            }
+        },
+        "b3": {
+            "isVisible": false
+        },
+        "b4": {
+            "isVisible": false
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,
     "snaptogrid": true,
     "wType": "FlexContainer",
     "widgetalignment": 1,
-    "zindex": 10
+    "zindex": 1
 }

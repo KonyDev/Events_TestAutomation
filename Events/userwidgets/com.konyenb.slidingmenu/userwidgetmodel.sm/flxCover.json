@@ -53,6 +53,7 @@
     "kuid": "c87675ba3d454f7b940ac828a761c11a",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_6e618c481f6b4ebfa0baef71fae7c499",
     "parent": "slidingmenu",
     "pf": "userwidgetmodel",
     "snapgridsize": 10,

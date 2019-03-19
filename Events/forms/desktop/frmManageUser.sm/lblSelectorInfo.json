@@ -64,6 +64,36 @@
     "name": "kony.ui.Label",
     "parent": "flxInfoItemContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b1": {
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            }
+        },
+        "b2": {
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            },
+            "top": {
+                "type": "string",
+                "value": "10dp"
+            }
+        },
+        "b3": {
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            }
+        },
+        "b4": {
+            "left": {
+                "type": "string",
+                "value": "2.50%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "tooltip": "",

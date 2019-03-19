@@ -7,6 +7,7 @@ define("flexMainSearchTemp", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%"

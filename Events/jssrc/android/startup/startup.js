@@ -3,13 +3,13 @@ var globalhttpheaders = {};
 var appConfig = {
     appId: "Events",
     appName: "Events",
-    appVersion: "1.0.0",
-    isturlbase: "https://automation1.konycloud.com/services",
+    appVersion: "1.1.1",
+    isturlbase: "https://prodsanity-83.konycloud.com/services",
     isDebug: true,
     isMFApp: true,
-    appKey: "9b28a77972bda5198733195576cf62ae",
-    appSecret: "5170b337ce8318b89e2753314ec9c333",
-    serviceUrl: "https://100017816.auth.konycloud.com/appconfig",
+    appKey: "cd80056207d95ac5b4192a191209f4d1",
+    appSecret: "825d96a6df1af4fe912c11ed3e13b2ba",
+    serviceUrl: "https://100005088.auth.konycloud.com/appconfig",
     svcDoc: {
         "identity_meta": {
             "linkedIdentityLogin": {
@@ -18,86 +18,79 @@ var appConfig = {
         },
         "app_version": "1.0",
         "messagingsvc": {
-            "appId": "dee1640d-52ed-4426-9435-636ad4afa692",
-            "url": "https://automation1.messaging.konycloud.com/api/v1"
+            "appId": "bea6b01d-095e-4436-8c14-fb5bc7f8c80f",
+            "url": "https://prodsanity-83.messaging.konycloud.com/api/v1"
         },
-        "baseId": "49a4d9d2-0fee-4b1f-908c-c6001d97c712",
+        "baseId": "1ac01bea-15c5-46b6-b550-a0f49bc865b5",
         "app_default_version": "1.0",
         "login": [{
-            "alias": "linkedIdentityLogin",
-            "type": "oauth2",
-            "prov": "linkedIdentityLogin",
-            "url": "https://100017816.auth.konycloud.com"
-        }, {
-            "alias": "userstore",
-            "type": "basic",
-            "prov": "userstore",
-            "url": "https://100017816.auth.konycloud.com"
-        }, {
             "mandatory_fields": [],
             "alias": "customAccountLogin",
             "type": "basic",
             "prov": "customAccountLogin",
-            "url": "https://100017816.auth.konycloud.com"
+            "url": "https://100005088.auth.konycloud.com"
+        }, {
+            "alias": "linkedIdentityLogin",
+            "type": "oauth2",
+            "prov": "linkedIdentityLogin",
+            "url": "https://100005088.auth.konycloud.com"
+        }, {
+            "forgot_pswd_submit_userid": "https://100005088.auth.konycloud.com/forgot_password/submit_userid/",
+            "reset_pswd": "https://100005088.auth.konycloud.com/forgot_password/reset_password/",
+            "alias": "userstore",
+            "type": "basic",
+            "prov": "userstore",
+            "url": "https://100005088.auth.konycloud.com"
         }],
         "services_meta": {
             "EventsSOS": {
                 "offline": false,
-                "metadata_url": "https://automation1.konycloud.com/services/metadata/v1/EventsSOS",
+                "metadata_url": "https://prodsanity-83.konycloud.com/services/metadata/v1/EventsSOS",
                 "type": "objectsvc",
                 "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/data/v1/EventsSOS"
-            },
-            "EventOrchSDO": {
-                "offline": false,
-                "metadata_url": "https://automation1.konycloud.com/services/metadata/v1/EventOrchSDO",
-                "type": "objectsvc",
-                "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/data/v1/EventOrchSDO"
+                "url": "https://prodsanity-83.konycloud.com/services/data/v1/EventsSOS"
             },
             "KMSService": {
                 "type": "integsvc",
                 "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/KMSService"
-            },
-            "EventsOrchService": {
-                "type": "integsvc",
-                "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/EventsOrchService"
+                "url": "https://prodsanity-83.konycloud.com/services/KMSService"
             },
             "getLatLang": {
                 "type": "integsvc",
                 "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/getLatLang"
+                "url": "https://prodsanity-83.konycloud.com/services/getLatLang"
             },
             "BoxService": {
                 "type": "integsvc",
                 "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/BoxService"
+                "url": "https://prodsanity-83.konycloud.com/services/BoxService"
             },
             "accountlogin": {
                 "type": "integsvc",
                 "version": "1.0",
-                "url": "https://automation1.konycloud.com/services/accountlogin"
+                "url": "https://prodsanity-83.konycloud.com/services/accountlogin"
             }
         },
-        "selflink": "https://100017816.auth.konycloud.com/appconfig",
+        "selflink": "https://100005088.auth.konycloud.com/appconfig",
         "integsvc": {
-            "KMSService": "https://automation1.konycloud.com/services/KMSService",
-            "EventsOrchService": "https://automation1.konycloud.com/services/EventsOrchService",
-            "getLatLang": "https://automation1.konycloud.com/services/getLatLang",
-            "BoxService": "https://automation1.konycloud.com/services/BoxService",
-            "accountlogin": "https://automation1.konycloud.com/services/accountlogin"
+            "_internal_logout": "https://prodsanity-83.konycloud.com/services/IST",
+            "KMSService": "https://prodsanity-83.konycloud.com/services/KMSService",
+            "getLatLang": "https://prodsanity-83.konycloud.com/services/getLatLang",
+            "BoxService": "https://prodsanity-83.konycloud.com/services/BoxService",
+            "accountlogin": "https://prodsanity-83.konycloud.com/services/accountlogin"
         },
-        "service_doc_etag": "00000166A61DE8F0",
-        "appId": "dee1640d-52ed-4426-9435-636ad4afa692",
+        "service_doc_etag": "000001690A8E7898",
+        "appId": "bea6b01d-095e-4436-8c14-fb5bc7f8c80f",
         "identity_features": {
             "reporting_params_header_allowed": true
         },
         "name": "EventSOS",
         "reportingsvc": {
-            "session": "https://automation1.konycloud.com/services/IST",
-            "custom": "https://automation1.konycloud.com/services/CMS"
+            "session": "https://prodsanity-83.konycloud.com/services/IST",
+            "custom": "https://prodsanity-83.konycloud.com/services/CMS"
+        },
+        "Webapp": {
+            "url": "https://prodsanity-83.konycloud.com/apps/Events"
         }
     },
     runtimeAppVersion: "Default",

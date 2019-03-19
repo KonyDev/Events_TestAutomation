@@ -56,6 +56,14 @@
     "parent": "flexEventAddressInfo",
     "pf": "frmCreateEvent",
     "placeholderskin": "sb8dde3d47e14d2ea48fa74c481ad489",
+    "responsiveData": {
+        "b3": {
+            "width": {
+                "type": "string",
+                "value": "99%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "securetextentry": false,

@@ -34,6 +34,10 @@
         "value": "21.00%"
     },
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "centery": {
         "type": "string",
         "value": "50%"
@@ -55,6 +59,14 @@
     "name": "kony.ui.Image2",
     "parent": "flexLoginEventLogo",
     "pf": "frmLogin",
+    "responsiveData": {
+        "b3": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "srcType": 1,

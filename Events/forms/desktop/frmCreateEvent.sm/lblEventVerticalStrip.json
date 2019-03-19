@@ -60,6 +60,20 @@
     "name": "kony.ui.Label",
     "parent": "flexScrollEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b2": {
+            "height": {
+                "type": "string",
+                "value": "165%"
+            }
+        },
+        "b3": {
+            "isVisible": false
+        },
+        "b4": {
+            "isVisible": false
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "tooltip": "",

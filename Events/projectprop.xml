@@ -7,7 +7,7 @@
     <attributes name="cloud_web_xml_custom_listeners" value=""/>
     <attributes name="BIND_REMOTEVIEWS" value="false"/>
     <attributes name="keyPasswordandwear" value=""/>
-    <attributes name="mapkey" value="AIzaSyCHCcDdeOHT0JW_yGD8-AYWqCxRYta9TB4"/>
+    <attributes name="mapkey" value=""/>
     <attributes name="wp10lockscreennotificationskey" value="Not set"/>
     <attributes name="ANDROIDWEAR_GET_PACKAGE_SIZE" value="false"/>
     <attributes name="isA11yConfigEnabled" value="false"/>
@@ -42,7 +42,7 @@
     <attributes name="ANDROIDWEAR_CHANGE_CONFIGURATION" value="false"/>
     <attributes name="ID_HW_FRONTCAMERA" value="false"/>
     <attributes name="wp8supportlargetileskey" value="false"/>
-    <attributes name="androidmapkey" value="AIzaSyCHCcDdeOHT0JW_yGD8-AYWqCxRYta9TB4"/>
+    <attributes name="androidmapkey" value=""/>
     <attributes name="ANDROIDWEAR_CONTROL_LOCATION_UPDATES" value="false"/>
     <attributes name="desktopwebnoscriptmessage" value="To use this site, first enable your browser&#039;s JavaScript support and then refresh this page."/>
     <attributes name="GET_TASKS" value="false"/>
@@ -62,7 +62,7 @@
     <attributes name="apmgestureswipe" value=""/>
     <attributes name="andweartargetsdkkey" value="7.1 (25)"/>
     <attributes name="appnamekey" value="Events"/>
-    <attributes name="currentgaversion" value="8.3.1.v201810041631"/>
+    <attributes name="currentgaversion" value="8.3.13.v201812241225"/>
     <attributes name="wp10sharedUserCertificates" value="false"/>
     <attributes name="enablelocalnotificationsandroidwear" value="false"/>
     <attributes name="ANDROIDWEAR_READ_SYNC_SETTINGS" value="false"/>
@@ -150,7 +150,7 @@
     <attributes name="wp10pfxkey" value=""/>
     <attributes name="ACCESS_CHECKIN_PROPERTIES" value="false"/>
     <attributes name="MOUNT_FORMAT_FILESYSTEMS" value="false"/>
-    <attributes name="lastmodifiedtime" value="1540451098645"/>
+    <attributes name="lastmodifiedtime" value="1550659559266"/>
     <attributes name="ipad_notificationicon_1x_20" value=""/>
     <attributes name="iphone_spotlighticon_2x_40" value=""/>
     <attributes name="wp10microphone" value="false"/>
@@ -185,7 +185,7 @@
     <attributes name="ANDROIDWEAR_SET_WALLPAPER_HINTS" value="false"/>
     <attributes name="iphone_notificationicon_2x_20" value=""/>
     <attributes name="SEND_SMS" value="false"/>
-    <attributes name="iphonebundleidentifierkey" value="com.verticalapps.Events"/>
+    <attributes name="iphonebundleidentifierkey" value="com.kony.engagement"/>
     <attributes name="SUBSCRIBED_FEEDS_READ" value="false"/>
     <attributes name="ANDROIDWEAR_DISABLE_KEYGUARD" value="false"/>
     <attributes name="READ_HISTORY_BOOKMARKS" value="false"/>
@@ -272,7 +272,7 @@
     <attributes name="wp8cycle7key" value=""/>
     <attributes name="tileUpdateRecurrenceKey" value=""/>
     <attributes name="Appoinments" value="true"/>
-    <attributes name="androidmapkey2" value="AIzaSyCHCcDdeOHT0JW_yGD8-AYWqCxRYta9TB4"/>
+    <attributes name="androidmapkey2" value=""/>
     <attributes name="bb10versionnumber" value=""/>
     <attributes name="wp8iconimagekey" value=""/>
     <attributes name="apmformEntry" value="true"/>
@@ -370,7 +370,7 @@
     <attributes name="wp81sdescriptionkey" value="Sample Test Application"/>
     <attributes name="ANDROIDWEAR_WRITE_SMS" value="false"/>
     <attributes name="ANDROIDWEAR_WRITE_CALENDAR" value="false"/>
-    <attributes name="appversionkey" value="1.0.0"/>
+    <attributes name="appversionkey" value="1.1.1"/>
     <attributes name="ANDROIDWEAR_PERSISTENT_ACTIVITY" value="false"/>
     <attributes name="enableOfflineObjects" value="false"/>
     <attributes name="ANDROIDWEAR_WRITE_HISTORY_BOOKMARKS" value="false"/>
@@ -434,7 +434,7 @@
     <attributes name="ANDROIDWEAR_SIGNAL_PERSISTENT_PROCESSES" value="false"/>
     <attributes name="win6xj2meonlysupported" value="false"/>
     <attributes name="ANDROIDWEAR_USE_SIP" value="false"/>
-    <attributes name="desktopwebfavico" value=""/>
+    <attributes name="desktopwebfavico" value="favicon.ico"/>
     <attributes name="winmobileguidkey" value=""/>
     <attributes name="Contacts" value="true"/>
     <attributes name="usegoogleplaylocationservicesandwear" value="false"/>
@@ -511,7 +511,7 @@
     <attributes name="enablesearchbar" value="false"/>
     <attributes name="tcandroid480basefontsize" value="16"/>
     <attributes name="WRITE_SETTINGS" value="false"/>
-    <attributes name="cloud_account_guid" value="147abad9-e5d0-4108-ab0b-70743455dc49"/>
+    <attributes name="cloud_account_guid" value="90508382-0b7b-4825-b4f6-3cf5a2ffed31"/>
     <attributes name="statusBarHidden" value="false"/>
     <attributes name="andmaxsdkkey" value="None"/>
     <attributes name="wp10chat" value="false"/>
@@ -542,7 +542,7 @@
     <attributes name="ANDROIDWEAR_READ_HISTORY_BOOKMARKS" value="false"/>
     <attributes name="location" value="false"/>
     <attributes name="winphn10bgagentclassname" value=""/>
-    <attributes name="cloud_url" value="https://automation1.konycloud.com"/>
+    <attributes name="cloud_url" value="https://prodsanity-83.konycloud.com"/>
     <attributes name="disablehttpskey" value="false"/>
     <attributes name="Music_Library" value="true"/>
     <attributes name="Location" value="true"/>
@@ -595,16 +595,16 @@
     <attributes name="androidInstallLocation" value="Auto"/>
     <attributes name="win8bgagentpath" value=""/>
     <attributes name="ID_CAP_IDENTITY_USER" value="true"/>
-    <attributes name="desktopwebmanifestjson" value=""/>
+    <attributes name="desktopwebmanifestjson" value="eventsmanifest.json"/>
     <attributes name="wp10voipCall" value="false"/>
-    <attributes name="cloud_env_GUID" value="ce8cf586-2385-48a5-ab20-ccda494a46ab"/>
+    <attributes name="cloud_env_GUID" value="3407728f-7a28-4afe-95e7-307ad0af2755"/>
     <attributes name="androidInstallLocnPref" value="false"/>
     <attributes name="android_allowselfsignedcertificates" value="None"/>
     <attributes name="ANDROIDWEAR_USE_CREDENTIALS" value="false"/>
     <attributes name="ipad_appicon_1x_76" value=""/>
     <attributes name="keyPassword" value=""/>
     <attributes name="userAccountInformation" value="false"/>
-    <attributes name="cloud_env_name" value="Apps Dev 1-Automation1"/>
+    <attributes name="cloud_env_name" value="Kony Internal - Prod Sanity-ProdSanity-83"/>
     <attributes name="ANDROIDWEAR_SET_DEBUG_APP" value="false"/>
     <attributes name="tcbb480basefontsize" value="17"/>
     <attributes name="SET_PREFERRED_APPLICATIONS" value="false"/>
@@ -684,8 +684,8 @@
     <attributes name="ANDROIDWEAR_STATUS_BAR" value="false"/>
     <attributes name="windowsmapkey" value=""/>
     <attributes name="bb10keystorepassword" value=""/>
-    <attributes name="enableResponsive" value="false"/>
-    <attributes name="cloud_account_id" value="100017816"/>
+    <attributes name="enableResponsive" value="true"/>
+    <attributes name="cloud_account_id" value="100005088"/>
     <attributes name="Enterprise_Authentication" value="true"/>
     <attributes name="BATTERY_STATS" value="false"/>
     <attributes name="useWatchCommunicationApis" value="false"/>
@@ -718,7 +718,7 @@
     <attributes name="wp10codeGeneration" value="false"/>
     <attributes name="bluetooth" value="false"/>
     <attributes name="apmappload" value="false"/>
-    <attributes name="build" value="debug"/>
+    <attributes name="build" value="release"/>
     <attributes name="certs_key_store_type" value="JKS"/>
     <attributes name="ANDROIDWEAR_WRITE_SYNC_SETTINGS" value="false"/>
     <attributes name="spaandroidtab800basefontsize" value="14"/>

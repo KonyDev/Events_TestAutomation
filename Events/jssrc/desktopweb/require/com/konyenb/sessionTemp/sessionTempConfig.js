@@ -1,7 +1,7 @@
 define(function() {
     return {
         "properties": [],
-        "apis": ["getData", "setSessionData", "setDateRange"],
+        "apis": ["getData", "setSessionData", "setDateRange", "changeLayoutAccoringToBp"],
         "events": []
     }
 });

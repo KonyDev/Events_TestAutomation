@@ -7,19 +7,37 @@
   <test name="Test">
 	<!-- Add your Functional Test class here -->
     <classes>
-     <class name="test.EventsApp.tests.SplashScreen" >
-      <methods>
-      	 <include name = "test_ValidateSplashText"/>   	    
+     <class name="test.EventsApp.tests.SplashScreenTests" >
+     <methods>  
+     <include name = "test_ValidateSplashText"/> 	       	    
       </methods>
       </class>
-     <class name="test.EventsApp.tests.EventsTest" >
-      <methods>
-      	 <include name = "test_AllEventsTitle"/>
-      	    <include name = "test_AllEventsEvent"/>
-      	    <include name = "test_UpcomingEvents"/>      	    
+     <class name="test.EventsApp.tests.EventsLandingTests" >
+     <methods> 
+     <include name = "test_AllEventsTitle"/> 
+     <include name = "test_AllEventsEvent"/>
+     <include name = "test_UpcomingEvents"/>
+     <include name = "test_Loginmenu"/> 
+     <include name = "test_myEventsmenu"/>
+     <include name = "test_profilesmenu"/>
+     <include name = "test_offlineEvent"/>     	       	    
       </methods>
       </class>
-     
+     <class name="test.EventsApp.tests.EventDetailsTests" >
+     <methods>  
+     <include name = "test_AllEventsPresenter"/>
+     <include name = "test_AllEventsSchedular"/>  	       	    
+      </methods>
+      </class>
+      <class name="test.EventsApp.tests.SearchTests" >
+     <methods>  
+     <include name = "test_searchWithEmptyValue"/>
+     <include name = "test_searchWithEventName"/> 
+     <include name = "test_searchClearWithCrossBtn"/>
+     <include name = "test_searchWithNonExistingEventName"/>  	       	    
+      </methods>
+      </class>
+          
             
     </classes>
   </test> <!-- Test -->

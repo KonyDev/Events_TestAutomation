@@ -33,10 +33,9 @@
         "value": "100%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "Label0eebf4c4230814f"
+        "lblPreview"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -50,8 +49,16 @@
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
     "onclick": "AS_FlexContainer_d5bbb647492d4bc6a5468f85eccfbc1f",
-    "parent": "FlexContainer0e2eaae99897443",
+    "parent": "flexMapMain",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b4": {
+            "height": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

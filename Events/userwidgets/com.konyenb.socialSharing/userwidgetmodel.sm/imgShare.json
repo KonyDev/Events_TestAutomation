@@ -53,6 +53,7 @@
     "isvisible": true,
     "kuid": "a30d5351d1d243e6be352fdbc6a74403",
     "name": "kony.ui.Image2",
+    "ontouchstart": "AS_Image_f234df138ac14cf8832b2b4b4358ec0e",
     "parent": "socialSharing",
     "pf": "userwidgetmodel",
     "srcType": 1,

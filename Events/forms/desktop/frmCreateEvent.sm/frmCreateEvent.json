@@ -1,6 +1,7 @@
 {
     "@class": "com.kony.gen.viz.model.container.KVizScrollFlexForm",
     "DNDConfig": null,
+    "_init_": "AS_Form_f455a90f27bb4daa825aa05ed8ce1689",
     "_margin_": [
         0,
         0,
@@ -27,13 +28,16 @@
     },
     "breakpointInfo": {
         "b1": {
-            "width": 1400
+            "width": 1920
         },
         "b2": {
-            "width": 1024
+            "width": 1366
         },
         "b3": {
-            "width": 640
+            "width": 771
+        },
+        "b4": {
+            "width": 480
         }
     },
     "canUpdateUI": true,
@@ -43,9 +47,11 @@
         "FlexScrollSession",
         "boxfileupload",
         "boxUploadGallery",
+        "EventsHeader",
+        "profileheader",
+        "flxMenuClose",
         "menuItem",
-        "dashboard",
-        "EventsHeader"
+        "flexProfileOptions"
     ],
     "containerweight": 100,
     "controllerInfo": {
@@ -56,13 +62,16 @@
     },
     "currentLocale": "default",
     "desktopweb": {
-        "needAppMenu": false
+        "ide_onBreakpointChange": "AS_Form_b751c3fafed343e48dbf9fbbcb468981",
+        "needAppMenu": false,
+        "onBreakpointChange": "AS_Form_b751c3fafed343e48dbf9fbbcb468981"
     },
     "device": "desktopweb",
     "displayorientation": 1,
     "enabledforidletimeout": true,
     "id": "frmCreateEvent",
-    "ide_postShow": "AS_Form_ca376d275d4044acb27f9df6b4bc063b",
+    "ide_init": "AS_Form_f455a90f27bb4daa825aa05ed8ce1689",
+    "ide_postShow": "AS_Form_g69bea18fd2f4907a531f756a43e6372",
     "info": null,
     "initdone": false,
     "inputaccessoryviewtype": 4,
@@ -91,7 +100,7 @@
     "needappmenu": false,
     "paddinginpixel": false,
     "platform": "desktopweb",
-    "postshow": "AS_Form_ca376d275d4044acb27f9df6b4bc063b",
+    "postshow": "AS_Form_g69bea18fd2f4907a531f756a43e6372",
     "prevDevice": "desktopweb",
     "prevPlatform": "desktopweb",
     "retaincontentalignment": false,
@@ -125,7 +134,7 @@
     "titlebar": true,
     "type": 3,
     "vizProps": {
-        "globalRespDesignEnabled": true
+        "globalRespDesignEnabled": false
     },
     "wType": "Form",
     "windows8": {

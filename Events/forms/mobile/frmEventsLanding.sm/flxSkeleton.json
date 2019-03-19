@@ -51,6 +51,7 @@
     "kuid": "b8b378b1c2d7488c9e405f962d448659",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "ontouchstart": "AS_FlexContainer_cdb729793086435a98f028a71be9562b",
     "parent": "flexSk1",
     "pf": "frmEventsLanding",
     "snapgridsize": 10,

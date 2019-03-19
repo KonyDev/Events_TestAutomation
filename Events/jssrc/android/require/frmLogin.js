@@ -90,7 +90,7 @@ define("frmLogin", function() {
                 "height": "115dp",
                 "id": "btnPleaseWait",
                 "isVisible": false,
-                "skin": "CopysknBtnLinkedIn0efaf2a8e34e446",
+                "skin": "sknbtnBG0173b2100FFFAL140",
                 "text": "Please wait.. we are processing..",
                 "top": "50dp",
                 "width": "270dp",
@@ -107,7 +107,7 @@ define("frmLogin", function() {
                 "height": "45dp",
                 "id": "btnOffice365",
                 "isVisible": false,
-                "skin": "CopydefBtnNormal0fc1fde11d8f343",
+                "skin": "sknbtnBGf36c21100",
                 "text": "Sign In with Office365",
                 "top": "20dp",
                 "width": "260dp",
@@ -328,7 +328,6 @@ define("frmLogin", function() {
             "menuPosition": constants.FORM_MENU_POSITION_AFTER_APPMENU,
             "retainScrollPosition": false,
             "titleBar": true,
-            "titleBarSkin": "CopyslTitleBar0j28a1134248f45",
             "windowSoftInputMode": constants.FORM_ADJUST_PAN
         }]
     }

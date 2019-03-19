@@ -91,6 +91,8 @@
             }
         },
         "menuItemTextSkin": "sknlblfff120",
+        "onApplyButtonClick": "AS_UWI_a6c0992d6f9a40e2b6ec471e63bff4b3",
+        "onLogoutClick": "AS_UWI_g7ed6ffcd58b4a23a46e9ff739847f89",
         "profileImageHeight": {
             "Default": {
                 "type": "string",

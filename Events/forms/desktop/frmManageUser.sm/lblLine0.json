@@ -60,6 +60,14 @@
     "name": "kony.ui.Label",
     "parent": "flxEventInfoRoot",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b3": {
+            "isVisible": false
+        },
+        "b4": {
+            "isVisible": false
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "tooltip": "",

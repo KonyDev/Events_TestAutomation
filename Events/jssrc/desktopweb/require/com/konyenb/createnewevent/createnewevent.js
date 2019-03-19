@@ -9,9 +9,10 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "50dp",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_fa7c1077ef1149eca8587345b94c706d,
             "onTouchEnd": controller.AS_FlexContainer_g33b3b940cff4a7cafccfcbc8fce5868,
-            "skin": "CopysknFlxEventRoot1",
+            "skin": "sknflexCustCreateEvent",
             "top": "0dp",
             "width": "320px"
         }, {}, {});
@@ -36,7 +37,7 @@ define(function() {
             "centerX": "50%",
             "id": "lblCreateNewEvent",
             "isVisible": true,
-            "skin": "CopysknLblCreateEventTitle",
+            "skin": "sknlbl00a0ddAM150",
             "text": "CREATE NEW EVENT",
             "width": kony.flex.USE_PREFFERED_SIZE,
             "zIndex": 1

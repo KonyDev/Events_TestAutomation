@@ -26,7 +26,7 @@
     "_skin_": "s9c0daef32ea440689e03b200284a988",
     "_top_": {
         "type": "string",
-        "value": "23%"
+        "value": "185dp"
     },
     "_width_": {
         "type": "string",
@@ -53,13 +53,50 @@
     "id": "flexScrollEvent",
     "info": null,
     "iscustomlayout": false,
-    "isvisible": false,
+    "isvisible": true,
     "kuid": "addff00edaa6489b8caed83877a75a1c",
     "layouttype": 2,
     "name": "kony.ui.FlexScrollContainer",
     "pagingenabled": false,
     "parent": "frmCreateEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b2": {
+            "height": {
+                "type": "string",
+                "value": "77%"
+            }
+        },
+        "b3": {
+            "height": {
+                "type": "string",
+                "value": "715dp"
+            },
+            "isVisible": true,
+            "left": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        },
+        "b4": {
+            "height": {
+                "type": "string",
+                "value": "715dp"
+            },
+            "left": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "scrolldirection": 2,

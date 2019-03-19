@@ -39,7 +39,7 @@
         "segImageSet",
         "lblNameDetail",
         "txtComments",
-        "CopybtnClose0d8585f7b8db84b"
+        "btnClose2"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -52,6 +52,7 @@
     "kuid": "d21addd312ca49c0b7aa788ff6728943",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_caed9c9f6e1d43409b7073edd5fa9c90",
     "parent": "timeline",
     "pf": "userwidgetmodel",
     "retaincontentalignment": false,

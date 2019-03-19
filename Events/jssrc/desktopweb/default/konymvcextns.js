@@ -1,5 +1,5 @@
 //release/tool
-//ver 1.5.2
+//ver 1.5.4
 ;(function() {
 var BusinessController_Command, BusinessController_CommandResponse, BusinessController_CommandHandler, commonUtils_ExtensibilityApi, BusinessController_CommandExecutionEngine, BusinessController_BusinessController, BusinessController_BusinessDelegator, DataModel_QueryBuilder, DataModel_constants, DataModel_Error, DataModel_DBAssembler, DataModel_DataSource, DataModel_BaseRepository, DataModel_RepositoryManager, PresentationController_MDABasePresenter, BaseNavigator_MDABaseNavigator, ModuleManager_MDAModule, ModuleManager_MDAModuleManager, UIBinder_UIBinder, UIBinder_PropertyDataMapper_GenericProperties, UIBinder_WidgetDataMapper_WidgetDataMapper, commonUtils_inheritsFrom, UIBinder_PropertyDataMapper_ImageProperties, UIBinder_WidgetDataMapper_ImageWidgetDataMapper, UIBinder_PropertyDataMapper_TextboxProperties, UIBinder_WidgetDataMapper_TextboxWidgetDataMapper, UIBinder_PropertyDataMapper_LabelProperties, UIBinder_WidgetDataMapper_LabelWidgetDataMapper, UIBinder_PropertyDataMapper_TextAreaProperties, UIBinder_WidgetDataMapper_TextAreaWidgetDataMapper, UIBinder_PropertyDataMapper_SwitchProperties, UIBinder_WidgetDataMapper_SwitchWidgetDataMapper, UIBinder_PropertyDataMapper_SliderProperties, UIBinder_WidgetDataMapper_SliderWidgetDataMapper, UIBinder_PropertyDataMapper_RichTextProperties, UIBinder_WidgetDataMapper_RichTextWidgetDataMapper, UIBinder_PropertyDataMapper_ButtonProperties, UIBinder_WidgetDataMapper_ButtonWidgetDataMapper, UIBinder_WidgetDataMapper_SegmentWidgetDataMapper, UIBinder_PropertyDataMapper_ListboxProperties, UIBinder_WidgetDataMapper_ListboxWidgetDataMapper, UIBinder_WidgetDataMapper_FlexContainerWidgetDataMapper, UIBinder_PropertyDataMapper_CalendarProperties, UIBinder_WidgetDataMapper_CalendarWidgetDataMapper, UIBinder_UIBinderBuilder, commonUtils_MDAApplication, commonUtils_Logger, ParallelCommandExecuter_ParallelCommandExecuter, DataModel_ModelRelation, DataModel_BaseModel, DataModel_ORMSession, DataModel_Expression, FormController_MDAFormController, commonUtils_ControllerGetterAPI, main, konymvcMDAFormController, kony_mvc_MDAFormController, MDAFormController;
 BusinessController_Command = function () {
@@ -184,7 +184,7 @@ commonUtils_ExtensibilityApi = function () {
         eval(key + '=methObj.diy();');
       }
     }, /**
-    * This Api calls the method which constructs the body for class in the scenario  of addAfter or addBefore of a member   
+    * This Api calls the method which constructs the body for class in the scenario  of addAfter or addBefore of a member		
     *
     * @param {class} refClass             - The copy of the original class
     * @param {string} key                 - The existing original function.
@@ -231,7 +231,7 @@ commonUtils_ExtensibilityApi = function () {
       }
       refClass[key] = methObj.diy();
     }, /**
-    * This Api calls the method which constructs the body for class in the scenario  of deRegistering a method  
+    * This Api calls the method which constructs the body for class in the scenario  of deRegistering a method	
     *
     * @param {class} refClass             - The copy of the original class
     * @param {string} key                 - The existing original function.
@@ -795,14 +795,10 @@ BusinessController_BusinessDelegator = function () {
         this.superParams.level++;
       }
     }
-    var prototypeScope = Object.getPrototypeOf(scope);
-    if (prototypeScope[methodName] && this.superParams.refStack.length === 0) {
-      this.superParams.refStack.push(0);
-    }
     if (this.superParams.counter === 0) {
       for (var i = 0; i < this.superParams.level; i++) {
         if (scope['extensionLevel' + i.toString()][methodName]) {
-          this.superParams.refStack.push(i + 1);
+          this.superParams.refStack.push(i);
         }
       }
     }
@@ -810,11 +806,7 @@ BusinessController_BusinessDelegator = function () {
     if (this.superParams.refStack.length !== 0) {
       var callLvl = this.superParams.refStack[this.superParams.refStack.length - 1];
       this.superParams.counter++;
-      if (callLvl === 0) {
-        returnValue = prototypeScope[methodName].apply(this, argList);
-      } else {
-        returnValue = scope['extensionLevel' + (callLvl - 1).toString()][methodName].apply(this, argList);
-      }
+      returnValue = scope['extensionLevel' + callLvl.toString()][methodName].apply(this, argList);
       this.superParams.counter--;
     } else {
       kony.print('#MDA2 : Can\'t find any super for the ' + methodName + ' Method.');
@@ -2034,14 +2026,10 @@ PresentationController_MDABasePresenter = function () {
         this.superParams.level++;
       }
     }
-    var prototypeScope = Object.getPrototypeOf(scope);
-    if (prototypeScope[methodName] && this.superParams.refStack.length === 0) {
-      this.superParams.refStack.push(0);
-    }
     if (this.superParams.counter === 0) {
       for (var i = 0; i < this.superParams.level; i++) {
         if (scope['extensionLevel' + i.toString()][methodName]) {
-          this.superParams.refStack.push(i + 1);
+          this.superParams.refStack.push(i);
         }
       }
     }
@@ -2049,11 +2037,7 @@ PresentationController_MDABasePresenter = function () {
     if (this.superParams.refStack.length !== 0) {
       var callLvl = this.superParams.refStack[this.superParams.refStack.length - 1];
       this.superParams.counter++;
-      if (callLvl === 0) {
-        returnValue = prototypeScope[methodName].apply(this, argList);
-      } else {
-        returnValue = scope['extensionLevel' + (callLvl - 1).toString()][methodName].apply(this, argList);
-      }
+      returnValue = scope['extensionLevel' + callLvl.toString()][methodName].apply(this, argList);
       this.superParams.counter--;
     } else {
       kony.print('#MDA2 : Can\'t find any super for the ' + methodName + ' Method.');
@@ -2177,10 +2161,16 @@ ModuleManager_MDAModule = function (MDABasePresenter, MDABaseNavigator, Business
       }
     } else {
       var presentationControllerClass;
+      var currentChannel = kony.sdk.getChannelType();
+      //TO DO: Platform team to generate channel correctly
+      currentChannel = currentChannel.charAt(0).toUpperCase() + currentChannel.slice(1);
       if (this.channel === undefined) {
-        if (this.moduleConfig.PresentationControllerConfig && this.moduleConfig.PresentationControllerConfig['Default'])
-          presentationControllerClass = this.moduleConfig.PresentationControllerConfig['Default'].PresentationControllerClass;
-        else
+        if (this.moduleConfig.PresentationControllerConfig) {
+          var defaultPresentation = this.moduleConfig.PresentationControllerConfig['Default'];
+          var channelPresentation = this.moduleConfig.PresentationControllerConfig[currentChannel];
+          this.channel = channelPresentation ? currentChannel : 'Default';
+          presentationControllerClass = this.moduleConfig.PresentationControllerConfig[this.channel].PresentationControllerClass;
+        } else
           presentationControllerClass = undefined;
       } else {
         if (this.moduleConfig.PresentationControllerConfig && this.moduleConfig.PresentationControllerConfig[this.channel])
@@ -2272,12 +2262,13 @@ ModuleManager_MDAModule = function (MDABasePresenter, MDABaseNavigator, Business
     if (this.moduleConfig !== undefined) {
       var presentationExtensions;
       if (this.channel === undefined) {
-        this.channel = 'Default';
+        extChannel = 'Default';
       }
       if (this.moduleConfig.PresentationControllerConfig && this.moduleConfig.PresentationControllerConfig[this.channel])
         presentationExtensions = this.moduleConfig.PresentationControllerConfig[this.channel].PresentationExtensions;
       if (presentationExtensions !== undefined) {
         var extNModule = [];
+        extNModule.push(this.presentationController);
         for (var i = 0; i < presentationExtensions.length; i++) {
           try {
             extNModule.push(require(presentationExtensions[i]));
@@ -2299,6 +2290,7 @@ ModuleManager_MDAModule = function (MDABasePresenter, MDABaseNavigator, Business
         businessExtensions = this.moduleConfig.BusinessControllerConfig.BusinessExtensions;
       if (businessExtensions !== undefined) {
         var extNModule = [];
+        extNModule.push(this.businessController);
         for (var i = 0; i < businessExtensions.length; i++) {
           try {
             extNModule.push(require(businessExtensions[i]));
@@ -2354,6 +2346,16 @@ ModuleManager_MDAModuleManager = function (MDAModule) {
   return MDAModuleManager;
 }(ModuleManager_MDAModule);
 UIBinder_UIBinder = function () {
+  var includesInArray = function (array, obj) {
+    if (Array.isArray(array)) {
+      for (var ele in array) {
+        if (obj == array[ele]) {
+          return true;
+        }
+      }
+    }
+    return false;
+  };
   function UIBinder() {
     this.map = {};
   }
@@ -2396,7 +2398,7 @@ UIBinder_UIBinder = function () {
       if (config.groups) {
         for (var groupId in config.groups) {
           if (groupSelect) {
-            if (groupSelect.includes(groupId) || groupId === groupSelect) {
+            if (includesInArray(groupSelect, groupId) || groupId === groupSelect) {
               for (var widgetid in config.groups[groupId]) {
                 this.mapWidgetData(config.groups[groupId], data, form, widgetid);
               }
@@ -2474,7 +2476,7 @@ UIBinder_UIBinder = function () {
       if (config.groups) {
         for (var groupId in config.groups) {
           if (groupSelect) {
-            if (groupSelect.includes(groupId) || groupId === groupSelect) {
+            if (includesInArray(groupSelect, groupId) || groupId === groupSelect) {
               for (var widgetid in config.groups[groupId]) {
                 this.getWidgetData(config.groups[groupId], formId, widgetid, dataMap);
               }

@@ -40,7 +40,8 @@
         "value": "50%"
     },
     "children": [
-        "imgEventLogo"
+        "imgEventLogo",
+        "imageRegister"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -49,7 +50,6 @@
     },
     "enablescrolling": true,
     "id": "flxBannerContainer",
-    "ide_onClick": "AS_FlexContainer_caccfc41878d41edb99ad5315af8d7b8",
     "info": null,
     "iscustomlayout": false,
     "isvisible": true,

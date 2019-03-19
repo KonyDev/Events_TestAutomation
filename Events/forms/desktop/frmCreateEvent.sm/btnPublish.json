@@ -17,9 +17,9 @@
         6
     ],
     "_padding_": [
+        4,
         0,
-        0,
-        0,
+        4,
         0
     ],
     "_skin_": "s7626bcae9f642748253e90e1e83e449",
@@ -45,8 +45,23 @@
     "kuid": "bb3e9c1c70bb42b7baa7c90c0b3d70e0",
     "name": "kony.ui.Button",
     "onclick": "AS_Button_i7c4eab0efef4fb59e8ed052a20a797e",
+    "paddinginpixel": false,
     "parent": "flexPublishEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b3": {
+            "padding": [
+                4,
+                0,
+                4,
+                0
+            ],
+            "width": {
+                "type": "ref",
+                "value": "preferred"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "wType": "Button",

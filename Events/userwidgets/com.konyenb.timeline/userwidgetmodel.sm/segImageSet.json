@@ -103,6 +103,7 @@
     },
     "name": "kony.ui.SegmentedUI2",
     "needpageindicator": false,
+    "onswipe": "AS_Segment_f68ae74da9f04189acaaff18e285b19f",
     "pageoffdotimage": "pageoffdot.png",
     "pageondotimage": "pageondot.png",
     "paginationconfig": {

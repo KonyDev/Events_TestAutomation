@@ -53,6 +53,7 @@
     "isvisible": true,
     "kuid": "jecde80533e34f34861da2a1e6896d33",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_de524194f00c4fc9ab3275b7e77c1cd4",
     "parent": "flexCloseIcon",
     "pf": "frmSearch",
     "retaincontentalignment": false,

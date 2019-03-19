@@ -54,7 +54,7 @@
     "kuid": "fca4c407b63443f9a294cfe6971818d0",
     "layouttype": 3,
     "name": "kony.ui.FlexContainer",
-    "parent": "flxUserContainer",
+    "parent": "flxRegisteredUserList",
     "pf": "frmManageUser",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,

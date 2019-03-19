@@ -8,8 +8,7 @@ define({
       this.disableError();
     }catch(error){
       kony.print("FormLogin Controller"+JSON.stringify(error));
-    }
-    
+    }   
   },
   
   /**
@@ -26,12 +25,12 @@ define({
       showLoading(this);
   	  var sdkInstance = new kony.sdk.getCurrentInstance();
      try{
-       this.userStoreAuth = sdkInstance.getIdentityService("userstore");
+       auth_client = sdkInstance.getIdentityService("userstore");
        var userCred = {
          "userid" : username,
          "password" : password
        };
-       this.userStoreAuth.login(userCred,
+       auth_client.login(userCred,
                            this.userStoreLoginSuccss.bind(this),
                            this.userStoreLoginFailure.bind(this)
                           );
@@ -48,9 +47,12 @@ define({
   userStoreLoginSuccss : function(response){
     try{
       this.disableError();
-     this.userStoreAuth.getProfile(false,function(result) {
+      glbIsLoggedIn = true;
+      EVENT_CONSTANS.MODE.USERROLE = EVENT_CONSTANS.USERROLE.ADMIN;
+      auth_client.getProfile(false,function(result) {
+       glbProfile = {};
        kony.application.dismissLoadingScreen();
-      glbUserAttributes = result.profile_attributes;
+      glbProfile.first_name = result.profile_attributes.firstname;
       var navToCreateEvent = new kony.mvc.Navigation("frmAllEvents");
     navToCreateEvent.navigate();
      }, function(error){
@@ -104,7 +106,6 @@ define({
    }catch(error){
       kony.print("FormLogin Controller"+JSON.stringify(error));
     }
- 
   },
    
   /**
@@ -125,5 +126,8 @@ define({
     }catch(err){
       kony.print("frmLogin Controller"+JSON.stringify(err));
     }
-  }
+  },
+  
+
+
  });

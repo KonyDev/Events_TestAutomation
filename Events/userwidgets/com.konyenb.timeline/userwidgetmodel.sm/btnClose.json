@@ -44,6 +44,7 @@
     "isvisible": false,
     "kuid": "b07acbe0c0c148d99caacdbb313ce985",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_e8511783358d433ea6e7134d952de286",
     "parent": "timeline",
     "pf": "userwidgetmodel",
     "retaincontentalignment": false,

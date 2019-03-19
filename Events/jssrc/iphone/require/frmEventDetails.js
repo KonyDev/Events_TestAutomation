@@ -12,6 +12,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "125dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "286dp",
                 "width": "100%",
@@ -49,6 +50,7 @@ define("frmEventDetails", function() {
                 "id": "flxDummyBox1",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxHeaderGredient",
                 "top": "0dp",
                 "width": "100%",
@@ -64,6 +66,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_h19bae8ee8c5441697b4ceed80101951,
                 "skin": "slFbox",
                 "width": "60dp",
@@ -96,6 +99,7 @@ define("frmEventDetails", function() {
                 "id": "flxShare",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_c4fa74d19c8641f38c3de6c068262dba,
                 "right": "0dp",
                 "skin": "slFbox",
@@ -120,7 +124,7 @@ define("frmEventDetails", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            var socialSharing = new com.konysa.socialSharing({
+            var socialSharing = new com.konyenb.socialSharing({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "bottom": 0,
                 "centerX": "50%",
@@ -131,11 +135,28 @@ define("frmEventDetails", function() {
                 "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
+                "isModalContainer": false,
                 "right": 0,
-                "skin": "CopyslFbox0bc28f0666f0c46",
-                "width": "30dp"
-            }, {}, {});
-            socialSharing.shareSrc = "sharesmallicon.png";
+                "skin": "slFbox",
+                "width": "30dp",
+                "overrides": {
+                    "imgShare": {
+                        "src": "sharesmallicon.png"
+                    },
+                    "socialSharing": {
+                        "left": "viz.val_cleared",
+                        "top": "viz.val_cleared",
+                        "minWidth": "viz.val_cleared",
+                        "minHeight": "viz.val_cleared",
+                        "maxWidth": "viz.val_cleared",
+                        "maxHeight": "viz.val_cleared"
+                    }
+                }
+            }, {
+                "overrides": {}
+            }, {
+                "overrides": {}
+            });
             socialSharing.MimeType = "Image/PNG";
             socialSharing.Subject = "Event";
             socialSharing.FileName = "eventSharing";
@@ -149,6 +170,7 @@ define("frmEventDetails", function() {
                 "id": "flxEventImage",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxCharcolGrey",
                 "top": "0dp",
                 "width": "100%",
@@ -156,7 +178,7 @@ define("frmEventDetails", function() {
             }, {}, {});
             flxEventImage.setDefaultUnit(kony.flex.DP);
             var imgMain = new kony.ui.Image2({
-                "centerX": "50%",
+                "centerX": "49.97%",
                 "height": "100%",
                 "id": "imgMain",
                 "imageWhenFailed": "eventsdef.png",
@@ -181,6 +203,7 @@ define("frmEventDetails", function() {
                 "id": "flxTitleContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxEventWhite",
                 "width": "100%",
                 "zIndex": 1
@@ -191,7 +214,7 @@ define("frmEventDetails", function() {
                 "height": "50%",
                 "id": "lblTitle",
                 "isVisible": true,
-                "skin": "CopysknLblEventTitle0e42827a8addc45",
+                "skin": "sknlbl3f51b5AH110",
                 "text": "TITLE OF THE EVENT",
                 "textStyle": {},
                 "top": "3%",
@@ -209,7 +232,7 @@ define("frmEventDetails", function() {
                 "centerX": "50%",
                 "id": "lblSubTitle",
                 "isVisible": true,
-                "skin": "CopysknLblSubTitle0h119490964124f",
+                "skin": "sknlbl343e48AM100",
                 "text": "Conference",
                 "textStyle": {},
                 "top": "40%",
@@ -229,7 +252,7 @@ define("frmEventDetails", function() {
                 "height": "1dp",
                 "id": "lblLine",
                 "isVisible": true,
-                "skin": "CopydefLabel0b11e96b5e25842",
+                "skin": "sknlblBGf2f1f1100",
                 "text": " ",
                 "textStyle": {},
                 "width": "95%",
@@ -275,6 +298,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_de6b2f25b99640fe94ac9af2a5e48576,
                 "skin": "sknFlxLightGrey",
                 "width": "120dp",
@@ -290,6 +314,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "25dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -356,7 +381,7 @@ define("frmEventDetails", function() {
                 "height": "80%",
                 "id": "lblVerticalLine0",
                 "isVisible": true,
-                "skin": "CopydefLabel0g5058f6ada1b43",
+                "skin": "sknlblBGf2f1f1",
                 "textStyle": {},
                 "width": "1dp",
                 "zIndex": 1
@@ -378,6 +403,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "5dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_g8066e514fe2457883b0f980152d1046,
                 "skin": "sknFlxLightGrey",
                 "width": "120dp",
@@ -393,6 +419,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "25dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -459,7 +486,7 @@ define("frmEventDetails", function() {
                 "id": "lblVerticalLine1",
                 "isVisible": true,
                 "left": "240dp",
-                "skin": "CopydefLabel0g5058f6ada1b43",
+                "skin": "sknlblBGf2f1f1",
                 "textStyle": {},
                 "width": "1dp",
                 "zIndex": 1
@@ -481,6 +508,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "5dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_d860aa3040fb489da5970c4cf78490bc,
                 "skin": "sknFlxLightGrey",
                 "width": "120dp",
@@ -495,6 +523,7 @@ define("frmEventDetails", function() {
                 "id": "flxImageContainer2",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "12dp",
                 "width": "100%",
@@ -510,6 +539,7 @@ define("frmEventDetails", function() {
                 "id": "flxImageContainerLeft",
                 "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxImageContainerCircular",
                 "width": "30dp",
                 "zIndex": 1
@@ -540,6 +570,7 @@ define("frmEventDetails", function() {
                 "id": "flxImageContainerCenter",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxImageContainerCircular",
                 "width": "40dp",
                 "zIndex": 10
@@ -570,6 +601,7 @@ define("frmEventDetails", function() {
                 "id": "flxImageContainerRight",
                 "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxImageContainerCircular",
                 "width": "30dp",
                 "zIndex": 1
@@ -655,6 +687,7 @@ define("frmEventDetails", function() {
                 "id": "flxEventDesc",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "95%",
@@ -705,6 +738,7 @@ define("frmEventDetails", function() {
                 "id": "flxGalleryCompConatiner",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_f48d65d8fa15469ab2781b47b1bffe6e,
                 "skin": "slFbox",
                 "top": "8dp",
@@ -720,6 +754,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxEventRoundedCorner",
                 "top": "0dp",
                 "width": "60dp",
@@ -752,6 +787,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "10dp",
+                "isModalContainer": false,
                 "skin": "sknFlxEventRoundedCorner",
                 "top": "0dp",
                 "width": "60dp",
@@ -784,6 +820,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "10dp",
+                "isModalContainer": false,
                 "skin": "sknFlxEventRoundedCorner",
                 "top": "0dp",
                 "width": "60dp",
@@ -816,6 +853,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "10dp",
+                "isModalContainer": false,
                 "skin": "sknFlxEventRoundedCorner",
                 "top": "0dp",
                 "width": "60dp",
@@ -848,6 +886,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "10dp",
+                "isModalContainer": false,
                 "skin": "sknFlxEventRoundedCorner",
                 "top": "0dp",
                 "width": "60dp",
@@ -879,7 +918,8 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0%",
-                "skin": "CopyslFbox0fc77a92784cb45",
+                "isModalContainer": false,
+                "skin": "sknflex000OP50",
                 "top": "0%",
                 "width": "100%",
                 "zIndex": 1
@@ -890,7 +930,7 @@ define("frmEventDetails", function() {
                 "id": "lblRemaingImageCount",
                 "isVisible": true,
                 "left": "0%",
-                "skin": "CopydefLabel0bafe983d9b5c4f",
+                "skin": "sknlblfffAB120",
                 "text": "1",
                 "textStyle": {},
                 "top": "0%",
@@ -935,6 +975,7 @@ define("frmEventDetails", function() {
                 "id": "flxDummyBox2",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxTransparent",
                 "top": "0dp",
                 "width": "100%",
@@ -952,6 +993,7 @@ define("frmEventDetails", function() {
                 "id": "flxFooter",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxHeaderGredient",
                 "width": "100%",
                 "zIndex": 1
@@ -989,6 +1031,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "100%",
+                "isModalContainer": false,
                 "skin": "sknflexPlainWhite",
                 "top": "20%",
                 "width": "100%",
@@ -1003,6 +1046,7 @@ define("frmEventDetails", function() {
                 "id": "flexEventBannerRoundedSS",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknflexEventBannerRounded",
                 "top": "6%",
                 "width": "92%",
@@ -1014,6 +1058,7 @@ define("frmEventDetails", function() {
                 "id": "imageBannerSS",
                 "isVisible": true,
                 "left": "0%",
+                "onDownloadComplete": controller.AS_Image_e7df0d8001944b98b3f1f479014c10b8,
                 "src": "event01.jpg",
                 "top": "0%",
                 "width": "100%",
@@ -1032,6 +1077,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0.01%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "63.00%",
                 "width": "100%",
@@ -1046,6 +1092,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "5%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0%",
                 "width": "23.11%",
@@ -1136,6 +1183,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0.00%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0.24%",
                 "width": "59.93%",
@@ -1168,6 +1216,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0%",
                 "width": "100%",
@@ -1221,6 +1270,7 @@ define("frmEventDetails", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "2.00%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "5.00%",
                 "width": "100%",

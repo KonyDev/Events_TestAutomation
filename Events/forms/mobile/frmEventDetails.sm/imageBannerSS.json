@@ -50,6 +50,7 @@
     "isvisible": true,
     "kuid": "g5d1757563d645a0809f09df893dc242",
     "name": "kony.ui.Image2",
+    "ondownloadcomplete": "AS_Image_e7df0d8001944b98b3f1f479014c10b8",
     "parent": "flexEventBannerRoundedSS",
     "pf": "frmEventDetails",
     "retaincontentalignment": false,

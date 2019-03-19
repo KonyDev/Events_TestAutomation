@@ -2,8 +2,8 @@
     "DNDConfig": null,
     "__parentReadjusting__": false,
     "_height_": {
-        "type": "string",
-        "value": "440px"
+        "type": "ref",
+        "value": "preferred"
     },
     "_left_": {
         "type": "string",
@@ -26,18 +26,19 @@
     "_skin_": "sd1421164da64fc0aea0355e19e3a7a4",
     "_top_": {
         "type": "string",
-        "value": "0dp"
+        "value": "20dp"
     },
     "_width_": {
         "type": "string",
         "value": "100%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
+    "autogrowmode": 1,
     "canUpdateUI": true,
     "children": [
-        "flxUserHeader",
-        "flxRegisteredUserList"
+        "flxRegisteredUserList",
+        "flxLoading",
+        "flxNoUser"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -49,8 +50,9 @@
     "kuid": "g10923ae2eec42de82406c906593d13d",
     "layouttype": 4,
     "name": "kony.ui.FlexContainer",
-    "parent": "flxRegisteredUserContainer",
+    "parent": "flxEventDetailContainer",
     "pf": "frmManageUser",
+    "responsiveData": {},
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

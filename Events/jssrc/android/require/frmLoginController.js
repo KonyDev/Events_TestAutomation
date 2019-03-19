@@ -364,7 +364,7 @@ define("userfrmLoginController", {
             var previousForm = this.getPreviousForm();
             var navigationObject = new kony.mvc.Navigation(previousForm);
             navigationObject.navigate({
-                "origin": "loginBack"
+                "origin": EVENT_CONSTANS.MODE.LOGINBACK
             });
         } catch (e) {
             alert(e.message);

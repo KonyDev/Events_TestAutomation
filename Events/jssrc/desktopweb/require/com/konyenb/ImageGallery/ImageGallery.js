@@ -8,28 +8,13 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "postShow": controller.AS_FlexContainer_ibbcc442aaa54ccab12d0a2fbba26387,
-            "skin": "sknFlxImageGalleryComponentRoot",
+            "skin": "sknCompBG00080",
             "top": "0dp",
             "width": "100%"
         }, {}, {});
         ImageGallery.setDefaultUnit(kony.flex.DP);
-        var lblTitle = new kony.ui.Label({
-            "centerX": "50%",
-            "height": "4%",
-            "id": "lblTitle",
-            "isVisible": false,
-            "skin": "CopysknLblCmpGreen",
-            "text": "PROGRAM IMAGE GALLERY",
-            "textStyle": {},
-            "top": "13%",
-            "width": "100%",
-            "zIndex": 1
-        }, {
-            "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {});
         var flxImage = new kony.ui.FlexScrollContainer({
             "allowHorizontalBounce": false,
             "allowVerticalBounce": true,
@@ -84,7 +69,7 @@ define(function() {
             "maxWidth": "100%",
             "pagingEnabled": false,
             "scrollDirection": kony.flex.SCROLL_HORIZONTAL,
-            "skin": "CopysknFlxSCThumb",
+            "skin": "slFSbox",
             "verticalScrollIndicator": false,
             "width": "98%",
             "zIndex": 10
@@ -99,6 +84,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "5dp",
+            "isModalContainer": false,
             "skin": "sknFlxThumbBG",
             "width": "80dp",
             "zIndex": 1
@@ -123,7 +109,7 @@ define(function() {
         }, {});
         flxItemTest.add(imgThumbTest);
         flxScThumbImage.add(flxItemTest);
-        ImageGallery.add(lblTitle, flxImage, flxScThumbImage);
+        ImageGallery.add(flxImage, flxScThumbImage);
         return ImageGallery;
     }
 })

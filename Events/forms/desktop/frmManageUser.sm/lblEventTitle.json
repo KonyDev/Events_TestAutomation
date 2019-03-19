@@ -60,6 +60,11 @@
     "name": "kony.ui.Label",
     "parent": "flxEventDetailContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b3": {
+            "text": "Webinar Event Upgrade"
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "tooltip": "",

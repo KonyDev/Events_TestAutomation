@@ -52,6 +52,7 @@
     "isvisible": true,
     "kuid": "b1a03d299bbc489db858a6efa17befcd",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_h3a6cfeb91544d68b12dd2e90eebd469",
     "parent": "flxFooter",
     "pf": "frmEventDetails",
     "retaincontentalignment": false,

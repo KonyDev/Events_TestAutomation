@@ -137,11 +137,6 @@ define("com/konyenb/menuItem/menuItemControllerActions", {
     AS_FlexContainer_c6e8a61598c0470b8ca88d5d672255ab: function AS_FlexContainer_c6e8a61598c0470b8ca88d5d672255ab(eventobject) {
         var self = this;
         this.getSettings();
-    },
-    /** onRowClick defined for SegOptions **/
-    AS_Segment_f1aecdb5b480448eb5d88e2e08325447: function AS_Segment_f1aecdb5b480448eb5d88e2e08325447(eventobject, sectionNumber, rowNumber) {
-        var self = this;
-        this.onMenuClick();
     }
 });
 define("com/konyenb/menuItem/menuItemController", ["com/konyenb/menuItem/usermenuItemController", "com/konyenb/menuItem/menuItemControllerActions"], function() {
@@ -151,11 +146,41 @@ define("com/konyenb/menuItem/menuItemController", ["com/konyenb/menuItem/usermen
         controller[key] = actions[key];
     }
     controller.initializeProperties = function() {
-        defineSetter(this, "username", function(val) {
-            this.view.lblUserName.text = val;
+        defineSetter(this, "option1ImageVisibility", function(val) {
+            this.view.imgAllNewEvent.isVisible = val;
         });
-        defineGetter(this, "username", function() {
-            return this.view.lblUserName.text;
+        defineGetter(this, "option1ImageVisibility", function() {
+            return this.view.imgAllNewEvent.isVisible;
+        });
+        defineSetter(this, "option1Text", function(val) {
+            this.view.lblAllEvent.text = val;
+        });
+        defineGetter(this, "option1Text", function() {
+            return this.view.lblAllEvent.text;
+        });
+        defineSetter(this, "option2ImageVisibility", function(val) {
+            this.view.imgCreateNewEvent.isVisible = val;
+        });
+        defineGetter(this, "option2ImageVisibility", function() {
+            return this.view.imgCreateNewEvent.isVisible;
+        });
+        defineSetter(this, "option2Text", function(val) {
+            this.view.lblCreateNewEvent.text = val;
+        });
+        defineGetter(this, "option2Text", function() {
+            return this.view.lblCreateNewEvent.text;
+        });
+        defineSetter(this, "option3ImageVisibility", function(val) {
+            this.view.imgManageUser.isVisible = val;
+        });
+        defineGetter(this, "option3ImageVisibility", function() {
+            return this.view.imgManageUser.isVisible;
+        });
+        defineSetter(this, "option3Text", function(val) {
+            this.view.lblManageUser.text = val;
+        });
+        defineGetter(this, "option3Text", function() {
+            return this.view.lblManageUser.text;
         });
         if (this.initGettersSetters) {
             this.initGettersSetters.apply(this, arguments);

@@ -8,7 +8,7 @@
     },
     "_left_": {
         "type": "string",
-        "value": "0dp"
+        "value": "2.50%"
     },
     "_margin_": [
         1,
@@ -25,8 +25,8 @@
     "_skin_": "sd8fc1e0ad5a4bae8597fd9294800fb8",
     "_text_": "Manage Users",
     "_width_": {
-        "type": "string",
-        "value": "40%"
+        "type": "ref",
+        "value": "preferred"
     },
     "_wrapping_": 2,
     "android": {
@@ -36,6 +36,10 @@
         }
     },
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "centery": {
         "type": "string",
         "value": "50%"
@@ -60,6 +64,19 @@
     "name": "kony.ui.Label",
     "parent": "flexHeader",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b2": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "width": {
+                "type": "string",
+                "value": "95%"
+            }
+        },
+        "b4": {}
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "tooltip": "",

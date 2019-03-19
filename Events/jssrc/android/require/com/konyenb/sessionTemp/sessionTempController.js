@@ -387,6 +387,46 @@ define("com/konyenb/sessionTemp/usersessionTempController", function() {
             }
         },
         /**
+         * @function changeLayoutAccoringToBp
+         * @description - this function will change the layout according to the break point
+         * param {NUMBER - breakpoint} - current break point
+         **/
+        changeLayoutAccoringToBp: function(breakpoint) {
+            if (breakpoint <= EVENT_CONSTANS.BREAKPOINT.TABLET) {
+                this.changeLayoutToTM();
+            } else {
+                this.changeLayoutToDesk();
+            }
+        },
+        /**
+         * @function changeLayoutToTM
+         * @description - this function will change the layout if it is mobile or tablet
+         **/
+        changeLayoutToTM: function() {
+            this.view.height = "200%";
+            this.view.layoutType = kony.flex.FLOW_VERTICAL;
+            this.view.flexMainSession.height = "50%";
+            this.view.flexMainSession.width = "100%";
+            this.view.lblStripVerticalSessionSep.isVisible = false;
+            this.view.flexSessionSpeakerDetails.height = "50%";
+            this.view.flexSessionSpeakerDetails.width = "100%";
+            this.view.forceLayout();
+        },
+        /**
+         * @function changeLayoutToDesk
+         * @description - this function will reset to default layout for desktop
+         **/
+        changeLayoutToDesk: function() {
+            this.view.height = "100%";
+            this.view.layoutType = kony.flex.FLOW_HORIZONTAL;
+            this.view.flexMainSession.height = "100%";
+            this.view.flexMainSession.width = "49%";
+            this.view.lblStripVerticalSessionSep.isVisible = true;
+            this.view.flexSessionSpeakerDetails.height = "100%";
+            this.view.flexSessionSpeakerDetails.width = "49.5%";
+            this.view.forceLayout();
+        },
+        /**
          * @function formatDate
          * @description - this function will format the date to required format
          * param {String - date} - date in UI

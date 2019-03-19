@@ -389,7 +389,9 @@ define("frmEventDetailsControllerActions", {
     /** postShow defined for frmEventDetails **/
     AS_Form_g3e541c7a3fa403592d6d2969f0ced88: function AS_Form_g3e541c7a3fa403592d6d2969f0ced88(eventobject) {
         var self = this;
-        sendMetric(this.event.event_id, "view");
+        if (this.event !== undefined && this.event.event_id !== undefined) {
+            sendMetric(this.event.event_id, "view");
+        }
     }
 });
 define("frmEventDetailsController", ["userfrmEventDetailsController", "frmEventDetailsControllerActions"], function() {

@@ -106,6 +106,7 @@
     "needappmenu": false,
     "paddinginpixel": false,
     "platform": "android",
+    "postshow": "AS_Form_g3e541c7a3fa403592d6d2969f0ced88",
     "prevDevice": "iPhoneX",
     "prevPlatform": "iphone",
     "retaincontentalignment": false,

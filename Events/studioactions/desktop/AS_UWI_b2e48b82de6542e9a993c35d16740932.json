@@ -16,7 +16,7 @@
         "actions": [{
             "id": "ADD_SNIPPET__cbaade5e325643958be6177b7eb411ac",
             "type": "ADD_SNIPPET",
-            "codeSnippet": "kony.application.dismissLoadingScreen();\nthis.boxUploadSuccess(JSON.parse(result),1);\n",
+            "codeSnippet": "kony.application.dismissLoadingScreen();\nthis.boxUploadSuccess((result),1);\n",
             "parentId": null,
             "callbackType": null
         }]

@@ -8,85 +8,34 @@ define("frmManageUser", function() {
                 "height": "100%",
                 "id": "flxRoot",
                 "isVisible": true,
-                "layoutType": kony.flex.FLOW_HORIZONTAL,
+                "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
-                "skin": "CopysknFlxLightGrey",
+                "isModalContainer": false,
+                "skin": "sknflxf9f9fa",
                 "top": "0dp",
                 "width": "100%",
                 "zIndex": 1
             }, {}, {});
             flxRoot.setDefaultUnit(kony.flex.DP);
-            var flxMenuItem = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
+            var flxInfoItemContainer = new kony.ui.FlexScrollContainer({
+                "allowHorizontalBounce": false,
+                "allowVerticalBounce": true,
+                "bounces": true,
                 "clipBounds": true,
-                "height": "1100px",
-                "id": "flxMenuItem",
-                "isVisible": true,
-                "layoutType": kony.flex.FREE_FORM,
-                "left": "0%",
-                "minWidth": "260px",
-                "skin": "CopyslFbox0ad3c362d4f8148",
-                "top": "0px",
-                "width": "19.03%",
-                "zIndex": 1
-            }, {}, {});
-            flxMenuItem.setDefaultUnit(kony.flex.DP);
-            var menuItem = new com.konyenb.menuItem2({
-                "clipBounds": true,
-                "height": "1100%",
-                "id": "menuItem",
-                "isVisible": true,
-                "layoutType": kony.flex.FREE_FORM,
-                "left": "0dp",
-                "masterType": constants.MASTER_TYPE_USERWIDGET,
-                "skin": "slFbox",
-                "top": "0dp",
-                "width": "100%"
-            }, {}, {});
-            menuItem.onAllEventClick = controller.AS_UWI_b0c8b85e54dc4140a8c21f9c13996d65;
-            menuItem.onCreateEventClick = controller.AS_UWI_dbc3178387a84ff48af713145d5d9851;
-            flxMenuItem.add(menuItem);
-            var flxInfoItem = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "1100px",
-                "id": "flxInfoItem",
-                "isVisible": true,
-                "layoutType": kony.flex.FLOW_VERTICAL,
-                "left": "0%",
-                "minWidth": "1106px",
-                "skin": "CopysknFlxLightGrey",
-                "top": "0dp",
-                "width": "80.97%",
-                "zIndex": 1
-            }, {}, {});
-            flxInfoItem.setDefaultUnit(kony.flex.DP);
-            var dashboard = new com.konyenb.dashboard({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "75px",
-                "id": "dashboard",
-                "isVisible": true,
-                "layoutType": kony.flex.FREE_FORM,
-                "left": "0dp",
-                "masterType": constants.MASTER_TYPE_USERWIDGET,
-                "skin": "CopysknFlxEventWhite0caa649ffd3e440",
-                "top": "0px",
-                "width": "100%"
-            }, {}, {});
-            dashboard.iconVisibility = false;
-            var flxInfoItemContainer = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "84.85%",
+                "enableScrolling": true,
+                "height": "90%",
+                "horizontalScrollIndicator": true,
                 "id": "flxInfoItemContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "30px",
-                "skin": "CopysknFlxTransparent",
+                "pagingEnabled": false,
+                "scrollDirection": kony.flex.SCROLL_VERTICAL,
+                "skin": "slFSbox",
                 "top": "0dp",
-                "width": "95%",
-                "zIndex": 20
+                "verticalScrollIndicator": true,
+                "width": "81%",
+                "zIndex": 1
             }, {}, {});
             flxInfoItemContainer.setDefaultUnit(kony.flex.DP);
             var flexHeader = new kony.ui.FlexContainer({
@@ -97,10 +46,11 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0%",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
-                "zIndex": 10
+                "zIndex": 1
             }, {}, {});
             flexHeader.setDefaultUnit(kony.flex.DP);
             var LblTitle = new kony.ui.Label({
@@ -108,10 +58,10 @@ define("frmManageUser", function() {
                 "height": "50%",
                 "id": "LblTitle",
                 "isVisible": true,
-                "left": "0dp",
-                "skin": "CopysknLblHeader",
+                "left": "2.50%",
+                "skin": "sknlblHeader00a0ddAL28px",
                 "text": "Manage Users",
-                "width": "40%",
+                "width": kony.flex.USE_PREFFERED_SIZE,
                 "zIndex": 1
             }, {
                 "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
@@ -134,13 +84,13 @@ define("frmManageUser", function() {
             }, {});
             flexHeader.add(LblTitle, lblUnderLineEventMain);
             var flxEventDropdownContainer = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "clipBounds": true,
                 "height": "45px",
                 "id": "flxEventDropdownContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "25px",
                 "width": "100%",
@@ -210,15 +160,15 @@ define("frmManageUser", function() {
                 "paddingInPixel": false
             }, {});
             var flxEventDetailContainer = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
                 "clipBounds": true,
-                "height": "730px",
                 "id": "flxEventDetailContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
-                "skin": "sknFlxWhiteBGRoundedCorner",
-                "top": "15dp",
+                "isModalContainer": false,
+                "skin": "CopysknFlxWhiteBGRoundedCorner0he69847ac57941",
+                "top": "0",
                 "width": "100%",
                 "zIndex": 20
             }, {}, {});
@@ -263,6 +213,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxWhiteBG",
                 "top": "10px",
                 "width": "97%",
@@ -278,7 +229,8 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
-                "skin": "CopysknFlxTransparent",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "width": "50%",
                 "zIndex": 1
             }, {}, {});
@@ -292,6 +244,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxRounderCorner",
                 "width": "96px",
                 "zIndex": 1
@@ -322,7 +275,8 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "42px",
-                "skin": "CopysknFlxTransparent",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "0dp",
                 "width": "330dp",
                 "zIndex": 1
@@ -336,6 +290,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -348,7 +303,7 @@ define("frmManageUser", function() {
                 "id": "lblCategoryTitle",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblEventDescItem1",
+                "skin": "sknlbl00a0d514px",
                 "text": "Category",
                 "width": "21%",
                 "zIndex": 1
@@ -362,7 +317,7 @@ define("frmManageUser", function() {
                 "height": "100%",
                 "id": "lblHyphen",
                 "isVisible": true,
-                "skin": "CopysknLblCharcolGrey1",
+                "skin": "sknlbl343e48A80",
                 "text": " - ",
                 "width": kony.flex.USE_PREFFERED_SIZE,
                 "zIndex": 1
@@ -377,7 +332,7 @@ define("frmManageUser", function() {
                 "id": "lblEventDescCategoryText",
                 "isVisible": true,
                 "left": "4dp",
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "Conference",
                 "width": "73%",
                 "zIndex": 1
@@ -395,6 +350,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -407,7 +363,7 @@ define("frmManageUser", function() {
                 "id": "lblEventDescDateTitle",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblEventDescItem1",
+                "skin": "sknlbl00a0d514px",
                 "text": "Date",
                 "width": "21%",
                 "zIndex": 1
@@ -421,7 +377,7 @@ define("frmManageUser", function() {
                 "id": "lblHyphen2",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblCharcolGrey1",
+                "skin": "sknlbl343e48A80",
                 "text": " - ",
                 "width": kony.flex.USE_PREFFERED_SIZE,
                 "zIndex": 1
@@ -436,7 +392,7 @@ define("frmManageUser", function() {
                 "id": "lblEventDescDateText",
                 "isVisible": true,
                 "left": "4dp",
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "14 Mar - 15 Mar, 2018",
                 "top": "0dp",
                 "width": "73%",
@@ -455,6 +411,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -467,7 +424,7 @@ define("frmManageUser", function() {
                 "id": "lblEventDescLocation",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblEventDescItem1",
+                "skin": "sknlbl00a0d514px",
                 "text": "Location",
                 "width": "21%",
                 "zIndex": 1
@@ -481,7 +438,7 @@ define("frmManageUser", function() {
                 "id": "lblHyphen3",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblCharcolGrey1",
+                "skin": "sknlbl343e48A80",
                 "text": " - ",
                 "width": kony.flex.USE_PREFFERED_SIZE,
                 "zIndex": 1
@@ -496,7 +453,7 @@ define("frmManageUser", function() {
                 "id": "lblEventDescLocationText",
                 "isVisible": true,
                 "left": "4dp",
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "Convocation Center, Hyderabad",
                 "top": "0dp",
                 "width": "73%",
@@ -523,6 +480,21 @@ define("frmManageUser", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
+            var flxMenuIcon = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100%",
+                "id": "flxMenuIcon",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_HORIZONTAL,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "slFbox",
+                "top": "0dp",
+                "width": "50%",
+                "zIndex": 1
+            }, {}, {});
+            flxMenuIcon.setDefaultUnit(kony.flex.DP);
             var flxRegisteredUser = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "clipBounds": true,
@@ -531,9 +503,10 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
-                "skin": "CopysknFlxTransparent",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "0dp",
-                "width": "16.50%",
+                "width": "33%",
                 "zIndex": 1
             }, {}, {});
             flxRegisteredUser.setDefaultUnit(kony.flex.DP);
@@ -555,7 +528,7 @@ define("frmManageUser", function() {
                 "centerX": "50%",
                 "id": "lblRegisteredUser",
                 "isVisible": true,
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "Registered Users",
                 "top": "5dp",
                 "width": "100%",
@@ -588,9 +561,10 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
-                "skin": "CopysknFlxTransparent",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "0dp",
-                "width": "16.55%",
+                "width": "33%",
                 "zIndex": 1
             }, {}, {});
             flxEventShared.setDefaultUnit(kony.flex.DP);
@@ -612,14 +586,14 @@ define("frmManageUser", function() {
                 "centerX": "50%",
                 "id": "lblSharedEvent",
                 "isVisible": true,
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "Events Share",
                 "top": "5dp",
                 "width": "100%",
                 "zIndex": 1
             }, {
-                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-                "padding": [25, 0, 0, 0],
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
             flxEventShared.add(lblSharedEventCount, lblSharedEvent);
@@ -629,7 +603,7 @@ define("frmManageUser", function() {
                 "id": "lblLine3",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblLine",
+                "skin": "sknlblVerticalline",
                 "top": "24dp",
                 "width": "1dp",
                 "zIndex": 1
@@ -646,9 +620,10 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
-                "skin": "CopysknFlxTransparent",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "0dp",
-                "width": "14.55%",
+                "width": "33%",
                 "zIndex": 1
             }, {}, {});
             flxEventView.setDefaultUnit(kony.flex.DP);
@@ -666,65 +641,293 @@ define("frmManageUser", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            var CopylblSharedEvent0i77bbd31420541 = new kony.ui.Label({
+            var lblEventView = new kony.ui.Label({
                 "centerX": "50%",
-                "id": "CopylblSharedEvent0i77bbd31420541",
+                "id": "lblEventView",
                 "isVisible": true,
-                "skin": "CopysknLblEventDesc",
+                "skin": "sknlbl797979AM14",
                 "text": "Events View",
                 "top": "5dp",
                 "width": "100%",
                 "zIndex": 1
             }, {
-                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-                "padding": [25, 0, 0, 0],
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            flxEventView.add(lblViewedEventCount, CopylblSharedEvent0i77bbd31420541);
-            var flxMenuIcon = new kony.ui.FlexContainer({
+            flxEventView.add(lblViewedEventCount, lblEventView);
+            flxMenuIcon.add(flxRegisteredUser, lblLine2, flxEventShared, lblLine3, flxEventView);
+            flxEventInfoRoot.add(flxRootEventTitle, lblLine0, flxMenuIcon);
+            var CopylblLine0ba567fdb417245 = new kony.ui.Label({
+                "bottom": "2px",
+                "centerX": "50%",
+                "height": "1px",
+                "id": "CopylblLine0ba567fdb417245",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "sknheaderlblLineDarkGrey",
+                "top": "5dp",
+                "width": "97%",
+                "zIndex": 10
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var flexEventInfoRootTM = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "centerX": "50%",
+                "clipBounds": true,
+                "height": "96px",
+                "id": "flexEventInfoRootTM",
+                "isVisible": true,
+                "layoutType": kony.flex.FREE_FORM,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "sknFlxWhiteBG",
+                "top": "10px",
+                "width": "97%",
+                "zIndex": 1
+            }, {}, {});
+            flexEventInfoRootTM.setDefaultUnit(kony.flex.DP);
+            var flexMetricsTM = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "clipBounds": true,
                 "height": "100%",
-                "id": "flxMenuIcon",
-                "isVisible": false,
-                "layoutType": kony.flex.FREE_FORM,
+                "id": "flexMetricsTM",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
-                "skin": "sknFlxDarkGrey",
+                "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "0dp",
-                "width": "75dp",
+                "width": "100%",
                 "zIndex": 1
             }, {}, {});
-            flxMenuIcon.setDefaultUnit(kony.flex.DP);
-            flxMenuIcon.add();
-            flxEventInfoRoot.add(flxRootEventTitle, lblLine0, flxRegisteredUser, lblLine2, flxEventShared, lblLine3, flxEventView, flxMenuIcon);
+            flexMetricsTM.setDefaultUnit(kony.flex.DP);
+            var flxRegisteredUserTM = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100%",
+                "id": "flxRegisteredUserTM",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "slFbox",
+                "top": "0dp",
+                "width": "33%",
+                "zIndex": 1
+            }, {}, {});
+            flxRegisteredUserTM.setDefaultUnit(kony.flex.DP);
+            var lblRegisteredUserCountTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblRegisteredUserCountTM",
+                "isVisible": true,
+                "skin": "sknLblCount",
+                "text": "30",
+                "top": "15dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var lblRegisteredUserTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblRegisteredUserTM",
+                "isVisible": true,
+                "skin": "sknlbl797979AM14",
+                "text": "Registered Users",
+                "top": "5dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            flxRegisteredUserTM.add(lblRegisteredUserCountTM, lblRegisteredUserTM);
+            var lblLine2TM = new kony.ui.Label({
+                "centerY": "50%",
+                "height": "80%",
+                "id": "lblLine2TM",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "sknLblLineUltraLightGrey",
+                "width": "1px",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var flxEventSharedTM = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100%",
+                "id": "flxEventSharedTM",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "slFbox",
+                "top": "0dp",
+                "width": "33%",
+                "zIndex": 1
+            }, {}, {});
+            flxEventSharedTM.setDefaultUnit(kony.flex.DP);
+            var lblSharedEventCountTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblSharedEventCountTM",
+                "isVisible": true,
+                "skin": "sknLblCount",
+                "text": "55",
+                "top": "15dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var lblSharedEventTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblSharedEventTM",
+                "isVisible": true,
+                "skin": "sknlbl797979AM14",
+                "text": "Events Share",
+                "top": "5dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            flxEventSharedTM.add(lblSharedEventCountTM, lblSharedEventTM);
+            var lblLine3TM = new kony.ui.Label({
+                "centerY": "50%",
+                "height": "80%",
+                "id": "lblLine3TM",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "sknlblVerticalline",
+                "top": "24dp",
+                "width": "1dp",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var flxEventViewTM = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100%",
+                "id": "flxEventViewTM",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "slFbox",
+                "top": "0dp",
+                "width": "33%",
+                "zIndex": 1
+            }, {}, {});
+            flxEventViewTM.setDefaultUnit(kony.flex.DP);
+            var lblViewedEventCountTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblViewedEventCountTM",
+                "isVisible": true,
+                "skin": "sknLblCount",
+                "text": "55",
+                "top": "15dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var lblEventViewTM = new kony.ui.Label({
+                "centerX": "50%",
+                "id": "lblEventViewTM",
+                "isVisible": true,
+                "skin": "sknlbl797979AM14",
+                "text": "Events View",
+                "top": "5dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            flxEventViewTM.add(lblViewedEventCountTM, lblEventViewTM);
+            flexMetricsTM.add(flxRegisteredUserTM, lblLine2TM, flxEventSharedTM, lblLine3TM, flxEventViewTM);
+            flexEventInfoRootTM.add(flexMetricsTM);
+            var CopylblLine0j1ad4573101b46 = new kony.ui.Label({
+                "bottom": "2px",
+                "centerX": "50%",
+                "height": "1px",
+                "id": "CopylblLine0j1ad4573101b46",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "sknheaderlblLineDarkGrey",
+                "top": "5dp",
+                "width": "97%",
+                "zIndex": 10
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
             var flxRegisteredUserContainer = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "centerX": "50%",
                 "clipBounds": true,
                 "height": "440px",
                 "id": "flxRegisteredUserContainer",
-                "isVisible": true,
+                "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "10px",
                 "width": "98%",
                 "zIndex": 10
             }, {}, {});
             flxRegisteredUserContainer.setDefaultUnit(kony.flex.DP);
+            flxRegisteredUserContainer.add();
             var flxUserContainer = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
                 "clipBounds": true,
-                "height": "440px",
                 "id": "flxUserContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
-                "top": "0dp",
+                "top": "20dp",
                 "width": "100%",
                 "zIndex": 1
             }, {}, {});
             flxUserContainer.setDefaultUnit(kony.flex.DP);
+            var flxRegisteredUserList = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
+                "clipBounds": true,
+                "id": "flxRegisteredUserList",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "isModalContainer": false,
+                "skin": "slFbox",
+                "top": "0dp",
+                "width": "100.00%",
+                "zIndex": 1
+            }, {}, {});
+            flxRegisteredUserList.setDefaultUnit(kony.flex.DP);
             var flxUserHeader = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "clipBounds": true,
@@ -733,6 +936,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxBlueBG",
                 "top": "0dp",
                 "width": "100%",
@@ -747,6 +951,7 @@ define("frmManageUser", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "4%",
@@ -775,7 +980,7 @@ define("frmManageUser", function() {
                 "id": "lblVerticalLine1",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblLine",
+                "skin": "sknlblVerticalline",
                 "width": "1px",
                 "zIndex": 1
             }, {
@@ -804,7 +1009,7 @@ define("frmManageUser", function() {
                 "id": "lblVerticalLine2",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblLine",
+                "skin": "sknlblVerticalline",
                 "width": "1px",
                 "zIndex": 1
             }, {
@@ -833,7 +1038,7 @@ define("frmManageUser", function() {
                 "id": "lblVerticalLine3",
                 "isVisible": true,
                 "left": "0dp",
-                "skin": "CopysknLblLine",
+                "skin": "sknlblVerticalline",
                 "width": "1px",
                 "zIndex": 1
             }, {
@@ -857,22 +1062,8 @@ define("frmManageUser", function() {
                 "paddingInPixel": false
             }, {});
             flxUserHeader.add(flxIndex, lblVerticalLine1, lblUserName, lblVerticalLine2, lblEmailId, lblVerticalLine3, lblActions);
-            var flxRegisteredUserList = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "400px",
-                "id": "flxRegisteredUserList",
-                "isVisible": true,
-                "layoutType": kony.flex.FLOW_VERTICAL,
-                "left": "0dp",
-                "skin": "slFbox",
-                "top": "0dp",
-                "width": "100.00%",
-                "zIndex": 1
-            }, {}, {});
-            flxRegisteredUserList.setDefaultUnit(kony.flex.DP);
             var segUserList = new kony.ui.SegmentedUI2({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
                 "centerX": "50%",
                 "data": [{
                     "btnDone": "Done",
@@ -912,7 +1103,6 @@ define("frmManageUser", function() {
                     "lblVerticalLine3": ""
                 }],
                 "groupCells": false,
-                "height": "400px",
                 "id": "segUserList",
                 "isVisible": true,
                 "needPageIndicator": true,
@@ -955,98 +1145,15 @@ define("frmManageUser", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            var flxPageNavigation = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "30dp",
-                "id": "flxPageNavigation",
-                "isVisible": false,
-                "layoutType": kony.flex.FLOW_HORIZONTAL,
-                "left": "0dp",
-                "skin": "CopysknFlxTransparent",
-                "top": "25px",
-                "width": "100%",
-                "zIndex": 1
-            }, {}, {});
-            flxPageNavigation.setDefaultUnit(kony.flex.DP);
-            var btnPage1 = new kony.ui.Button({
-                "focusSkin": "sknBtnPageNavigationActive",
-                "height": "30dp",
-                "id": "btnPage1",
-                "isVisible": true,
-                "left": "0dp",
-                "skin": "sknBtnPageNavigationActive",
-                "text": "1",
-                "top": "0dp",
-                "width": "30dp",
-                "zIndex": 1
-            }, {
-                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-                "displayText": true,
-                "padding": [0, 0, 0, 0],
-                "paddingInPixel": false
-            }, {});
-            var btnPage2 = new kony.ui.Button({
-                "focusSkin": "sknBtnPageNavigationNormal",
-                "height": "30dp",
-                "id": "btnPage2",
-                "isVisible": true,
-                "left": "7px",
-                "skin": "sknBtnPageNavigationNormal",
-                "text": "2",
-                "top": "0dp",
-                "width": "30dp",
-                "zIndex": 1
-            }, {
-                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-                "displayText": true,
-                "padding": [0, 0, 0, 0],
-                "paddingInPixel": false
-            }, {});
-            var btnPage3 = new kony.ui.Button({
-                "focusSkin": "sknBtnPageNavigationNormal",
-                "height": "30dp",
-                "id": "btnPage3",
-                "isVisible": true,
-                "left": "7px",
-                "skin": "sknBtnPageNavigationNormal",
-                "text": "3",
-                "top": "0dp",
-                "width": "30dp",
-                "zIndex": 1
-            }, {
-                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-                "displayText": true,
-                "padding": [0, 0, 0, 0],
-                "paddingInPixel": false
-            }, {});
-            var btnPage4 = new kony.ui.Button({
-                "focusSkin": "sknBtnPageNavigationNormal",
-                "height": "30dp",
-                "id": "btnPage4",
-                "isVisible": true,
-                "left": "7px",
-                "skin": "sknBtnPageNavigationNormal",
-                "text": "4",
-                "top": "0dp",
-                "width": "30dp",
-                "zIndex": 1
-            }, {
-                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-                "displayText": true,
-                "padding": [0, 0, 0, 0],
-                "paddingInPixel": false
-            }, {});
-            flxPageNavigation.add(btnPage1, btnPage2, btnPage3, btnPage4);
-            flxRegisteredUserList.add(segUserList, flxPageNavigation);
-            flxUserContainer.add(flxUserHeader, flxRegisteredUserList);
+            flxRegisteredUserList.add(flxUserHeader, segUserList);
             var flxLoading = new kony.ui.FlexContainer({
                 "clipBounds": true,
                 "height": "220dp",
                 "id": "flxLoading",
-                "isVisible": true,
+                "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxWhiteBG",
                 "top": "0dp",
                 "width": "100%",
@@ -1089,9 +1196,10 @@ define("frmManageUser", function() {
                 "clipBounds": true,
                 "height": "120dp",
                 "id": "flxNoUser",
-                "isVisible": true,
+                "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "skin": "sknFlxWhiteBG",
                 "top": "0dp",
                 "width": "100%",
@@ -1128,16 +1236,17 @@ define("frmManageUser", function() {
                 "paddingInPixel": false
             }, {});
             flxNoUser.add(lblLine4, lblNoUser);
-            flxRegisteredUserContainer.add(flxUserContainer, flxLoading, flxNoUser);
-            flxEventDetailContainer.add(lblEventTitle, lblLine1, flxEventInfoRoot, flxRegisteredUserContainer);
+            flxUserContainer.add(flxRegisteredUserList, flxLoading, flxNoUser);
+            flxEventDetailContainer.add(lblEventTitle, lblLine1, flxEventInfoRoot, CopylblLine0ba567fdb417245, flexEventInfoRootTM, CopylblLine0j1ad4573101b46, flxRegisteredUserContainer, flxUserContainer);
             flxInfoItemContainer.add(flexHeader, flxEventDropdownContainer, lblSelectorInfo, flxEventDetailContainer);
             var lblFooter = new kony.ui.Label({
+                "bottom": "0%",
                 "centerX": "50%",
+                "height": "10%",
                 "id": "lblFooter",
-                "isVisible": true,
-                "skin": "CopysknLblFooter",
+                "isVisible": false,
+                "skin": "sknLblFooter6e6e6eAL15px",
                 "text": "© Copyright 2018 Kony, Inc. All Rights Reserved.",
-                "top": "40dp",
                 "width": "40%",
                 "zIndex": 20
             }, {
@@ -1145,18 +1254,729 @@ define("frmManageUser", function() {
                 "padding": [1, 0, 1, 0],
                 "paddingInPixel": false
             }, {});
-            flxInfoItem.add(dashboard, flxInfoItemContainer, lblFooter);
-            flxRoot.add(flxMenuItem, flxInfoItem);
-            this.add(flxRoot);
+            var profileheader = new com.konyenb.profileheader({
+                "clipBounds": true,
+                "height": "10%",
+                "id": "profileheader",
+                "isVisible": true,
+                "layoutType": kony.flex.FREE_FORM,
+                "left": "17.50%",
+                "masterType": constants.MASTER_TYPE_DEFAULT,
+                "isModalContainer": false,
+                "skin": "CopyslFbox0f8e0708310cd4d",
+                "top": "0dp",
+                "width": "82.50%",
+                "zIndex": 1
+            }, {}, {});
+            profileheader.btnUser.isVisible = true;
+            profileheader.btnUser.left = null;
+            profileheader.btnUser.right = "2.50%";
+            profileheader.btnUser.top = null;
+            profileheader.btnUser.width = "50%";
+            profileheader.btnUser.onClick = controller.AS_Button_a55900dc4596483f88dfdfae647e2e4c;
+            profileheader.flexProfilePhotoANdTitle.left = null;
+            profileheader.flexProfilePhotoANdTitle.right = "2.50%";
+            profileheader.flexProfilePhotoANdTitle.width = "50%";
+            profileheader.flxMenuIcon.isVisible = false;
+            profileheader.flxProfile.autogrowMode = kony.flex.AUTOGROW_NONE;
+            profileheader.flxProfile.height = "35dp";
+            profileheader.flxProfile.isVisible = true;
+            profileheader.flxProfile.left = "5%";
+            profileheader.flxProfile.top = null;
+            profileheader.flxProfile.width = "35dp";
+            profileheader.flxProfile.onClick = controller.AS_FlexContainer_e3528929001243eab8a07b6082e56662;
+            profileheader.imgDashBoard.src = "menucollapse.png";
+            profileheader.lblDashboard.isVisible = false;
+            profileheader.lblDashboard.width = kony.flex.USE_PREFFERED_SIZE;
+            profileheader.lblUserName.isVisible = true;
+            profileheader.left = "17.50%";
+            profileheader.top = "0dp";
+            profileheader.width = "82.50%";
+            profileheader.zIndex = 1;
+            var menuItem = new com.konyenb.menu({
+                "clipBounds": true,
+                "height": "100%",
+                "id": "menuItem",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "masterType": constants.MASTER_TYPE_DEFAULT,
+                "isModalContainer": false,
+                "skin": "FlexsknGradient",
+                "top": "0dp",
+                "width": "19.20%",
+                "zIndex": 1
+            }, {}, {});
+            menuItem.flexAllNewEvent.onClick = controller.AS_FlexContainer_h00c5831c06d4309a84e8b4839856432;
+            menuItem.flxCreateNewEvent.onClick = controller.AS_FlexContainer_gc9fc7c3894c4513967504ccf46bf3bb;
+            menuItem.flxManageUser.onClick = controller.AS_FlexContainer_c95719533337433ca1cbac5343864bfd;
+            menuItem.isVisible = true;
+            menuItem.width = "19.20%";
+            menuItem.zIndex = 1;
+            flxRoot.add(flxInfoItemContainer, lblFooter, profileheader, menuItem);
+            var flxMenuClose = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100%",
+                "id": "flxMenuClose",
+                "isVisible": true,
+                "layoutType": kony.flex.FREE_FORM,
+                "left": "65%",
+                "isModalContainer": false,
+                "onClick": controller.AS_FlexContainer_aa0e1bdec3354e9981dbb11e5e8aaa5e,
+                "skin": "CopyslFbox0fb1aa32e474842",
+                "top": "0%",
+                "width": "60%",
+                "zIndex": 1
+            }, {}, {});
+            flxMenuClose.setDefaultUnit(kony.flex.DP);
+            flxMenuClose.add();
+            var flexProfileOptions = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "100dp",
+                "id": "flexProfileOptions",
+                "isVisible": false,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "masterType": constants.MASTER_TYPE_USERWIDGET,
+                "isModalContainer": false,
+                "right": "2%",
+                "skin": "CopyCopyslFbox1",
+                "top": "6.50%",
+                "width": "120dp",
+                "zIndex": 50
+            }, {}, {});
+            flexProfileOptions.setDefaultUnit(kony.flex.DP);
+            var imgProfileDropDown = new kony.ui.Image2({
+                "centerX": "50%",
+                "height": "15px",
+                "id": "imgProfileDropDown",
+                "isVisible": true,
+                "left": "6dp",
+                "skin": "CopyslImage",
+                "src": "drop_down_menu_1_1.png",
+                "top": "0dp",
+                "width": "15dp",
+                "zIndex": 1
+            }, {
+                "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var flxProfile = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "95%",
+                "id": "flxProfile",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0dp",
+                "masterType": constants.MASTER_TYPE_USERWIDGET,
+                "isModalContainer": false,
+                "skin": "CopyCopyslFbox",
+                "top": "-5px",
+                "width": "100%",
+                "zIndex": 500
+            }, {}, {});
+            flxProfile.setDefaultUnit(kony.flex.DP);
+            var flxEditProfile = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "40%",
+                "id": "flxEditProfile",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0%",
+                "isModalContainer": false,
+                "skin": "CopyslFbox",
+                "top": "0%",
+                "width": "100%",
+                "zIndex": 50
+            }, {}, {});
+            flxEditProfile.setDefaultUnit(kony.flex.DP);
+            var lblEditProfile = new kony.ui.Label({
+                "centerY": "50%",
+                "height": "100%",
+                "id": "lblEditProfile",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "CopysknLblProfileNormal",
+                "text": "Edit Profile",
+                "top": "6dp",
+                "width": "100%",
+                "zIndex": 50
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            flxEditProfile.add(lblEditProfile);
+            var lblLineEditProfile = new kony.ui.Label({
+                "centerX": "50%",
+                "height": "1px",
+                "id": "lblLineEditProfile",
+                "isVisible": true,
+                "left": "0%",
+                "skin": "CopyCopydefLabel",
+                "top": "0%",
+                "width": "90%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            var flxLogout = new kony.ui.FlexContainer({
+                "autogrowMode": kony.flex.AUTOGROW_NONE,
+                "clipBounds": true,
+                "height": "40%",
+                "id": "flxLogout",
+                "isVisible": true,
+                "layoutType": kony.flex.FLOW_VERTICAL,
+                "left": "0%",
+                "isModalContainer": false,
+                "onClick": controller.AS_FlexContainer_g35717c1d72b4c30bbf351d2fea25658,
+                "skin": "CopyslFbox",
+                "top": "0%",
+                "width": "100%",
+                "zIndex": 1
+            }, {}, {});
+            flxLogout.setDefaultUnit(kony.flex.DP);
+            var lblLogout = new kony.ui.Label({
+                "centerY": "50%",
+                "height": "100%",
+                "id": "lblLogout",
+                "isVisible": true,
+                "left": "0dp",
+                "skin": "CopysknLblProfileNormal",
+                "text": "Logout",
+                "top": "6dp",
+                "width": "100%",
+                "zIndex": 1
+            }, {
+                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
+                "padding": [0, 0, 0, 0],
+                "paddingInPixel": false
+            }, {});
+            flxLogout.add(lblLogout);
+            flxProfile.add(flxEditProfile, lblLineEditProfile, flxLogout);
+            flexProfileOptions.add(imgProfileDropDown, flxProfile);
+            this.breakpointResetData = {};
+            this.breakpointData = {
+                maxBreakpointWidth: 1920,
+                "480": {
+                    "flxInfoItemContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "10%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "flexHeader": {
+                        "isVisible": false
+                    },
+                    "LblTitle": {},
+                    "flxEventDropdownContainer": {
+                        "height": {
+                            "type": "string",
+                            "value": "40px"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "90%"
+                        }
+                    },
+                    "listBoxEvent": {
+                        "width": {
+                            "type": "string",
+                            "value": "70%"
+                        }
+                    },
+                    "btnProceed": {
+                        "left": {
+                            "type": "string",
+                            "value": "5%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "20%"
+                        }
+                    },
+                    "lblSelectorInfo": {
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        }
+                    },
+                    "flxEventDetailContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "flxRootEventTitle": {
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "lblLine0": {
+                        "isVisible": false
+                    },
+                    "flxMenuIcon": {
+                        "isVisible": true,
+                        "left": {
+                            "type": "string",
+                            "value": "1%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "flexEventInfoRootTM": {
+                        "top": {
+                            "type": "string",
+                            "value": "2dp"
+                        }
+                    },
+                    "flxRegisteredUserList": {
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "lblFooter": {
+                        "height": {
+                            "type": "string",
+                            "value": "5%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "profileheader": {
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "btnUser": {
+                        "instanceId": "profileheader"
+                    },
+                    "flexProfilePhotoANdTitle": {
+                        "instanceId": "profileheader"
+                    },
+                    "imgDashBoard": {
+                        "height": {
+                            "type": "string",
+                            "value": "30%"
+                        },
+                        "src": "menudesk.png",
+                        "width": {
+                            "type": "string",
+                            "value": "45%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "lblDashboard": {
+                        "instanceId": "profileheader"
+                    },
+                    "lblUserName": {
+                        "instanceId": "profileheader"
+                    },
+                    "menuItem": {
+                        "isVisible": false,
+                        "width": {
+                            "type": "string",
+                            "value": "65%"
+                        },
+                        "instanceId": "menuItem"
+                    },
+                    "flxMenuClose": {
+                        "isVisible": false,
+                        "width": {
+                            "type": "string",
+                            "value": "35%"
+                        }
+                    },
+                    "flexProfileOptions": {
+                        "isVisible": false
+                    },
+                    "flxProfile": {}
+                },
+                "771": {
+                    "flxInfoItemContainer": {
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "10%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "flexHeader": {
+                        "isVisible": false
+                    },
+                    "flxEventDropdownContainer": {
+                        "height": {
+                            "type": "string",
+                            "value": "40px"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "90%"
+                        }
+                    },
+                    "listBoxEvent": {
+                        "width": {
+                            "type": "string",
+                            "value": "70%"
+                        }
+                    },
+                    "btnProceed": {
+                        "left": {
+                            "type": "string",
+                            "value": "5%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "20%"
+                        }
+                    },
+                    "lblSelectorInfo": {
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        }
+                    },
+                    "flxEventDetailContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        },
+                        "zIndex": 20
+                    },
+                    "lblEventTitle": {
+                        "text": "Webinar Event Upgrade"
+                    },
+                    "flxRootEventTitle": {
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "lblLine0": {
+                        "isVisible": false
+                    },
+                    "flxMenuIcon": {
+                        "isVisible": true,
+                        "instanceId": "profileheader"
+                    },
+                    "lblFooter": {
+                        "height": {
+                            "type": "string",
+                            "value": "5%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        }
+                    },
+                    "profileheader": {
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "100%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "flexProfilePhotoANdTitle": {
+                        "instanceId": "profileheader"
+                    },
+                    "menuItem": {
+                        "width": {
+                            "type": "string",
+                            "value": "40%"
+                        },
+                        "instanceId": "menuItem"
+                    },
+                    "flxMenuClose": {
+                        "isVisible": false,
+                        "left": {
+                            "type": "string",
+                            "value": "40%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "60%"
+                        }
+                    },
+                    "flexProfileOptions": {},
+                    "flxProfile": {
+                        "left": {
+                            "type": "string",
+                            "value": "0dp"
+                        }
+                    }
+                },
+                "1366": {
+                    "flxRoot": {},
+                    "flxInfoItemContainer": {
+                        "left": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "10%"
+                        }
+                    },
+                    "LblTitle": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "flxEventDropdownContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "lblSelectorInfo": {
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "10dp"
+                        }
+                    },
+                    "flxEventDetailContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "CopylblLine0ba567fdb417245": {
+                        "isVisible": false
+                    },
+                    "flexEventInfoRootTM": {
+                        "isVisible": false
+                    },
+                    "flexMetricsTM": {
+                        "isVisible": true
+                    },
+                    "CopylblLine0j1ad4573101b46": {
+                        "isVisible": false
+                    },
+                    "lblFooter": {
+                        "height": {
+                            "type": "string",
+                            "value": "5%"
+                        }
+                    },
+                    "profileheader": {
+                        "left": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "81%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "flexProfilePhotoANdTitle": {
+                        "centerY": {
+                            "type": "string",
+                            "value": "50.00%"
+                        },
+                        "right": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "menuItem": {
+                        "width": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "instanceId": "menuItem"
+                    },
+                    "flxMenuClose": {
+                        "isVisible": false
+                    },
+                    "flexProfileOptions": {}
+                },
+                "1920": {
+                    "flxRoot": {},
+                    "flxInfoItemContainer": {
+                        "left": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "10%"
+                        }
+                    },
+                    "flexHeader": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50.00%"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "0dp"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "flxEventDropdownContainer": {
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        },
+                        "top": {
+                            "type": "string",
+                            "value": "25px"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "97.50%"
+                        }
+                    },
+                    "lblSelectorInfo": {
+                        "left": {
+                            "type": "string",
+                            "value": "2.50%"
+                        }
+                    },
+                    "flxEventDetailContainer": {
+                        "centerX": {
+                            "type": "string",
+                            "value": "50%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "95%"
+                        }
+                    },
+                    "lblFooter": {
+                        "height": {
+                            "type": "string",
+                            "value": "5%"
+                        },
+                        "left": {
+                            "type": "string",
+                            "value": "0%"
+                        }
+                    },
+                    "profileheader": {
+                        "left": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "width": {
+                            "type": "string",
+                            "value": "81%"
+                        },
+                        "instanceId": "profileheader"
+                    },
+                    "btnUser": {
+                        "instanceId": "profileheader"
+                    },
+                    "menuItem": {
+                        "width": {
+                            "type": "string",
+                            "value": "19%"
+                        },
+                        "instanceId": "menuItem"
+                    },
+                    "flxMenuClose": {
+                        "isVisible": false
+                    },
+                    "flexProfileOptions": {}
+                }
+            }
+            this.add(flxRoot, flxMenuClose, flexProfileOptions);
         };
         return [{
             "addWidgets": addWidgetsfrmManageUser,
             "enabledForIdleTimeout": false,
             "id": "frmManageUser",
+            "init": controller.AS_Form_i6355a3694614e85b1e940843f7ef516,
             "layoutType": kony.flex.FREE_FORM,
             "needAppMenu": false,
             "postShow": controller.AS_Form_e5ee2744321a4665a1dfc6cfd31bcbd9,
-            "skin": "CopyslForm0d3a40eed30a641"
+            "skin": "sknfrmffffff",
+            "onBreakpointHandler": onBreakpointHandler,
+            "breakpoints": [480, 771, 1366, 1920],
+            "onBreakpointChange": controller.AS_Form_j7cf8c4a78074258b2feb8e0f8e76ba3
         }, {
             "displayOrientation": constants.FORM_DISPLAY_ORIENTATION_PORTRAIT,
             "layoutType": kony.flex.FREE_FORM,

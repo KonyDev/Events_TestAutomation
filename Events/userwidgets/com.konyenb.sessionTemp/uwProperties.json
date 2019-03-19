@@ -5,7 +5,7 @@
             "custom": [
                 {
                     "group": "General",
-                    "kuid": "bdb2b254267e43dfb835e2c08d414122",
+                    "kuid": "a4ec724f2e474b32b92726952e794a2a",
                     "paramList": [],
                     "propertyKey": "getData",
                     "pw": {
@@ -17,7 +17,7 @@
                 },
                 {
                     "group": "General",
-                    "kuid": "ee45bf6c04454efa98654ea10d7f1a17",
+                    "kuid": "b9b1eb12758e42b1a5d22a326da70bbc",
                     "paramList": [
                         {
                             "name": "session"
@@ -33,11 +33,27 @@
                 },
                 {
                     "group": "General",
-                    "kuid": "id123f7ce001442b86e0bf17ff70ba5f",
+                    "kuid": "b72dd6edb5034a08bc5cfdb9462023c2",
                     "paramList": [],
                     "propertyKey": "setDateRange",
                     "pw": {
                         "displayName": "setDateRange",
+                        "uiRepresentation": "Label-Label-Button-Button"
+                    },
+                    "srcWgtKUID": "e5b91eac6ee942dcbdc65beeaf92bd0e",
+                    "type": "event"
+                },
+                {
+                    "group": "General",
+                    "kuid": "b881469c556143359198ee2cb92cdc15",
+                    "paramList": [
+                        {
+                            "name": "breakpoint"
+                        }
+                    ],
+                    "propertyKey": "changeLayoutAccoringToBp",
+                    "pw": {
+                        "displayName": "changeLayoutAccoringToBp",
                         "uiRepresentation": "Label-Label-Button-Button"
                     },
                     "srcWgtKUID": "e5b91eac6ee942dcbdc65beeaf92bd0e",

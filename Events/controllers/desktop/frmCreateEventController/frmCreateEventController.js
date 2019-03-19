@@ -22,7 +22,9 @@ define({
 	 **/
 	onNavigate: function (param) {
         try{
-          this.event_id = "";
+        this.breakpoint  = glbBreakPoint;
+        this.setScreenHeight();
+        this.event_id = "";
 		this.eventImages = [];
 		this.bannerImage = {};
 		this.view.segGallery.removeAll();
@@ -124,7 +126,6 @@ define({
 		this.sessionCount = 0;
 		this.speakerCount = 0;
 		this.uniqueId = 1;
-		this.lastTop = 110;
 		this.createFirstSession();
         }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
@@ -137,7 +138,7 @@ define({
 	 **/
 	createFirstSession: function () {
        try{
-		var session = new com.konyenb.sessionTemp({
+        var sessionTemplate = {
 				"clipBounds": true,
 				"height": "100%",
 				"id": "session1",
@@ -148,10 +149,8 @@ define({
 				"skin": "slFbox",
 				"top": "0%",
 				"width": "100%"
-			}, {}, {});
-		this.view.FlexScrollSession.add(session);
-
-		var sessionFooter = new com.konyenb.SessionFooter({
+			};
+		var footerTemp = {
 				"autogrowMode": kony.flex.AUTOGROW_NONE,
 				"clipBounds": true,
 				"height": "10%",
@@ -161,16 +160,28 @@ define({
 				"left": "0dp",
 				"masterType": constants.MASTER_TYPE_USERWIDGET,
 				"skin": "slFbox",
-				"top": "100%",
+				"top": "0%",
 				"width": "100%"
-			}, {}, {});
+			};
+         
+        //Responsive web changes
+        if(this.breakpoint<=EVENT_CONSTANS.BREAKPOINT.TABLET){
+          sessionTemplate.height = "200%";
+          sessionTemplate.layoutType = kony.flex.FLOW_VERTICAL;
+        }
+        var session = new com.konyenb.sessionTemp(sessionTemplate,{},{});
+		var sessionFooter = new com.konyenb.SessionFooter(footerTemp, {}, {});
+        this.view.FlexScrollSession.add(session);
 		this.view.FlexScrollSession.add(sessionFooter);
-		this.view["sessionFooter1"].btnAddOnclick = this.createUI;
+        this.view["sessionFooter1"].btnAddOnclick = this.createUI;
 		this.view["sessionFooter1"].btnDelOnclick = this.removeSession;
 		this.view["sessionFooter1"].isAddVisible = true;
 		this.view["sessionFooter1"].isDelVisible = true;
 		this.view["sessionFooter1"].isEditVisible = false;
-		this.createPublisHButtonOnSessionScreen(110);
+        this.createPublisHButtonOnSessionScreen();
+         
+        //responsiveweb changes
+        this.view["session1"].changeLayoutAccoringToBp(this.breakpoint);
        }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
         }
@@ -192,27 +203,30 @@ define({
 				"layoutType": kony.flex.FREE_FORM,
 				"left": "0%",
 				"skin": "slFbox",
-				"top": top + "%",
+				"top": "0%",
 				"width": "100%",
 				"zIndex": 1
 			}, {}, {});
 		flexPublishEvent.setDefaultUnit(kony.flex.DP);
 		var btnPublish = new kony.ui.Button({
-				"focusSkin": "CopydefBtnNormal0ed0a68b2c3ae44",
+				"focusSkin": "sknBtnfffBR1AL100",
 				"height": "50%",
 				"id": "btnPublish",
 				"isVisible": true,
 				"left": "4.00%",
 				"onClick": this.publishEventAndSessions,
-				"skin": "CopydefBtnNormal0ed0a68b2c3ae44",
+				"skin": "sknBtnfffBR1AL100",
 				"text": "PUBLISH EVENT",
 				"top": "0.00%",
-				"width": "20%",
+				"width": {
+                            "type": "ref",
+                            "value": kony.flex.USE_PREFFERED_SIZE
+                        },
 				"zIndex": 2
 			}, {
 				"contentAlignment": constants.CONTENT_ALIGN_CENTER,
 				"displayText": true,
-				"padding": [0, 0, 0, 0],
+				"padding": [4, 0, 4, 0],
 				"paddingInPixel": false
 			}, {});
 		flexPublishEvent.add(btnPublish);
@@ -221,21 +235,33 @@ define({
           kony.print("Create EventController"+JSON.stringify(error));
         }
 	},
-
-	/**
+    	/**
 	 * @function setProfile
-	 * @description - This function will set the profile data
-	 **/
+	 * @description This function is used to set the profile data
+	 */
 	setProfile: function () {
-      try{
-		if (glbUserAttributes !== undefined && glbUserAttributes !== null && glbUserAttributes !== {}) {
-			this.view.dashboard.text = glbUserAttributes.firstname;
-			this.view.dashboard.Title = "";
+		if (glbIsLoggedIn) {
+            this.view.profileheader.flexProfilePhotoANdTitle.isVisible = true;
+			this.view.profileheader.btnUser.isVisible = false;
+			if (glbProfile !== undefined && glbProfile !== null && glbProfile !== {}) {
+				if (glbProfile.first_name !== undefined) {
+					this.view.profileheader.lblUserName.isVisible = true;
+					this.view.profileheader.lblUserName.text = glbProfile.first_name;
+				}
+				if (glbProfile.profile !== undefined) {
+					this.view.profileheader.imgProfile.src = glbProfile.profile;
+				} else {
+					this.view.profileheader.imgProfile.src = "profile.png";
+				}
+				this.view.profileheader.flxProfile.isVisible = true;
+			}
+		} else {
+			this.view.profileheader.btnUser.isVisible = true;
+			this.view.profileheader.flexProfilePhotoANdTitle.isVisible = false;
 		}
-      }catch(error){
-          kony.print("Create EventController"+JSON.stringify(error));
-        }
+
 	},
+	
 	/**
 	 * @function getLocation
 	 * @description - This function will get the current location using kony.location.getCurrentPosition
@@ -1056,7 +1082,7 @@ define({
 	 **/
 
 	uniqueId: 1, // maintains the ID of the component created dynamically
-	lastTop: 110, // maintains the Top of the component created dynamically
+	lastTop: 0, // maintains the Top of the component created dynamically
 
 	/**
 	 * @function createUI
@@ -1079,7 +1105,7 @@ define({
 	 **/
 	createSession: function () {
         try{
-		var session = new com.konyenb.sessionTemp({
+		var sessionTemplate = {
 				"clipBounds": true,
 				"height": "100%",
 				"id": "session" + (this.uniqueId),
@@ -1088,11 +1114,16 @@ define({
 				"left": "0dp",
 				"masterType": constants.MASTER_TYPE_USERWIDGET,
 				"skin": "slFbox",
-				"top": this.lastTop + "%",
+				"top": "0%",
 				"width": "100%"
-			}, {}, {});
-		this.lastTop = this.lastTop + 100;
+			};
+        if(this.breakpoint<=EVENT_CONSTANS.BREAKPOINT.TABLET){
+          sessionTemplate.height = "200%";
+          sessionTemplate.layoutType = kony.flex.FLOW_VERTICAL;
+        }
+        var session = new com.konyenb.sessionTemp(sessionTemplate,{},{});
 		this.view.FlexScrollSession.add(session);
+        this.view["session" + (this.uniqueId)].changeLayoutAccoringToBp(this.breakpoint);
 		this.view["session" + (this.uniqueId)].setEditData = "";
         }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
@@ -1115,10 +1146,9 @@ define({
 				"left": "0dp",
 				"masterType": constants.MASTER_TYPE_USERWIDGET,
 				"skin": "slFbox",
-				"top": this.lastTop + "%",
+				"top": "0%",
 				"width": "100%"
 			}, {}, {});
-		this.lastTop = this.lastTop + 10;
 		this.view.FlexScrollSession.add(sessionFooter);
 		this.view["sessionFooter" + this.uniqueId].btnAddOnclick = this.createUI;
 		this.view["sessionFooter" + this.uniqueId].btnDelOnclick = this.removeSession;
@@ -1140,7 +1170,9 @@ define({
 	 **/
 	setPublish: function () {
         try{
-		this.view.flexPublishEvent.top = this.lastTop + "%";
+        this.view.FlexScrollSession.remove(this.view.flexPublishEvent);
+        this.workAroundForVerticalFlow();
+        this.createPublisHButtonOnSessionScreen();
         }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
         }
@@ -1153,7 +1185,7 @@ define({
 	 **/
 	removeSession: function (eventObject) {
         try{
-		var id = eventObject.parent.kmasterid; // get the footercomp id
+   		var id = eventObject.parent.kmasterid; // get the footercomp id
 		var widgets = this.view.FlexScrollSession.widgets(); // get all the widgets list
 		var i;
 		var wLength = widgets.length;
@@ -1167,13 +1199,6 @@ define({
 			}
 		}
 
-		// Start iterating after the selected id and change the top of the other widgets since the slected widgets will be deleted
-		for (var j = (i + 1); j < widgets.length; j++) {
-			//change the top only for sessiontemplate and sessionfooter
-			if (this.isSearchTextPresent(widgets[j].id, "session") || this.isSearchTextPresent(widgets[j].id, "sessionFooter")) {
-				this.view[widgets[j].id].top = (Number((this.view[widgets[j].id].top).split("%")[0]) - 110) + "%";
-			}
-		}
 		//As the selected widget is footertemp, removing the selected footertemp component and sessiontemp component
 		this.view.FlexScrollSession.remove(this.view[widgets[i - 1].id]);
 		this.view.FlexScrollSession.remove(this.view[widgets[i - 1].id]);
@@ -1182,13 +1207,10 @@ define({
 		// so create the default add session button and set the publish button to the top 10%
 		if (wLength === 3) {
 			this.createDefaultAddSessionButton();
-			this.view.flexPublishEvent.top = "10%";
-		} else {
-			// this will set the top of the publish button accordingly
-			this.view.flexPublishEvent.top = (Number((this.view.flexPublishEvent.top).split("%")[0]) - 110) + "%";
-		}
-		this.lastTop = this.lastTop - 110; // update the last top value
-		this.view.forceLayout();
+		} 
+        //Work Around for vertical flow of flex 
+        this.workAroundForVerticalFlow();
+       	this.view.FlexScrollSession.forceLayout();
         }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
         }
@@ -1551,6 +1573,7 @@ define({
 	 * @param {JSON object} - selected event detail
 	 **/
 	setEventForEdit: function (response) {
+        this.eventDataForBreakPoint = response;
         try{
 		this.eventBkendData = {};
 		this.event_id = response.event_id; //storing selected event_id
@@ -1593,7 +1616,11 @@ define({
 		this.view.calEventEndDate.dateComponents = [date_com[1], date_com[0], date_com[2]];
 		this.view.calEventEndDate.validStartDate = this.view.calEventStartDate.dateComponents;
 		this.view.EndTime.TimeValue = time.slice(0, 5);
-
+        //Handle for event type to String if number
+		if(!(response.event_type instanceof String)){
+               response.event_type = response.event_type.toString(); 
+         }
+          
 		if (response.event_type == "2") {
 			//Setting Address
 			if (response.location[0].location !== undefined)
@@ -1964,19 +1991,20 @@ define({
 	getSchedule: function () {
 		try {
 			var sdkClient = new kony.sdk.getCurrentInstance();
-			var objectInstance = sdkClient.getObjectService("EventOrchSDO", {
+          	var objectInstance = sdkClient.getObjectService("EventsSOS", {
 					"access": "online"
 				});
 			if (objectInstance === null || objectInstance === undefined) {
 				alert("Something went wrong. Please try later.");
 				return;
 			}
-			var dataObject = new kony.sdk.dto.DataObject("event_session_presenter");
+            var dataObject = new kony.sdk.dto.DataObject("event_sessions");
 			var options = {
 				"dataObject": dataObject,
 				"headers": {},
 				"queryParams": {
-					"$filter": "event_id eq " + "'" + this.event_id + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))"
+					"$filter": "event_id eq " + "'" + this.event_id + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))",
+                  	"$expand": "presenter"
 				}
 			};
 			showLoading(this);
@@ -2120,12 +2148,12 @@ define({
 	createDefaultAddSessionButton: function () {
       try{
 		var btnAddNewSessionDefault = new kony.ui.Button({
-				"focusSkin": "CopydefBtnNormal0gafb081126cd49",
+				"focusSkin": "sknBtnAB80",
 				"height": "5%",
 				"id": "btnAddNewSessionDefault",
 				"isVisible": true,
 				"left": "2.50%",
-				"skin": "CopydefBtnNormal0gafb081126cd49",
+				"skin": "sknBtnAB80",
 				"text": "Add New Session",
 				"top": "2%",
 				"width": "10%",
@@ -2153,7 +2181,8 @@ define({
 		this.view.FlexScrollSession.remove(this.view.btnAddNewSessionDefault);
 		this.view.FlexScrollSession.remove(this.view.flexPublishEvent);
 		this.uniqueId = 1;
-		this.lastTop = 110;
+		//this.lastTop = 110;
+        this.lastTop = 0;
 		this.createFirstSession();
       }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
@@ -2852,6 +2881,176 @@ define({
        }catch(error){
           kony.print("Create EventController"+JSON.stringify(error));
         }
-	}
+	},
+ /**
+  * @function onBreakPointChangeCallback
+  * @description - this function is the callback onBreakpoint change of the form
+  **/
+ onBreakPointChangeCallback: function (breakpoint) {
+ 	this.setScreenHeight();
+ 	this.breakpoint = breakpoint;
+ 	this.checkBreakpointAndSetUI(breakpoint);
+ },
+
+ /**
+  * @function setScreenHeight
+  * @description - this function will set the screen height to DP based on the current screen height
+  **/
+ setScreenHeight: function () {
+ 	var screenHeight = kony.os.deviceInfo().screenHeight;
+ 	this.view.flexScrollEvent.height = (screenHeight - 185) + "dp";
+ 	this.view.FlexScrollSession.height = (screenHeight - 185) + "dp";
+ },
+ /**
+  * @function checkBreakpointAndSetUI
+  * @description - this function will check breakpoint and set sidemenu and change layout for sessions
+  **/
+ checkBreakpointAndSetUI: function (breakpoint) {
+ 	this.breakpoint = breakpoint;
+    if(this.isEditMode){
+      this.setEventForEdit(this.eventDataForBreakPoint);
+    }
+ 	this.changeLayoutForSessions();
+ 	if (isTablet(breakpoint)) {
+ 		this.setMenuItem(false);
+        this.setProfileName(true);
+ 		this.isCloseAvailableForMenu = true;
+ 	} else if (isDesktop(breakpoint)) {
+ 		this.setMenuItem(true);
+        this.setProfileName(true);
+ 		this.isCloseAvailableForMenu = false;
+ 	} else if (isDesktopLarge(breakpoint)) {
+ 		this.setMenuItem(true);
+        this.setProfileName(true);
+ 		this.isCloseAvailableForMenu = false;
+ 	} else if (isMobile(breakpoint)) {
+ 		this.setMenuItem(false);
+        this.setProfileName(false);
+ 		this.isCloseAvailableForMenu = true;
+ 	}
+ },
+ /**
+  * @function setMenuItem
+  * @description - this function will set menu Item visibility and handles menu click on different break point
+  **/
+ setMenuItem: function (visibility) {
+ 	if (!visibility) {
+ 		this.view.profileheader.flxMenuIcon.onClick = function () {
+ 			this.setHamVisibility();
+ 		}
+ 		.bind(this);
+ 		this.setMenuVisbility(false);
+ 	} else {
+ 		this.view.profileheader.flxMenuIcon.onClick = null;
+ 		this.setMenuVisbility(true);
+ 	}
+ },
+ /**
+  * @function setMenuVisbility
+  * @description - this function will sets the visibility of menuItem
+  **/
+ setMenuVisbility: function (visibility) {
+ 	this.view.menuItem.setVisibility(visibility);
+ 	this.view.forceLayout();
+ },
+ /**
+  * @function setHamVisibility
+  * @description - this function will check the visibility ot the menu bar, 
+  * if the menu bar is visible then it makes the menubar visibility false else true
+  **/
+ setHamVisibility: function () {
+ 	var menubarVisibity = this.view.menuItem.isVisible;
+ 	if (menubarVisibity) {
+ 		if (this.isCloseAvailableForMenu) {
+ 			this.view.flxMenuClose.isVisible = false;
+ 			this.setMenuVisbility(false);
+ 		}
+ 	} else {
+ 		if (this.isCloseAvailableForMenu) {
+ 			this.view.flxMenuClose.isVisible = true;
+ 		}
+ 		this.setMenuVisbility(true);
+ 	}
+ },
+ /**
+  * @function changeLayoutForSessions
+  * @description - this function will get the list of already created sessions in the flex scroll container and 
+  * calls changeLayoutAccoringToBp() to change the height based on the breakpoint change
+  **/
+ changeLayoutForSessions: function () {
+ 	var widgets = this.view.FlexScrollSession.widgets(); // get all the widgets list
+ 	var i;
+ 	var wLength = widgets.length;
+ 	if (widgets.length === 0) {
+ 		return;
+ 	}
+ 	// Start iterating after the selected id and change the top of the other widgets since the slected widgets will be deleted
+ 	for (var j = 0; j < widgets.length; j++) {
+ 		if (this.isSearchTextPresent(widgets[j].id, "session") && !this.isSearchTextPresent(widgets[j].id, "sessionFooter")) {
+ 			this.view[widgets[j].id].changeLayoutAccoringToBp(this.breakpoint);
+ 		}
+ 	}
+ },
+
+ /**
+  * @function option1SelectionCallback
+  * @description - this function is the callback of onclick of create new event on the menubar
+  * this function sets the menubar visibilty false and set the selected flex to create event
+  **/
+ option1SelectionCallback: function () {
+ 	this.setHamVisibility();
+ 	this.view.menuItem.setSelectedFlex(1);
+ },
+
+ /**
+  * @function option2SelectionCallback
+  * @description - this function is the callback of onclick of All Event on the menubar
+  * this function sets the menubar visibilty false and navigate to all events page
+  **/
+ option2SelectionCallback: function () {
+ 	this.setHamVisibility();
+ 	this.askForConfirmation("Your changes will be lost. Do you want to proceed?", "Are you Sure?", this.navigateToAllEventsPage);
+ },
+
+ /**
+  * @function option3SelectionCallback
+  * @description - this function is the callback of onclick of Manage Users on the menubar
+  * this function sets the menubar visibilty false and navigate to Manage Users page
+  **/
+ option3SelectionCallback: function () {
+ 	this.setHamVisibility();
+ 	this.navigateToManageUser();
+ },
+
+ /**
+  * @function workAroundForVerticalFlow
+  * @description - this function is the Work Aound for flex scroll container vertical flow issue
+  **/
+ workAroundForVerticalFlow: function () {
+ 	this.view.FlexScrollSession.height = (this.view.FlexScrollSession.frame.height + 0.01) + "dp";
+ 	this.view.FlexScrollSession.height = (this.view.FlexScrollSession.frame.height - 0.01) + "dp";
+ },
+  
+ showProfileOptions : function(){
+    if(this.view.flexProfileOptions.isVisible){
+       this.view.flexProfileOptions.isVisible = false;
+    }else{
+       this.view.flexProfileOptions.isVisible = true;
+    }
+ },
+  
+  setProfileName : function(visibility){
+    this.view.profileheader.lblUserName.isVisible = visibility;
+  },
+    /**
+  * @function logout
+  * @description - this function will reset the UI back to logout state
+  **/   
+ logout : function(){
+    glbIsLoggedIn = false;
+    EVENT_CONSTANS.MODE.USERROLE = EVENT_CONSTANS.USERROLE.CONSUMER;
+    var navObj = new kony.mvc.Navigation("frmAllEvents");
+    navObj.navigate(EVENT_CONSTANS.MODE.ALLEVENTS);
+ }
 
 });

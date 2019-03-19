@@ -39,7 +39,7 @@
         "flxHeader",
         "flxMenuControl",
         "flxBotom",
-        "FlexContainer0e4681d0bdef643"
+        "flexBottomActions"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -51,6 +51,7 @@
     "kuid": "ee2f361ec6024cc48e36ce11a55799f1",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_c051a9d2c48e4ca28722835199deec66",
     "parent": "slidingmenu",
     "pf": "userwidgetmodel",
     "snapgridsize": 10,

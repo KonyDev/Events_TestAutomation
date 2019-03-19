@@ -30,19 +30,20 @@ define("userfrmPresenterController", {
     getPresenter: function(eventID) {
         try {
             var sdkClient = new kony.sdk.getCurrentInstance();
-            var objectInstance = sdkClient.getObjectService("EventOrchSDO", {
+            var objectInstance = sdkClient.getObjectService("EventsSOS", {
                 "access": "online"
             });
             if (objectInstance === null || objectInstance === undefined) {
                 alert("Please connect app to MF");
                 return;
             }
-            var dataObject = new kony.sdk.dto.DataObject("event_session_presenter");
+            var dataObject = new kony.sdk.dto.DataObject("event_sessions");
             var options = {
                 "dataObject": dataObject,
                 "headers": {},
                 "queryParams": {
-                    "$filter": "event_id eq " + "'" + eventID + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))"
+                    "$filter": "event_id eq " + "'" + eventID + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))",
+                    "$expand": "presenter"
                 }
             };
             showLoading();
@@ -67,9 +68,8 @@ define("userfrmPresenterController", {
     presenterFetchSuccess: function(response) {
         try {
             kony.application.dismissLoadingScreen();
-            kony.print("Presnters: " + JSON.stringify(response));
-            //alert("Presnters: "+JSON.stringify(response.records));
-            if ((response.records[0].event_sessions).length === 0) {
+            //kony.print("Presnters: " + JSON.stringify(response));
+            if ((response.records).length === 0) {
                 this.setNoSessionLabel(false);
                 return;
             }
@@ -128,6 +128,7 @@ define("userfrmPresenterController", {
                 finalSegDataList.push(segMainList);
             }
             this.view.segSpeaker.removeAll();
+            this.setNoSessionLabel(true);
             this.view.segSpeaker.setData(finalSegDataList);
         } catch (err) {
             kony.print("Frm Presenter Controller" + JSON.stringify(err));

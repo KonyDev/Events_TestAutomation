@@ -1,27 +1,23 @@
 {
     "AS_FlexContainer_i8cfb56a4ab74162ad1e3ed76336b05e": {
-        "actions": [
-            {
-                "callbackType": null,
-                "codeSnippet": "this.testFunction1();",
-                "id": "ADD_SNIPPET__ec0f71d340b1482481cc3b968d8473e3",
-                "parentId": null,
-                "type": "ADD_SNIPPET"
-            }
-        ],
+        "id": "AS_FlexContainer_i8cfb56a4ab74162ad1e3ed76336b05e",
+        "type": "ACTION_SEQUENCE",
+        "params": [{
+            "datatype": "collection",
+            "name": "eventobject"
+        }],
         "contextObj": {
             "KUID": "udecca94eb274346a87c08c2e7107125",
             "name": "uwudecca94eb274346a87c08c2e7107125",
             "type": "userwidgets"
         },
-        "id": "AS_FlexContainer_i8cfb56a4ab74162ad1e3ed76336b05e",
         "language": "js",
-        "params": [
-            {
-                "datatype": "collection",
-                "name": "eventobject"
-            }
-        ],
-        "type": "ACTION_SEQUENCE"
+        "actions": [{
+            "id": "ADD_SNIPPET__ec0f71d340b1482481cc3b968d8473e3",
+            "type": "ADD_SNIPPET",
+            "codeSnippet": "this.testFunction1();",
+            "parentId": null,
+            "callbackType": null
+        }]
     }
 }

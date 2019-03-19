@@ -63,6 +63,18 @@
     "parent": "flexEventRight",
     "pf": "frmCreateEvent",
     "placeholderskin": "sbe7dbc46cc54921b2873745c2c1b4b1",
+    "responsiveData": {
+        "b3": {
+            "isVisible": true
+        },
+        "b4": {
+            "isVisible": false,
+            "width": {
+                "type": "string",
+                "value": "90%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "securetextentry": false,

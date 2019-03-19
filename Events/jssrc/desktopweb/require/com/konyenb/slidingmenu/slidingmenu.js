@@ -8,9 +8,9 @@ define(function() {
             "id": "slidingmenu",
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
-            "left": "0dp",
+            "left": "-1dp",
+            "isModalContainer": false,
             "postShow": controller.AS_FlexContainer_7d4d911ce6f64e1f934158f6da3fc2df,
-            "skin": "CopyCopyslFbox1",
             "top": "0dp",
             "width": "100%",
             "zIndex": 99
@@ -24,8 +24,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "-20%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_c051a9d2c48e4ca28722835199deec66,
-            "skin": "CopysknFlx",
             "top": "0dp",
             "width": "100%",
             "zIndex": 3
@@ -39,7 +39,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "19.96%",
-            "skin": "CopyCopyslFbox1",
+            "isModalContainer": false,
             "top": "0dp",
             "width": "80%",
             "zIndex": 1
@@ -53,8 +53,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "15%",
+            "isModalContainer": false,
             "onClick": controller.AS_onProfileClick_h0a282ca17324c44bb1e95890cf93b09,
-            "skin": "CopyCopyslFbox0j2c89a7e66a34e",
             "top": "5%",
             "width": "80dp",
             "zIndex": 1
@@ -65,7 +65,6 @@ define(function() {
             "id": "imgHeader",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopyCopyslImage3",
             "src": "profile.png",
             "top": "0dp",
             "width": "100%",
@@ -80,7 +79,6 @@ define(function() {
             "id": "lblHeaderText1",
             "isVisible": true,
             "left": "48%",
-            "skin": "CopysknLblNunitof",
             "text": "Kony",
             "textStyle": {},
             "top": "30%",
@@ -95,7 +93,6 @@ define(function() {
             "id": "lblHeaderText2",
             "isVisible": true,
             "left": "47.96%",
-            "skin": "CopysknlblnunitoLightf1",
             "text": "admin@kony.com",
             "textStyle": {},
             "top": "42.00%",
@@ -108,7 +105,6 @@ define(function() {
         }, {});
         var btnClick = new kony.ui.Button({
             "centerY": "33%",
-            "focusSkin": "CopyCopysknBtnTransperant",
             "height": "40%",
             "id": "btnClick",
             "isVisible": true,
@@ -156,8 +152,8 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "20%",
+            "isModalContainer": false,
             "onClick": controller.AS_onClickFooter_e62614a9a84e462fad4cc8bbe1335bdf,
-            "skin": "CopyCopyslFbox1",
             "width": "100%",
             "zIndex": 1
         }, {}, {});
@@ -168,7 +164,6 @@ define(function() {
             "id": "imgFooter",
             "isVisible": true,
             "left": "7%",
-            "skin": "CopyCopyslImage3",
             "src": "pageondot.png",
             "width": "30dp",
             "zIndex": 1
@@ -182,7 +177,6 @@ define(function() {
             "id": "textFooter",
             "isVisible": true,
             "left": "2%",
-            "skin": "CopysknlblnunitoLightf1",
             "text": "Logout",
             "textStyle": {},
             "width": kony.flex.USE_PREFFERED_SIZE,
@@ -193,29 +187,30 @@ define(function() {
             "paddingInPixel": false
         }, {});
         flxBotom.add(imgFooter, textFooter);
-        var FlexContainer0e4681d0bdef643 = new kony.ui.FlexContainer({
+        var flexBottomActions = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "bottom": "5%",
             "clipBounds": true,
             "height": "10%",
-            "id": "FlexContainer0e4681d0bdef643",
+            "id": "flexBottomActions",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "20%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "width": "100%",
             "zIndex": 1
         }, {}, {});
-        FlexContainer0e4681d0bdef643.setDefaultUnit(kony.flex.DP);
+        flexBottomActions.setDefaultUnit(kony.flex.DP);
         var btnLogout = new kony.ui.Button({
             "centerY": "50%",
-            "focusSkin": "defBtnFocus",
+            "focusSkin": "sknbtnLogoutIcon",
             "height": "50dp",
             "id": "btnLogout",
             "isVisible": true,
             "left": "4%",
             "onClick": controller.AS_onLogoutClick_fb2f60358abd45e3a1cc378228fb9229,
-            "skin": "CopydefBtnNormal0jff90d69e7a44a",
+            "skin": "sknbtnLogoutIcon",
             "top": "6dp",
             "width": "50dp",
             "zIndex": 1
@@ -233,7 +228,6 @@ define(function() {
             "isVisible": false,
             "left": "4%",
             "onClick": controller.AS_onInfoClick_de995cc3017446559d83e439b45885ec,
-            "skin": "CopydefBtnNormal0a748557936fc4b",
             "top": "6dp",
             "width": "50dp",
             "zIndex": 1
@@ -251,7 +245,6 @@ define(function() {
             "isVisible": false,
             "left": "4%",
             "onClick": controller.AS_onShareClick_g47e1661f90642bba0b680a15c2353d5,
-            "skin": "CopydefBtnNormal0e6eaf20fc21940",
             "top": "6dp",
             "width": "50dp",
             "zIndex": 1
@@ -261,8 +254,8 @@ define(function() {
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
         }, {});
-        FlexContainer0e4681d0bdef643.add(btnLogout, btnInfo, btnShare);
-        flxMainSlidingMenu.add(flxHeader, flxMenuControl, flxBotom, FlexContainer0e4681d0bdef643);
+        flexBottomActions.add(btnLogout, btnInfo, btnShare);
+        flxMainSlidingMenu.add(flxHeader, flxMenuControl, flxBotom, flexBottomActions);
         var flxHamParent = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
@@ -271,8 +264,8 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_9a3fece2bafd4a439c3fd58edc1c7a13,
-            "skin": "CopyCopyslFbox1",
             "top": "0%",
             "width": "50dp",
             "zIndex": 4
@@ -284,7 +277,6 @@ define(function() {
             "height": "25dp",
             "id": "imgHamIcon",
             "isVisible": true,
-            "skin": "CopyCopyslImage3",
             "src": "menu_icon.png",
             "width": "25dp",
             "zIndex": 1
@@ -316,8 +308,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_6e618c481f6b4ebfa0baef71fae7c499,
-            "skin": "CopyflxCoverSkin",
             "top": "0dp",
             "width": "100%",
             "zIndex": 1
@@ -331,7 +323,7 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
-            "skin": "CopySlidingMenuRoundedCornerImage",
+            "isModalContainer": false,
             "top": "0dp",
             "width": "1dp",
             "zIndex": 1
@@ -346,7 +338,7 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "10dp",
-            "skin": "CopySlidingMenuCircleImage",
+            "isModalContainer": false,
             "top": "10dp",
             "width": "1dp",
             "zIndex": 1
@@ -361,7 +353,7 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "10dp",
-            "skin": "CopyflxfocusSkin",
+            "isModalContainer": false,
             "top": "10dp",
             "width": "1dp",
             "zIndex": 1
@@ -372,7 +364,6 @@ define(function() {
             "id": "lbl34px",
             "isVisible": false,
             "left": "66dp",
-            "skin": "CopysknlblnunitoLightf",
             "textStyle": {},
             "top": "217dp",
             "width": kony.flex.USE_PREFFERED_SIZE,
@@ -386,7 +377,6 @@ define(function() {
             "id": "lblnunito",
             "isVisible": false,
             "left": "76dp",
-            "skin": "Copysknlblnunito",
             "textStyle": {},
             "top": "227dp",
             "width": kony.flex.USE_PREFFERED_SIZE,
@@ -401,7 +391,6 @@ define(function() {
             "id": "imgChevron",
             "isVisible": false,
             "left": "73dp",
-            "skin": "CopyCopyslImage3",
             "src": "chevron_right.png",
             "top": "244dp",
             "width": "1dp",
@@ -420,7 +409,7 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "42dp",
-            "skin": "CopyCopysknFlxED",
+            "isModalContainer": false,
             "top": "114dp",
             "width": "0%",
             "zIndex": 4
@@ -431,7 +420,6 @@ define(function() {
             "id": "lblSecret1",
             "isVisible": false,
             "left": "81dp",
-            "skin": "CopyCopysknLblHeaderWhiteffffff",
             "text": "Label",
             "textStyle": {},
             "top": "55dp",
@@ -446,7 +434,6 @@ define(function() {
             "id": "lblSecret2",
             "isVisible": false,
             "left": "76dp",
-            "skin": "CopyCopysknLblffb",
             "text": "Label",
             "textStyle": {},
             "top": "106dp",
@@ -458,12 +445,10 @@ define(function() {
             "paddingInPixel": false
         }, {});
         var btnSecret = new kony.ui.Button({
-            "focusSkin": "CopyCopyslButtonGlossRed",
             "height": "50dp",
             "id": "btnSecret",
             "isVisible": false,
             "left": "57dp",
-            "skin": "CopysknBtn",
             "text": "Button",
             "top": "113dp",
             "width": "260dp",

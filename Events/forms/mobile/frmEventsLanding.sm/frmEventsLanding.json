@@ -22,6 +22,7 @@
     "android": {
         "ide_onDeviceBack": "AS_Form_bd078a97234543e8816cbf33c574ba0b",
         "needAppMenu": false,
+        "onDeviceBack": "AS_Form_bd078a97234543e8816cbf33c574ba0b",
         "psp": {
             "windowSoftInputMode": 2
         }
@@ -33,7 +34,6 @@
         "flxCover",
         "flxShadow",
         "flexEventSS",
-        "flxTemp",
         "flxSharing"
     ],
     "containerweight": 100,
@@ -104,6 +104,7 @@
     "needappmenu": false,
     "paddinginpixel": false,
     "platform": "iphone",
+    "postshow": "AS_Form_jb7bf8cc66fe417e98b1afc97f19676f",
     "prevDevice": "GalaxyS8",
     "prevPlatform": "android",
     "retaincontentalignment": false,

@@ -9,6 +9,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
+            "onClick": controller.AS_FlexContainer_dfc085c89ad2463a95577ed737bff289,
             "skin": "sknFlxEventRoot",
             "top": "0dp",
             "width": "310dp"
@@ -23,7 +25,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
-            "onClick": controller.AS_FlexContainer_caccfc41878d41edb99ad5315af8d7b8,
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%",
@@ -35,9 +37,11 @@ define(function() {
             "centerY": "50%",
             "height": "100%",
             "id": "imgEventLogo",
+            "imageWhenFailed": "eventsdef.png",
+            "imageWhileDownloading": "eventsdef.png",
             "isVisible": true,
             "skin": "slImage",
-            "src": "event01_2.jpg",
+            "src": "eventsdef.png",
             "width": "100%",
             "zIndex": 1
         }, {
@@ -45,7 +49,22 @@ define(function() {
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
         }, {});
-        flxBannerContainer.add(imgEventLogo);
+        var imageRegister = new kony.ui.Image2({
+            "height": "20%",
+            "id": "imageRegister",
+            "isVisible": true,
+            "left": "0%",
+            "skin": "slImage",
+            "src": "register.png",
+            "top": "70%",
+            "width": "30%",
+            "zIndex": 4
+        }, {
+            "imageScaleMode": constants.IMAGE_SCALE_MODE_FIT_TO_DIMENSIONS,
+            "padding": [0, 0, 0, 0],
+            "paddingInPixel": false
+        }, {});
+        flxBannerContainer.add(imgEventLogo, imageRegister);
         var flxEventDesc = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
@@ -54,6 +73,7 @@ define(function() {
             "id": "flxEventDesc",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "94%",
@@ -65,7 +85,7 @@ define(function() {
             "id": "lblEventTitle",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblEventDescTitle",
+            "skin": "sknlbl3f51b5AH18px",
             "text": "Webinar Event Upgrade",
             "top": "9dp",
             "width": "100%",
@@ -80,7 +100,7 @@ define(function() {
             "id": "lblSeparator1",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblEventDescSeparator",
+            "skin": "sknlblsep1",
             "top": "2dp",
             "width": "100%",
             "zIndex": 1
@@ -97,6 +117,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "5dp",
             "width": "100%",
@@ -139,7 +160,7 @@ define(function() {
             "id": "lblEventDescCategoryText",
             "isVisible": true,
             "left": "4dp",
-            "skin": "CopysknLblEventDescCategoryText",
+            "skin": "sknlbl333333AM14px",
             "text": "Conference",
             "top": "0dp",
             "width": "73%",
@@ -158,6 +179,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%",
@@ -199,7 +221,7 @@ define(function() {
             "id": "lblEventDescDateText",
             "isVisible": true,
             "left": "4dp",
-            "skin": "CopysknLblEventDescCategoryText",
+            "skin": "sknlbl333333AM14px",
             "text": "14 Mar - 15 Mar, 2018",
             "top": "0dp",
             "width": "73%",
@@ -218,6 +240,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%",
@@ -259,7 +282,7 @@ define(function() {
             "id": "lblEventDescLocationText",
             "isVisible": true,
             "left": "4dp",
-            "skin": "CopysknLblEventDescCategoryText",
+            "skin": "sknlbl333333AM14px",
             "text": "Convocation Center, Hyderabad",
             "top": "0dp",
             "width": "73%",
@@ -300,7 +323,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
-            "skin": "CopysknFlxEventRoot",
+            "isModalContainer": false,
+            "skin": "sknflxFFFBR1RC",
             "top": "0dp",
             "width": "40dp",
             "zIndex": 1
@@ -311,9 +335,10 @@ define(function() {
             "centerY": "50%",
             "height": "100%",
             "id": "img0",
+            "imageWhileDownloading": "eventske.png",
             "isVisible": true,
             "skin": "slImage",
-            "src": "event01_2.jpg",
+            "src": "eventske.png",
             "width": "100%",
             "zIndex": 1
         }, {
@@ -331,7 +356,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "5dp",
-            "skin": "CopysknFlxEventRoot",
+            "isModalContainer": false,
+            "skin": "sknflxFFFBR1RC",
             "top": "0dp",
             "width": "40dp",
             "zIndex": 1
@@ -344,7 +370,7 @@ define(function() {
             "id": "img1",
             "isVisible": true,
             "skin": "slImage",
-            "src": "event01_2.jpg",
+            "src": "eventske.png",
             "width": "100%",
             "zIndex": 1
         }, {
@@ -359,7 +385,7 @@ define(function() {
             "id": "lblSeparator2",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblEventDescSeparator",
+            "skin": "sknlblsep1",
             "top": "2dp",
             "width": "100%",
             "zIndex": 1
@@ -376,6 +402,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%",
@@ -384,13 +411,13 @@ define(function() {
         flxEventEdit.setDefaultUnit(kony.flex.DP);
         var btnRemove = new kony.ui.Button({
             "centerY": "50%",
-            "focusSkin": "CopysknBtnEventDescRemove",
+            "focusSkin": "sknbtnc3c3c3AM15px",
             "height": "100%",
             "id": "btnRemove",
             "isVisible": true,
             "left": "0dp",
             "onClick": controller.AS_Button_e873b0b9e6ee4f2e95d34b1fd1d69980,
-            "skin": "CopysknBtnEventDescRemove",
+            "skin": "sknbtnc3c3c3AM15px",
             "text": "Remove",
             "width": "70dp",
             "zIndex": 1
@@ -402,13 +429,13 @@ define(function() {
         }, {});
         var btnEdit = new kony.ui.Button({
             "centerY": "50%",
-            "focusSkin": "CopysknBtnEdit",
+            "focusSkin": "sknbtn4b88f1AM15px",
             "height": "100%",
             "id": "btnEdit",
             "isVisible": true,
             "onClick": controller.AS_Button_ae1ced44a04e45db98e67a006c9c9c2e,
             "right": "3dp",
-            "skin": "CopysknBtnEdit",
+            "skin": "sknbtn4b88f1AM15px",
             "text": "Edit",
             "top": "4dp",
             "width": "40dp",

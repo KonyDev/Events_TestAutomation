@@ -7,8 +7,7 @@
 	 **/
 	function processEventsOrchResponse(response) {
 		try {
-			if (response.records[0].event !== undefined && response.records[0].event.length > 0) {
-				response.records[0].event.forEach(function (event) {
+          		response.records.forEach(function (event) {
 					event.start_date = event.start_date.replace(" ", 'T');
 					event.end_date = event.end_date.replace(" ", 'T');
 					event.noofdays = dateFormatting.getDifferenceBetweenTwoDatesinDays(event.end_date, event.start_date);
@@ -20,16 +19,16 @@
 					event.end_year = dateFormatting.getYear(event.end_date);
 					event.categoryname = getEventCategory(event.event_category);
 					event.typename = getEventType(event.event_type);
-					if (response.records[0].location !== undefined && response.records[0].location.length > 0) {
-						var location = getObjectByEventId(response.records[0].location, event.event_id);
+                  	if (event.location !== undefined && event.location.length > 0) {
+                      	var location = event.location[0];
 						if (location !== undefined) {
 							for (var location_key in location) {
 								event[location_key] = location[location_key];
 							}
 						}
 					}
-					if (response.records[0].event_banners !== undefined && response.records[0].event_banners.length > 0) {
-						var banner = getObjectByEventId(response.records[0].event_banners, event.event_id);
+                    if (event.event_banners !== undefined && event.event_banners.length > 0) {
+                      	var banner = event.event_banners[0];
 						if (banner !== undefined) {
 							for (var banner_key in banner) {
 								event[banner_key] = banner[banner_key];
@@ -37,9 +36,8 @@
 						}
 					}
 				});
-				sortResponseByDate(response.records[0].event);
-				return response.records[0].event;
-			}
+          		sortResponseByDate(response.records);
+          		return response.records;
 		} catch (err) {
 			kony.print("Orchestration service response processsing" + JSON.stringify(err));
 		}
@@ -73,8 +71,8 @@
 	function processSessionAndPresenters(response) {
 		try {
 			var sessionListWithPresenters = [];
-			for (var i = 0; i < response.records[0].event_sessions.length; i++) {
-				var session = response.records[0].event_sessions[i];
+			for (var i = 0; i < response.records.length; i++) {
+				var session = response.records[i];
 				//#ifdef desktopweb
                 session.start_time = dateFormatting.getTimeinAMPMformat(session.session_start_date);
                 session.end_time = dateFormatting.getTimeinAMPMformat(session.session_end_date);
@@ -90,8 +88,8 @@
 				session.session_start_date = session.start_date.split("T")[0] + "T" + dateFormatting.getTimeinAMPMformat(session.start_date);
 				session.session_end_date = session.end_date.split("T")[0] + "T" + dateFormatting.getTimeinAMPMformat(session.end_date);
 				//#endif
-				if (response.records[0].presenter !== undefined && response.records[0].presenter.length > 0) {
-					var presenter_list = getPresentersForSelectedSession(response.records[0].presenter, session.event_session_id);
+              	if (session.presenter !== undefined && session.presenter.length > 0) {
+                  	var presenter_list = session.presenter; 
 					if (presenter_list.length > 0) {
 						for (var j = 0; j < presenter_list.length; j++) {
 							var presenter = presenter_list[j];
@@ -321,17 +319,21 @@
 	 **/
 	function getEventCategory(type) {
 		try {
+           //Handle for event type to String if number
+		if((type instanceof String)){
+               type = Number(type);
+         }
 			switch (type) {
-			case "1":
+			case 1:
 				return "Training";
-			case "2":
+			case 2:
 				return "Workshops";
-			case "3":
+			case 3:
 				return "Hackathon";
-			case "4":
+			case 4:
 				return "Speaker Series";
-			case "5":
-				return "Confrence";
+			case 5:
+				return "Conference";
 			default:
 				kony.print("Not a validkey");
 			}
@@ -346,10 +348,13 @@
 	 **/
 	function getEventType(id) {
 		try {
+          if((id instanceof String)){
+               id = Number(id);
+           }
 			switch (id) {
-			case "1":
+			case 1:
 				return "online";
-			case "2":
+			case 2:
 				return "offline";
 			default:
 				kony.print("Not a validkey");

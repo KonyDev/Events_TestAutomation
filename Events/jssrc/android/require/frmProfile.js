@@ -16,7 +16,7 @@ define("frmProfile", function() {
                 "left": "0.00%",
                 "pagingEnabled": false,
                 "scrollDirection": kony.flex.SCROLL_VERTICAL,
-                "skin": "CopysknFlxScroll0h9721357a4ea4a",
+                "skin": "sknFlxScRootWhite",
                 "top": "34.98%",
                 "verticalScrollIndicator": true,
                 "width": "100%",
@@ -32,7 +32,7 @@ define("frmProfile", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0b5c47755a8fd4e",
+                "skin": "sknflexBR00a0dd1px",
                 "top": "6%",
                 "width": "90%",
                 "zIndex": 1
@@ -43,7 +43,7 @@ define("frmProfile", function() {
                 "id": "lblEmail",
                 "isVisible": true,
                 "left": "0.00%",
-                "skin": "CopydefLabel0fda942aeaaa646",
+                "skin": "sknlbl3f51b5AL110",
                 "text": "inboxofvignesh94@gmail.com",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -64,7 +64,7 @@ define("frmProfile", function() {
                 "id": "lblEmailTitle",
                 "isVisible": true,
                 "right": "0.04%",
-                "skin": "CopydefLabel0e35897ebe13245",
+                "skin": "sknlbl3f51b5AL80",
                 "text": "Email",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -90,7 +90,7 @@ define("frmProfile", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0b5c47755a8fd4e",
+                "skin": "sknflexBR00a0dd1px",
                 "top": "6%",
                 "width": "90%",
                 "zIndex": 1
@@ -101,7 +101,7 @@ define("frmProfile", function() {
                 "id": "lblFName",
                 "isVisible": true,
                 "left": "0.00%",
-                "skin": "CopydefLabel0fda942aeaaa646",
+                "skin": "sknlbl3f51b5AL110",
                 "text": "vigneshwaran",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -122,7 +122,7 @@ define("frmProfile", function() {
                 "id": "LblFNVlaue",
                 "isVisible": true,
                 "right": "0.04%",
-                "skin": "CopydefLabel0e35897ebe13245",
+                "skin": "sknlbl3f51b5AL80",
                 "text": "First Name",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -148,7 +148,7 @@ define("frmProfile", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0b5c47755a8fd4e",
+                "skin": "sknflexBR00a0dd1px",
                 "top": "6%",
                 "width": "90%",
                 "zIndex": 1
@@ -159,7 +159,7 @@ define("frmProfile", function() {
                 "id": "lblLName",
                 "isVisible": true,
                 "left": "0.00%",
-                "skin": "CopydefLabel0fda942aeaaa646",
+                "skin": "sknlbl3f51b5AL110",
                 "text": "Karunanithi",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -180,7 +180,7 @@ define("frmProfile", function() {
                 "id": "lblLNameValue",
                 "isVisible": true,
                 "right": "0.04%",
-                "skin": "CopydefLabel0e35897ebe13245",
+                "skin": "sknlbl3f51b5AL80",
                 "text": "Last Name",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -220,7 +220,7 @@ define("frmProfile", function() {
                 "id": "lblHeaderTitle",
                 "isVisible": true,
                 "left": "154dp",
-                "skin": "CopysknHeader0d54f93666aba4a",
+                "skin": "sknlbl00a0ddAL150",
                 "text": "PROFILE",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -236,41 +236,6 @@ define("frmProfile", function() {
             }, {
                 "textCopyable": false
             });
-            var flexSearch = new kony.ui.FlexContainer({
-                "autogrowMode": kony.flex.AUTOGROW_NONE,
-                "clipBounds": true,
-                "height": "100%",
-                "id": "flexSearch",
-                "isVisible": false,
-                "layoutType": kony.flex.FREE_FORM,
-                "left": "83%",
-                "isModalContainer": false,
-                "onClick": controller.AS_FlexContainer_b35cf790d7e24ac682d237ff4755f751,
-                "skin": "CopyslFbox0gf63403b06304f",
-                "top": "0%",
-                "width": "17%",
-                "zIndex": 1
-            }, {}, {});
-            flexSearch.setDefaultUnit(kony.flex.DP);
-            var btnSearchIcon = new kony.ui.Button({
-                "centerX": "50%",
-                "centerY": "50%",
-                "focusSkin": "defBtnFocus",
-                "height": "20dp",
-                "id": "btnSearchIcon",
-                "isVisible": true,
-                "left": "14dp",
-                "skin": "sknbtnSearchIconLanding",
-                "top": "12dp",
-                "width": "20dp",
-                "zIndex": 1
-            }, {
-                "contentAlignment": constants.CONTENT_ALIGN_CENTER,
-                "displayText": true,
-                "padding": [0, 0, 0, 0],
-                "paddingInPixel": false
-            }, {});
-            flexSearch.add(btnSearchIcon);
             var flexBack = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "clipBounds": true,
@@ -281,7 +246,7 @@ define("frmProfile", function() {
                 "left": "0.00%",
                 "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_b8357bb55e274a478a4721776c8d142c,
-                "skin": "CopyslFbox0gf63403b06304f",
+                "skin": "slFbox",
                 "top": "0.00%",
                 "width": "17%",
                 "zIndex": 1
@@ -290,7 +255,7 @@ define("frmProfile", function() {
             var btnBack = new kony.ui.Button({
                 "centerX": "50%",
                 "centerY": "50%",
-                "focusSkin": "defBtnFocus",
+                "focusSkin": "sknbtnBack",
                 "height": "20dp",
                 "id": "btnBack",
                 "isVisible": true,
@@ -307,7 +272,7 @@ define("frmProfile", function() {
                 "paddingInPixel": false
             }, {});
             flexBack.add(btnBack);
-            flexEventHeader.add(lblHeaderTitle, flexSearch, flexBack);
+            flexEventHeader.add(lblHeaderTitle, flexBack);
             var flexProfileRound = new kony.ui.FlexContainer({
                 "autogrowMode": kony.flex.AUTOGROW_NONE,
                 "centerX": "50%",
@@ -317,7 +282,7 @@ define("frmProfile", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0aa6760f726704c",
+                "skin": "sknflexTounrBR2px",
                 "top": "10%",
                 "width": "100dp",
                 "zIndex": 1

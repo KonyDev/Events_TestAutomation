@@ -33,6 +33,10 @@
         "value": "44%"
     },
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "containerweight": 100,
     "contentalignment": 5,
     "displaytext": true,
@@ -47,6 +51,24 @@
     "onclick": "AS_Button_a77c9e4b46584c6a8031b138ae67ca28",
     "parent": "flexActions",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b3": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "width": {
+                "type": "string",
+                "value": "80%"
+            }
+        },
+        "b4": {
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "wType": "Button",

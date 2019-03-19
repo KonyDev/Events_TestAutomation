@@ -45,6 +45,7 @@
     "isvisible": true,
     "kuid": "aafe8c32692b492d8a6940d0d039b2c6",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_aaf4f68b9c604677b1b53086b17ba2e0",
     "paddinginpixel": false,
     "parent": "flexCategories",
     "pf": "frmSearch",

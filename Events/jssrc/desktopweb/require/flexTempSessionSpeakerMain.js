@@ -8,6 +8,7 @@ define("flexTempSessionSpeakerMain", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "100%"
@@ -21,6 +22,7 @@ define("flexTempSessionSpeakerMain", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "sknflxfff",
             "top": "0%",
             "width": "90%",
@@ -49,7 +51,8 @@ define("flexTempSessionSpeakerMain", function() {
             "padding": [3, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         var txtSpeakerDesg = new kony.ui.TextBox2({
             "autoCapitalize": constants.TEXTBOX_AUTO_CAPITALIZE_NONE,
@@ -74,7 +77,8 @@ define("flexTempSessionSpeakerMain", function() {
             "padding": [3, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         var txtSpeakerLkProfile = new kony.ui.TextBox2({
             "autoCapitalize": constants.TEXTBOX_AUTO_CAPITALIZE_NONE,
@@ -99,7 +103,8 @@ define("flexTempSessionSpeakerMain", function() {
             "padding": [3, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         flexTempSpeakerDetails.add(txtSpeakerName, txtSpeakerDesg, txtSpeakerLkProfile);
         var lblStripSessionSpeaker = new kony.ui.Label({
@@ -123,6 +128,7 @@ define("flexTempSessionSpeakerMain", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0.00%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0.00%",
             "width": "10%",
@@ -137,6 +143,7 @@ define("flexTempSessionSpeakerMain", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "3%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_gbc0a1a83c6f457498c362d7ecb36483,
             "skin": "slFbox",
             "top": "35%",
@@ -168,6 +175,7 @@ define("flexTempSessionSpeakerMain", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "3%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_caa9d31600934b5ea70d407e3069dc3e,
             "skin": "slFbox",
             "top": "1%",

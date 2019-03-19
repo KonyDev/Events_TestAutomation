@@ -17,89 +17,128 @@ define({
     },
     appInit: function(params) {
         skinsInit();
-        kony.mvc.registry.add("com.konymp.slidingmenu", "slidingmenu", "slidingmenuController");
+        kony.application.setCheckBoxSelectionImageAlignment(constants.CHECKBOX_SELECTION_IMAGE_ALIGNMENT_RIGHT);
+        kony.application.setDefaultTextboxPadding(false);
+        kony.application.setRespectImageSizeForImageWidgetAlignment(true);
+        kony.mvc.registry.add("com.konyenb.boxfileupload", "boxfileupload", "boxfileuploadController");
         kony.application.registerMaster({
-            "namespace": "com.konymp",
-            "classname": "slidingmenu",
-            "name": "com.konymp.slidingmenu"
-        });
-        kony.mvc.registry.add("com.konysa.boxfileupload", "boxfileupload", "boxfileuploadController");
-        kony.application.registerMaster({
-            "namespace": "com.konysa",
+            "namespace": "com.konyenb",
             "classname": "boxfileupload",
-            "name": "com.konysa.boxfileupload"
+            "name": "com.konyenb.boxfileupload"
         });
-        kony.mvc.registry.add("com.konysa.createnewevent", "createnewevent", "createneweventController");
+        kony.mvc.registry.add("com.konyenb.createnewevent", "createnewevent", "createneweventController");
         kony.application.registerMaster({
-            "namespace": "com.konysa",
+            "namespace": "com.konyenb",
             "classname": "createnewevent",
-            "name": "com.konysa.createnewevent"
+            "name": "com.konyenb.createnewevent"
         });
-        kony.mvc.registry.add("com.konysa.dashboard", "dashboard", "dashboardController");
+        kony.mvc.registry.add("com.konyenb.dashboard", "dashboard", "dashboardController");
         kony.application.registerMaster({
-            "namespace": "com.konysa",
+            "namespace": "com.konyenb",
             "classname": "dashboard",
-            "name": "com.konysa.dashboard"
+            "name": "com.konyenb.dashboard"
         });
-        kony.mvc.registry.add("com.konysa.event1", "event1", "event1Controller");
+        kony.mvc.registry.add("com.konyenb.event", "event", "eventController");
         kony.application.registerMaster({
-            "namespace": "com.konysa",
-            "classname": "event1",
-            "name": "com.konysa.event1"
+            "namespace": "com.konyenb",
+            "classname": "event",
+            "name": "com.konyenb.event"
         });
-        kony.mvc.registry.add("com.konysa.ImageGallery", "ImageGallery", "ImageGalleryController");
+        kony.mvc.registry.add("com.konyenb.EventsHeader", "EventsHeader", "EventsHeaderController");
         kony.application.registerMaster({
-            "namespace": "com.konysa",
-            "classname": "ImageGallery",
-            "name": "com.konysa.ImageGallery"
-        });
-        kony.mvc.registry.add("com.konysa.menuItem", "menuItem", "menuItemController");
-        kony.application.registerMaster({
-            "namespace": "com.konysa",
-            "classname": "menuItem",
-            "name": "com.konysa.menuItem"
-        });
-        kony.mvc.registry.add("com.konysa.menuItem2", "menuItem2", "menuItem2Controller");
-        kony.application.registerMaster({
-            "namespace": "com.konysa",
-            "classname": "menuItem2",
-            "name": "com.konysa.menuItem2"
-        });
-        kony.mvc.registry.add("com.konysa.socialSharing", "socialSharing", "socialSharingController");
-        kony.application.registerMaster({
-            "namespace": "com.konysa",
-            "classname": "socialSharing",
-            "name": "com.konysa.socialSharing"
-        });
-        kony.mvc.registry.add("Reusable.EventsHeader", "EventsHeader", "EventsHeaderController");
-        kony.application.registerMaster({
-            "namespace": "Reusable",
+            "namespace": "com.konyenb",
             "classname": "EventsHeader",
-            "name": "Reusable.EventsHeader"
+            "name": "com.konyenb.EventsHeader"
         });
-        kony.mvc.registry.add("Reusable.SessionFooter", "SessionFooter", "SessionFooterController");
+        kony.mvc.registry.add("com.konyenb.ImageGallery", "ImageGallery", "ImageGalleryController");
         kony.application.registerMaster({
-            "namespace": "Reusable",
+            "namespace": "com.konyenb",
+            "classname": "ImageGallery",
+            "name": "com.konyenb.ImageGallery"
+        });
+        kony.mvc.registry.add("com.konyenb.menu", "menu", "menuController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "menu",
+            "name": "com.konyenb.menu"
+        });
+        kony.mvc.registry.add("com.konyenb.menuItem", "menuItem", "menuItemController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "menuItem",
+            "name": "com.konyenb.menuItem"
+        });
+        kony.mvc.registry.add("com.konyenb.menuItem2", "menuItem2", "menuItem2Controller");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "menuItem2",
+            "name": "com.konyenb.menuItem2"
+        });
+        kony.mvc.registry.add("com.konyenb.profileheader", "profileheader", "profileheaderController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "profileheader",
+            "name": "com.konyenb.profileheader"
+        });
+        kony.mvc.registry.add("com.konyenb.sessiondetails", "sessiondetails", "sessiondetailsController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "sessiondetails",
+            "name": "com.konyenb.sessiondetails"
+        });
+        kony.mvc.registry.add("com.konyenb.SessionFooter", "SessionFooter", "SessionFooterController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
             "classname": "SessionFooter",
-            "name": "Reusable.SessionFooter"
+            "name": "com.konyenb.SessionFooter"
         });
-        kony.mvc.registry.add("Reusable.sessionTemp", "sessionTemp", "sessionTempController");
+        kony.mvc.registry.add("com.konyenb.sessionpreview", "sessionpreview", "sessionpreviewController");
         kony.application.registerMaster({
-            "namespace": "Reusable",
+            "namespace": "com.konyenb",
+            "classname": "sessionpreview",
+            "name": "com.konyenb.sessionpreview"
+        });
+        kony.mvc.registry.add("com.konyenb.sessionTemp", "sessionTemp", "sessionTempController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
             "classname": "sessionTemp",
-            "name": "Reusable.sessionTemp"
+            "name": "com.konyenb.sessionTemp"
         });
-        kony.mvc.registry.add("Reusable.timeline", "timeline", "timelineController");
+        kony.mvc.registry.add("com.konyenb.slidingmenu", "slidingmenu", "slidingmenuController");
         kony.application.registerMaster({
-            "namespace": "Reusable",
+            "namespace": "com.konyenb",
+            "classname": "slidingmenu",
+            "name": "com.konyenb.slidingmenu"
+        });
+        kony.mvc.registry.add("com.konyenb.socialSharing", "socialSharing", "socialSharingController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "socialSharing",
+            "name": "com.konyenb.socialSharing"
+        });
+        kony.mvc.registry.add("com.konyenb.timeline", "timeline", "timelineController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
             "classname": "timeline",
-            "name": "Reusable.timeline"
+            "name": "com.konyenb.timeline"
         });
-        kony.mvc.registry.add("Reusable.TimePicker", "TimePicker", "TimePickerController");
+        kony.mvc.registry.add("com.konyenb.TimePicker", "TimePicker", "TimePickerController");
         kony.application.registerMaster({
-            "namespace": "Reusable",
+            "namespace": "com.konyenb",
             "classname": "TimePicker",
-            "name": "Reusable.TimePicker"
+            "name": "com.konyenb.TimePicker"
+        });
+        kony.mvc.registry.add("com.konyenb.eventdetail", "eventdetail", "eventdetailController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "eventdetail",
+            "name": "com.konyenb.eventdetail"
+        });
+        kony.mvc.registry.add("com.konyenb.eventpreview", "eventpreview", "eventpreviewController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "eventpreview",
+            "name": "com.konyenb.eventpreview"
         });
         kony.mvc.registry.add("flxFullSplashScreen", "flxFullSplashScreen", "flxFullSplashScreenController");
         kony.mvc.registry.add("tempMainFlexEventList", "tempMainFlexEventList", "tempMainFlexEventListController");
@@ -119,9 +158,6 @@ define({
         kony.mvc.registry.add("frmSchedular", "frmSchedular", "frmSchedularController");
         kony.mvc.registry.add("frmSearch", "frmSearch", "frmSearchController");
         kony.mvc.registry.add("frmSplash", "frmSplash", "frmSplashController");
-        kony.application.setCheckBoxSelectionImageAlignment(constants.CHECKBOX_SELECTION_IMAGE_ALIGNMENT_RIGHT);
-        kony.application.setDefaultTextboxPadding(false);
-        kony.application.setRespectImageSizeForImageWidgetAlignment(true);
         setAppBehaviors();
     },
     postAppInitCallBack: function(eventObj) {

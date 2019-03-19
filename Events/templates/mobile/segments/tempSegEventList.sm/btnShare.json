@@ -53,6 +53,7 @@
     "isvisible": true,
     "kuid": "d3d2d1341f3f4bb19783ecf253b252e8",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_f62d301f917e4a19985ea1fced722ff3",
     "parent": "flexShare",
     "pf": "tempSegEventList",
     "retaincontentalignment": false,

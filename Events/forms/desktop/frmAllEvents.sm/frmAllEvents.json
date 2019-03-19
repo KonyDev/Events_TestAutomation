@@ -1,6 +1,7 @@
 {
     "@class": "com.kony.gen.viz.model.container.KVizScrollFlexForm",
     "DNDConfig": null,
+    "_init_": "AS_Form_f76d5d0ba82e4796a6aac9e8f327e43d",
     "_margin_": [
         0,
         0,
@@ -27,21 +28,22 @@
     },
     "breakpointInfo": {
         "b1": {
-            "width": 1400
+            "width": 1920
         },
         "b2": {
-            "width": 1024
+            "width": 1366
         },
         "b3": {
-            "width": 640
+            "width": 771
+        },
+        "b4": {
+            "width": 480
         }
     },
     "canUpdateUI": true,
     "canvasWidth": 1400,
     "children": [
-        "menuItem0",
-        "flxRoot",
-        "eventpreview"
+        "flxRoot"
     ],
     "containerweight": 100,
     "controllerInfo": {
@@ -52,12 +54,15 @@
     },
     "currentLocale": "default",
     "desktopweb": {
-        "needAppMenu": false
+        "ide_onBreakpointChange": "AS_Form_fd3de6c9354149ab96133808aa3dc33d",
+        "needAppMenu": false,
+        "onBreakpointChange": "AS_Form_fd3de6c9354149ab96133808aa3dc33d"
     },
     "device": "desktopweb",
     "displayorientation": 1,
     "enabledforidletimeout": true,
     "id": "frmAllEvents",
+    "ide_init": "AS_Form_f76d5d0ba82e4796a6aac9e8f327e43d",
     "ide_onDeviceBack": "AS_Form_f4846a2d4d6342d5b65a424619ff391d",
     "ide_postShow": "AS_Form_hbe07b3ca4164101b2660362c4fc8c23",
     "info": null,
@@ -125,7 +130,7 @@
     "titlebar": true,
     "type": 3,
     "vizProps": {
-        "globalRespDesignEnabled": true
+        "globalRespDesignEnabled": false
     },
     "wType": "Form",
     "windows8": {

@@ -27,7 +27,6 @@ define("frmSplash", function() {
                 "pageOnDotImage": "pageondot.png",
                 "retainSelection": false,
                 "rowFocusSkin": "seg2Focus",
-                "rowSkin": "Copyseg0d1a4b732031e44",
                 "rowTemplate": "flxFullSplashScreen",
                 "scrollingEvents": {},
                 "sectionHeaderSkin": "sliPhoneSegmentHeader",
@@ -61,7 +60,7 @@ define("frmSplash", function() {
             "preShow": function(eventobject) {
                 controller.AS_Form_da855ce7b4ee45148f5a96b18518259e(eventobject);
             },
-            "skin": "CopysknFrmBGGradient0dfea14db87db45"
+            "skin": "sknFrmLogin"
         }, {
             "displayOrientation": constants.FORM_DISPLAY_ORIENTATION_PORTRAIT,
             "layoutType": kony.flex.FREE_FORM,

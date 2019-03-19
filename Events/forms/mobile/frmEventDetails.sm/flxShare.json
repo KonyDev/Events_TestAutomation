@@ -50,6 +50,7 @@
     "kuid": "b6eece8c19034bb58ce419f7f5d8f7b3",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_c4fa74d19c8641f38c3de6c068262dba",
     "parent": "flxDummyBox1",
     "pf": "frmEventDetails",
     "retaincontentalignment": false,

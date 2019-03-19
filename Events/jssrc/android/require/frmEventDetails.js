@@ -137,10 +137,26 @@ define("frmEventDetails", function() {
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
                 "isModalContainer": false,
                 "right": 0,
-                "skin": "CopyslFbox0bc28f0666f0c46",
-                "width": "30dp"
-            }, {}, {});
-            socialSharing.shareSrc = "sharesmallicon.png";
+                "skin": "slFbox",
+                "width": "30dp",
+                "overrides": {
+                    "imgShare": {
+                        "src": "sharesmallicon.png"
+                    },
+                    "socialSharing": {
+                        "left": "viz.val_cleared",
+                        "top": "viz.val_cleared",
+                        "minWidth": "viz.val_cleared",
+                        "minHeight": "viz.val_cleared",
+                        "maxWidth": "viz.val_cleared",
+                        "maxHeight": "viz.val_cleared"
+                    }
+                }
+            }, {
+                "overrides": {}
+            }, {
+                "overrides": {}
+            });
             socialSharing.MimeType = "Image/PNG";
             socialSharing.Subject = "Event";
             socialSharing.FileName = "eventSharing";
@@ -198,7 +214,7 @@ define("frmEventDetails", function() {
                 "height": "50%",
                 "id": "lblTitle",
                 "isVisible": true,
-                "skin": "CopysknLblEventTitle0e42827a8addc45",
+                "skin": "sknlbl3f51b5AH110",
                 "text": "TITLE OF THE EVENT",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -218,7 +234,7 @@ define("frmEventDetails", function() {
                 "centerX": "50%",
                 "id": "lblSubTitle",
                 "isVisible": true,
-                "skin": "CopysknLblSubTitle0h119490964124f",
+                "skin": "sknlbl343e48AM100",
                 "text": "Conference",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -240,7 +256,7 @@ define("frmEventDetails", function() {
                 "height": "1dp",
                 "id": "lblLine",
                 "isVisible": true,
-                "skin": "CopydefLabel0b11e96b5e25842",
+                "skin": "sknlblBGf2f1f1100",
                 "text": " ",
                 "textStyle": {
                     "letterSpacing": 0,
@@ -375,7 +391,7 @@ define("frmEventDetails", function() {
                 "height": "80%",
                 "id": "lblVerticalLine0",
                 "isVisible": true,
-                "skin": "CopydefLabel0g5058f6ada1b43",
+                "skin": "sknlblBGf2f1f1",
                 "textStyle": {
                     "letterSpacing": 0,
                     "strikeThrough": false
@@ -486,7 +502,7 @@ define("frmEventDetails", function() {
                 "id": "lblVerticalLine1",
                 "isVisible": true,
                 "left": "240dp",
-                "skin": "CopydefLabel0g5058f6ada1b43",
+                "skin": "sknlblBGf2f1f1",
                 "textStyle": {
                     "letterSpacing": 0,
                     "strikeThrough": false
@@ -932,7 +948,7 @@ define("frmEventDetails", function() {
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0%",
                 "isModalContainer": false,
-                "skin": "CopyslFbox0fc77a92784cb45",
+                "skin": "sknflex000OP50",
                 "top": "0%",
                 "width": "100%",
                 "zIndex": 1
@@ -943,7 +959,7 @@ define("frmEventDetails", function() {
                 "id": "lblRemaingImageCount",
                 "isVisible": true,
                 "left": "0%",
-                "skin": "CopydefLabel0bafe983d9b5c4f",
+                "skin": "sknlblfffAB120",
                 "text": "1",
                 "textStyle": {
                     "letterSpacing": 0,

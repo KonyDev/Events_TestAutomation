@@ -8,6 +8,7 @@ define("flxTempUser", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknFlxLightBlueBG",
             "top": "0dp",
             "width": "100%"
@@ -22,7 +23,8 @@ define("flxTempUser", function() {
             "id": "flxRegisteredUser",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
-            "skin": "CopysknFlxTransparent",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "width": "100%",
             "zIndex": 1
         }, {}, {});
@@ -47,7 +49,7 @@ define("flxTempUser", function() {
             "id": "lblVerticalLine0",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblLine",
+            "skin": "sknlblVerticalline",
             "width": "1px",
             "zIndex": 1
         }, {
@@ -64,6 +66,7 @@ define("flxTempUser", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "width": "33.10%",
             "zIndex": 10
@@ -71,11 +74,10 @@ define("flxTempUser", function() {
         flxUserName.setDefaultUnit(kony.flex.DP);
         var lblUserName = new kony.ui.Label({
             "centerY": "50%",
-            "height": "100%",
             "id": "lblUserName",
             "isVisible": true,
             "left": "0dp",
-            "skin": "sknLblUserInfoDarkGreyFont",
+            "skin": "sknlblCustomAL343e48",
             "text": "User Name",
             "width": "100%",
             "zIndex": 1
@@ -91,7 +93,7 @@ define("flxTempUser", function() {
             "id": "lblVerticalLine1",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblLine",
+            "skin": "sknlblVerticalline",
             "width": "1px",
             "zIndex": 1
         }, {
@@ -108,6 +110,7 @@ define("flxTempUser", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "width": "30.10%",
             "zIndex": 10
@@ -115,11 +118,10 @@ define("flxTempUser", function() {
         flxEmailI.setDefaultUnit(kony.flex.DP);
         var lblEmail = new kony.ui.Label({
             "centerY": "50%",
-            "height": "100%",
             "id": "lblEmail",
             "isVisible": true,
             "left": "0dp",
-            "skin": "sknLblUserInfoDarkGreyFont",
+            "skin": "sknlblCustomAL343e48",
             "text": "Email ID",
             "width": "100%",
             "zIndex": 1
@@ -135,7 +137,7 @@ define("flxTempUser", function() {
             "id": "lblVerticalLine2",
             "isVisible": true,
             "left": "0dp",
-            "skin": "CopysknLblLine",
+            "skin": "sknlblVerticalline",
             "width": "1px",
             "zIndex": 1
         }, {
@@ -152,6 +154,7 @@ define("flxTempUser", function() {
             "isVisible": false,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0dp",
             "width": "16.50%",
@@ -201,7 +204,7 @@ define("flxTempUser", function() {
             "id": "lblVerticalLine3",
             "isVisible": false,
             "left": "0dp",
-            "skin": "CopysknLblLine",
+            "skin": "sknlblVerticalline",
             "width": "1px",
             "zIndex": 1
         }, {
@@ -218,6 +221,7 @@ define("flxTempUser", function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_aceac85945784738a5b9088c1897439b,
             "skin": "slFbox",
             "width": "32%",

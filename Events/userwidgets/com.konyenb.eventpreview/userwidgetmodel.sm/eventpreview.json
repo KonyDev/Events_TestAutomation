@@ -41,8 +41,7 @@
         "flexEventPreviewHeader",
         "flexEventBannerRounded",
         "flexEventDetailsPreview",
-        "flexEventDateTimeMapPrev",
-        "flexCopyRight"
+        "flexEventDateTimeMapPrev"
     ],
     "clipbounds": true,
     "containerweight": 100,

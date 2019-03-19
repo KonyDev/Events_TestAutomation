@@ -26,10 +26,26 @@ define("frmSchedular", function() {
                 "left": "0dp",
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0eb028f0218384c",
+                "skin": "sknflxf2f1f1100",
                 "top": "4%",
-                "width": "100%"
-            }, {}, {});
+                "width": "100%",
+                "overrides": {
+                    "timeline": {
+                        "right": "viz.val_cleared",
+                        "bottom": "viz.val_cleared",
+                        "minWidth": "viz.val_cleared",
+                        "minHeight": "viz.val_cleared",
+                        "maxWidth": "viz.val_cleared",
+                        "maxHeight": "viz.val_cleared",
+                        "centerX": "viz.val_cleared",
+                        "centerY": "viz.val_cleared"
+                    }
+                }
+            }, {
+                "overrides": {}
+            }, {
+                "overrides": {}
+            });
             timeline.masterdata = {
                 "data": [],
                 "schema": [{

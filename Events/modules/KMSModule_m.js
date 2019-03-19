@@ -36,7 +36,7 @@ function registerKMS() {
 		//#ifdef android
 		KMSPROP.osType = "androidgcm";
 		var configRegister = {
-			senderid: "150665757263"
+			senderid: EVENT_CONSTANS.KMS.SENDERID
 		};
 		//#endif
 		//#ifdef iphone
@@ -116,10 +116,14 @@ function regFailureCallback(errormsg) {
 function onlinePushNotificationCallback(msg) {
 	try {
 		kony.print("Message " + JSON.stringify(msg));
-		kony.print("online Message: " + msg["content"]);
-		var message = msg["content"];
-		var title = msg["title"]
-			var pspConfig = {};
+        var message = msg["content"];
+		var title = msg["title"];
+        if(msg.hasOwnProperty("gcm.notification.body")){
+          message = msg["gcm.notification.body"];
+         title = msg["gcm.notification.title"];
+        }
+	
+		var pspConfig = {};
 		var alert = kony.ui.Alert({
 				"message": message.split('.')[0],
 				"alertType": constants.ALERT_TYPE_CONFIRMATION,
@@ -159,9 +163,10 @@ function dispatchNotifiaction(id) {
 		showLoading();
 		event_id = id;
 		var filter = {
-			"$filter": "event_id eq " + "'" + event_id + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))"
+			"$filter": "event_id eq " + "'" + event_id + "' and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))",
+          	"$expand":"location,event_banners"
 		};
-		getOperation(filter, "EventOrchSDO", "events_view", getEventDataSuccess);
+		getOperation(filter, "EventsSOS", "event", getEventDataSuccess);
 	} catch (err) {
 		kony.print("KMS Module" + JSON.stringify(err));
 	}
@@ -180,7 +185,7 @@ function unregFailureCallback(errormsg) {
 function getEventDataSuccess(response) {
 	try {
 		var filter;
-		if (response.records[0].event.length > 0) {
+      	if (response.records.length > 0) {
 			var eventList = processEventsOrchResponse(response);
 			eventDataFromPush.event_data = eventList[0];
 			if (kony.store.getItem("isLoggedIn") === "true") {

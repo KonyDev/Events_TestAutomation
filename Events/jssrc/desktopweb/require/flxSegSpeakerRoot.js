@@ -1,13 +1,13 @@
 define("flxSegSpeakerRoot", function() {
     return function(controller) {
         var flxSegSpeakerRoot = new kony.ui.FlexContainer({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
+            "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
             "clipBounds": true,
-            "height": "70dp",
             "id": "flxSegSpeakerRoot",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknFlexDeskTransparant",
             "top": "0dp",
             "width": "100%"
@@ -21,7 +21,7 @@ define("flxSegSpeakerRoot", function() {
             "left": "0dp",
             "skin": "sknLblBGWhieDesk",
             "textStyle": {},
-            "top": "0dp",
+            "top": "8dp",
             "width": "95%",
             "zIndex": 1
         }, {
@@ -29,32 +29,16 @@ define("flxSegSpeakerRoot", function() {
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
         }, {});
-        var flxSegSpeakerRootContainer = new kony.ui.FlexContainer({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
-            "centerY": "50%",
-            "clipBounds": true,
-            "height": "100%",
-            "id": "flxSegSpeakerRootContainer",
-            "isVisible": true,
-            "layoutType": kony.flex.FLOW_HORIZONTAL,
-            "left": "0dp",
-            "skin": "slFbox",
-            "top": "0dp",
-            "width": "100%",
-            "zIndex": 1
-        }, {}, {});
-        flxSegSpeakerRootContainer.setDefaultUnit(kony.flex.DP);
         var flxEventAddress = new kony.ui.FlexContainer({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
-            "centerY": "50%",
+            "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
             "clipBounds": true,
-            "height": "100%",
             "id": "flxEventAddress",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
-            "top": "52dp",
+            "top": 3,
             "width": "79%",
             "zIndex": 1
         }, {}, {});
@@ -66,7 +50,7 @@ define("flxSegSpeakerRoot", function() {
             "skin": "sknLblEventAddressDesk",
             "text": "Convention Center, Hyderabad",
             "textStyle": {},
-            "top": "20%",
+            "top": "6dp",
             "width": "97%",
             "zIndex": 1
         }, {
@@ -81,7 +65,7 @@ define("flxSegSpeakerRoot", function() {
             "skin": "sknLblEventDayTimeDesk",
             "text": "Monday, 10 AM-5 PM",
             "textStyle": {},
-            "top": "4%",
+            "top": 4,
             "width": "97%",
             "zIndex": 1
         }, {
@@ -90,8 +74,7 @@ define("flxSegSpeakerRoot", function() {
             "paddingInPixel": false
         }, {});
         flxEventAddress.add(lblEventAddress, lblEventDateTime);
-        flxSegSpeakerRootContainer.add(flxEventAddress);
-        flxSegSpeakerRoot.add(lblHorizontalLine, flxSegSpeakerRootContainer);
+        flxSegSpeakerRoot.add(lblHorizontalLine, flxEventAddress);
         return flxSegSpeakerRoot;
     }
 })

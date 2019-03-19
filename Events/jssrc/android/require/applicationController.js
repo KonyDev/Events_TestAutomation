@@ -53,6 +53,12 @@ define({
             "classname": "ImageGallery",
             "name": "com.konyenb.ImageGallery"
         });
+        kony.mvc.registry.add("com.konyenb.menu", "menu", "menuController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "menu",
+            "name": "com.konyenb.menu"
+        });
         kony.mvc.registry.add("com.konyenb.menuItem", "menuItem", "menuItemController");
         kony.application.registerMaster({
             "namespace": "com.konyenb",
@@ -64,6 +70,18 @@ define({
             "namespace": "com.konyenb",
             "classname": "menuItem2",
             "name": "com.konyenb.menuItem2"
+        });
+        kony.mvc.registry.add("com.konyenb.profileheader", "profileheader", "profileheaderController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "profileheader",
+            "name": "com.konyenb.profileheader"
+        });
+        kony.mvc.registry.add("com.konyenb.sessiondetails", "sessiondetails", "sessiondetailsController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "sessiondetails",
+            "name": "com.konyenb.sessiondetails"
         });
         kony.mvc.registry.add("com.konyenb.SessionFooter", "SessionFooter", "SessionFooterController");
         kony.application.registerMaster({
@@ -106,6 +124,12 @@ define({
             "namespace": "com.konyenb",
             "classname": "TimePicker",
             "name": "com.konyenb.TimePicker"
+        });
+        kony.mvc.registry.add("com.konyenb.eventdetail", "eventdetail", "eventdetailController");
+        kony.application.registerMaster({
+            "namespace": "com.konyenb",
+            "classname": "eventdetail",
+            "name": "com.konyenb.eventdetail"
         });
         kony.mvc.registry.add("com.konyenb.eventpreview", "eventpreview", "eventpreviewController");
         kony.application.registerMaster({

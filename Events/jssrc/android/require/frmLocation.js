@@ -108,7 +108,7 @@ define("frmLocation", function() {
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
                 "isModalContainer": false,
-                "skin": "CopyslFbox0ja90ae9b90f347",
+                "skin": "slFbox",
                 "width": "70%",
                 "zIndex": 1
             }, {}, {});

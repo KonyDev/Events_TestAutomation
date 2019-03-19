@@ -23,31 +23,45 @@
         0
     ],
     "_percent_": true,
-    "_skin_": "s905c2126a004b85a3d2fddf96ba631e",
+    "_skin_": "sd1421164da64fc0aea0355e19e3a7a4",
     "_top_": {
         "type": "string",
         "value": "0dp"
     },
     "_width_": {
         "type": "string",
-        "value": "75dp"
+        "value": "50%"
     },
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
-    "children": [],
+    "children": [
+        "flxRegisteredUser",
+        "lblLine2",
+        "flxEventShared",
+        "lblLine3",
+        "flxEventView"
+    ],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
     "id": "flxMenuIcon",
     "info": null,
     "iscustomlayout": false,
-    "isvisible": false,
+    "isvisible": true,
     "kuid": "ffc575af841c4770bc8d842442742ed4",
-    "layouttype": 2,
+    "layouttype": 3,
     "name": "kony.ui.FlexContainer",
     "parent": "flxEventInfoRoot",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b3": {
+            "isVisible": false
+        },
+        "b4": {
+            "isVisible": false
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

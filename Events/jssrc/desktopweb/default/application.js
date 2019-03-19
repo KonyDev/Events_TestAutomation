@@ -62,6 +62,25 @@ function mfgetidentityservice(idProviderName) {
     }
     return currentInstance.getIdentityService(idProviderName);
 };
+/**
+ * @function mfidentityserviceinvoker
+ * @description Invokes identity service
+ * @public
+ * @param {string} idProviderName
+ * @param {object} params {userid : <userid>, password : <password>, browserWidget : <browserwidget>, operation : "login/logout"}
+ * and other optional params like callerID and custom params in case of custom provider.
+ * @param {function} successCallback
+ * @param {function} failureCallback
+ */
+function mfidentityserviceinvoker(idProviderName, params, successCallback, failureCallback) {
+    var authorizationClient = mfgetidentityservice(idProviderName);
+    kony.print("Invoking identity service " + idProviderName + " through Kony Fabric.");
+    if (!params.operation || params.operation == "login") {
+        authorizationClient.login(params, successCallback, failureCallback);
+    } else {
+        authorizationClient.logout(successCallback, failureCallback, params);
+    }
+};
 
 function mfintegrationsecureinvokerasync(inputParam, serviceID, operationID, callBack) {
     var url = appConfig.secureurl;
@@ -252,3 +271,96 @@ function makeCall(eventobject) {
 };
 
 function initializeGlobalVariables() {};
+
+function onBreakpointHandler(formModel, width) {
+    var flexProps = ['left', 'top', 'right', 'bottom', 'width', 'height', 'minWidth', 'maxWidth', 'minHeight', 'maxHeight', 'zIndex', 'centerX', 'centerY'];
+    if (formModel.breakpointData) {
+        var width = (width === constants.BREAKPOINT_MAX_VALUE) ? formModel.breakpointData.maxBreakpointWidth : width;
+        if (formModel.breakpointData[width]) {
+            var bdata = formModel.breakpointData[width];
+            for (var widgetId in bdata) {
+                var setterBasePath = formModel;
+                if (bdata[widgetId].parent) {
+                    setterBasePath = formModel[bdata[widgetId].parent];
+                }
+                var instanceId = bdata[widgetId].instanceId;
+                if (instanceId && instanceId !== widgetId) {
+                    setterBasePath = setterBasePath[instanceId];
+                }
+                var setterFinalPath = setterBasePath;
+                if (formModel.id !== widgetId) {
+                    var splitArr = widgetId.split("."); //For components without contract instance, widget id will have '.'
+                    for (var i = 0; i < splitArr.length; i++) {
+                        setterFinalPath = setterFinalPath[splitArr[i]];
+                    }
+                }
+                var wdata = bdata[widgetId];
+                for (var prop in wdata) {
+                    if (prop === 'parent' || prop === 'instanceId') {
+                        continue
+                    };
+                    if (formModel.breakpointResetData && (typeof formModel.breakpointResetData[widgetId] === 'undefined' || typeof formModel.breakpointResetData[widgetId][prop] === 'undefined')) {
+                        if (!formModel.breakpointResetData[widgetId]) {
+                            formModel.breakpointResetData[widgetId] = {};
+                        }
+                        if (flexProps.indexOf(prop) > -1) {
+                            formModel.breakpointResetData[widgetId][prop] = {};
+                            formModel.breakpointResetData[widgetId][prop].value = setterFinalPath[prop];
+                        } else {
+                            formModel.breakpointResetData[widgetId][prop] = setterFinalPath[prop] || "";
+                        }
+                        if (wdata.parent) {
+                            formModel.breakpointResetData[widgetId].parent = wdata.parent;
+                        }
+                        if (wdata.instanceId) {
+                            formModel.breakpointResetData[widgetId].instanceId = wdata.instanceId;
+                        }
+                    }
+                    if (flexProps.indexOf(prop) > -1) {
+                        setterFinalPath[prop] = wdata[prop].value;
+                    } else {
+                        setterFinalPath[prop] = wdata[prop];
+                    }
+                }
+            }
+        }
+        //Reset previous breakpoint values
+        if (formModel.breakpointResetData) {
+            var wdata = null;
+            if (formModel.breakpointData[width]) {
+                wdata = formModel.breakpointData[width];
+            } else {
+                wdata = {};
+            }
+            for (var wgtId in formModel.breakpointResetData) {
+                var wgtData = wdata[wgtId] || {};
+                var wgtResetData = formModel.breakpointResetData[wgtId];
+                var setterBasePath = formModel;
+                if (wgtResetData.parent) {
+                    setterBasePath = setterBasePath[wgtResetData.parent];
+                }
+                var instanceId = wgtResetData.instanceId;
+                if (instanceId && instanceId !== wgtId) {
+                    setterBasePath = setterBasePath[instanceId];
+                }
+                if (formModel.id !== wgtId) {
+                    var splitArr = wgtId.split(".");
+                    for (var i = 0; i < splitArr.length; i++) {
+                        setterBasePath = setterBasePath[splitArr[i]];
+                    }
+                }
+                for (var prop in wgtResetData) {
+                    if (prop === 'parent' || prop === 'instanceId' || wgtData[prop] !== undefined) {
+                        continue;
+                    }
+                    if (flexProps.indexOf(prop) > -1) {
+                        setterBasePath[prop] = wgtResetData[prop].value;
+                    } else {
+                        setterBasePath[prop] = wgtResetData[prop];
+                    }
+                    delete wgtResetData[prop];
+                }
+            }
+        }
+    }
+}

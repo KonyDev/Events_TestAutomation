@@ -38,8 +38,7 @@
     "children": [
         "flxMenuIcon",
         "lblDashboard",
-        "flxNotificationIcon",
-        "flexProfile"
+        "flexProfilePhotoANdTitle"
     ],
     "clipbounds": true,
     "containerweight": 100,

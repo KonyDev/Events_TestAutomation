@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var ImageGallery = new kony.ui.FlexContainer({
+        var ImageGallery = new kony.ui.FlexContainer(extendConfig({
             "clipBounds": true,
             "isMaster": true,
             "height": "100%",
@@ -10,33 +10,12 @@ define(function() {
             "left": "0dp",
             "isModalContainer": false,
             "postShow": controller.AS_FlexContainer_ibbcc442aaa54ccab12d0a2fbba26387,
-            "skin": "sknFlxImageGalleryComponentRoot",
+            "skin": "sknCompBG00080",
             "top": "0dp",
             "width": "100%"
-        }, {}, {});
+        }, controller.args[0], "ImageGallery"), extendConfig({}, controller.args[1], "ImageGallery"), extendConfig({}, controller.args[2], "ImageGallery"));
         ImageGallery.setDefaultUnit(kony.flex.DP);
-        var lblTitle = new kony.ui.Label({
-            "centerX": "50%",
-            "height": "4%",
-            "id": "lblTitle",
-            "isVisible": false,
-            "skin": "CopysknLblCmpGreen",
-            "text": "PROGRAM IMAGE GALLERY",
-            "textStyle": {
-                "letterSpacing": 0,
-                "strikeThrough": false
-            },
-            "top": "13%",
-            "width": "100%",
-            "zIndex": 1
-        }, {
-            "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {
-            "textCopyable": false
-        });
-        var flxImage = new kony.ui.FlexScrollContainer({
+        var flxImage = new kony.ui.FlexScrollContainer(extendConfig({
             "allowHorizontalBounce": false,
             "allowVerticalBounce": true,
             "bounces": false,
@@ -55,9 +34,9 @@ define(function() {
             "verticalScrollIndicator": false,
             "width": "100%",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flxImage"), extendConfig({}, controller.args[1], "flxImage"), extendConfig({}, controller.args[2], "flxImage"));
         flxImage.setDefaultUnit(kony.flex.DP);
-        var imgEvent = new kony.ui.Image2({
+        var imgEvent = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "id": "imgEvent",
             "imageWhenFailed": "eventske_1.png",
@@ -68,13 +47,13 @@ define(function() {
             "src": "eventske_1.png",
             "width": kony.flex.USE_PREFFERED_SIZE,
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgEvent"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "imgEvent"), extendConfig({}, controller.args[2], "imgEvent"));
         flxImage.add(imgEvent);
-        var flxScThumbImage = new kony.ui.FlexScrollContainer({
+        var flxScThumbImage = new kony.ui.FlexScrollContainer(extendConfig({
             "allowHorizontalBounce": false,
             "allowVerticalBounce": true,
             "bottom": "8dp",
@@ -90,13 +69,13 @@ define(function() {
             "maxWidth": "100%",
             "pagingEnabled": false,
             "scrollDirection": kony.flex.SCROLL_HORIZONTAL,
-            "skin": "CopysknFlxSCThumb",
+            "skin": "slFSbox",
             "verticalScrollIndicator": false,
             "width": "98%",
             "zIndex": 10
-        }, {}, {});
+        }, controller.args[0], "flxScThumbImage"), extendConfig({}, controller.args[1], "flxScThumbImage"), extendConfig({}, controller.args[2], "flxScThumbImage"));
         flxScThumbImage.setDefaultUnit(kony.flex.DP);
-        var flxItemTest = new kony.ui.FlexContainer({
+        var flxItemTest = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerY": "50%",
             "clipBounds": true,
@@ -109,9 +88,9 @@ define(function() {
             "skin": "sknFlxThumbBG",
             "width": "80dp",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flxItemTest"), extendConfig({}, controller.args[1], "flxItemTest"), extendConfig({}, controller.args[2], "flxItemTest"));
         flxItemTest.setDefaultUnit(kony.flex.DP);
-        var imgThumbTest = new kony.ui.Image2({
+        var imgThumbTest = new kony.ui.Image2(extendConfig({
             "centerX": "50%",
             "centerY": "50%",
             "height": "100%",
@@ -123,14 +102,14 @@ define(function() {
             "src": "philantrophy_1.png",
             "width": "100%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgThumbTest"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_FIT_TO_DIMENSIONS,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "imgThumbTest"), extendConfig({}, controller.args[2], "imgThumbTest"));
         flxItemTest.add(imgThumbTest);
         flxScThumbImage.add(flxItemTest);
-        ImageGallery.add(lblTitle, flxImage, flxScThumbImage);
+        ImageGallery.add(flxImage, flxScThumbImage);
         return ImageGallery;
     }
 })

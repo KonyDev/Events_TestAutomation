@@ -3,7 +3,7 @@
     "__parentReadjusting__": false,
     "_height_": {
         "type": "string",
-        "value": "70%"
+        "value": "85%"
     },
     "_left_": {
         "type": "string",
@@ -30,10 +30,9 @@
     },
     "_width_": {
         "type": "string",
-        "value": "38%"
+        "value": "45%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
     "canUpdateUI": true,
     "centerx": {
         "type": "string",
@@ -45,7 +44,9 @@
     },
     "children": [
         "flexLoginEventLogo",
-        "flexLoginCred"
+        "flexLoginLinkedIn",
+        "flexSeperator",
+        "flexLoginCredAdmin"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -59,6 +60,46 @@
     "name": "kony.ui.FlexContainer",
     "parent": "frmLogin",
     "pf": "frmLogin",
+    "responsiveData": {
+        "b1": {
+            "height": {
+                "type": "string",
+                "value": "600dp"
+            }
+        },
+        "b2": {
+            "height": {
+                "type": "string",
+                "value": "600dp"
+            },
+            "width": {
+                "type": "string",
+                "value": "70%"
+            }
+        },
+        "b3": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "centerY": {
+                "type": "string",
+                "value": ""
+            },
+            "height": {
+                "type": "string",
+                "value": "750dp"
+            },
+            "top": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

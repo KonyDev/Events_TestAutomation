@@ -35,7 +35,6 @@
     "allboxes": [],
     "canUpdateUI": true,
     "children": [
-        "lblTitle",
         "flxImage",
         "flxScThumbImage"
     ],
@@ -52,6 +51,7 @@
     "name": "kony.ui.FlexContainer",
     "parent": "userwidgetmodel",
     "pf": "userwidgetmodel",
+    "postshow": "AS_FlexContainer_ibbcc442aaa54ccab12d0a2fbba26387",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

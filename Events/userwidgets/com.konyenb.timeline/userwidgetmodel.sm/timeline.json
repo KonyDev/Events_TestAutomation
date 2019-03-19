@@ -55,6 +55,7 @@
     "name": "kony.ui.FlexContainer",
     "parent": "userwidgetmodel",
     "pf": "userwidgetmodel",
+    "postshow": "AS_FlexContainer_jf56ff5781bf453cb8be381e324df6db",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

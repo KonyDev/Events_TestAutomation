@@ -36,10 +36,13 @@
     "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
-        "dashboard",
         "flexHeader",
         "flxEventLIstContainer",
-        "menuItem"
+        "profileheader",
+        "menuItem",
+        "eventpreview",
+        "flxMenuClose",
+        "flexProfileOptions"
     ],
     "clipbounds": true,
     "containerweight": 100,

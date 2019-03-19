@@ -74,6 +74,20 @@
     "paddinginpixel": false,
     "parent": "flxEventDropdownContainer",
     "pf": "frmManageUser",
+    "responsiveData": {
+        "b3": {
+            "width": {
+                "type": "string",
+                "value": "70%"
+            }
+        },
+        "b4": {
+            "width": {
+                "type": "string",
+                "value": "70%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "selectedkey": "keyInfo",

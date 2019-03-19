@@ -136,8 +136,7 @@ define("com/konyenb/boxfileupload/userboxfileuploadController", function() {
                         }
                     }
                 };
-                //var mfURL = KNYMobileFabric.integsvc.BoxService.url;
-                var mfURL = "https://prodsanity-82.konycloud.com:443/services/BoxService";
+                var mfURL = KNYMobileFabric.integsvc.BoxService.url;
                 var uploadURL = mfURL + "/UploadFilesInFolder";
                 xhr.open("POST", uploadURL, true);
                 xhr.send(params);

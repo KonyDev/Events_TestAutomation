@@ -52,6 +52,7 @@
     "isvisible": true,
     "kuid": "ff469b9c6afb4c18be2fd86c9e198197",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_b39de52ebe92497694847007cb32fb7c",
     "parent": "flexHamburger",
     "pf": "frmEventsLanding",
     "retaincontentalignment": false,

@@ -50,6 +50,7 @@
     "isvisible": true,
     "kuid": "ib0e6cd9f5a7410095c37c0d57b056d2",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_j7b99cd8021441259c1025ed996a2c91",
     "parent": "flxFullSplashScreen",
     "pf": "segSplash",
     "retaincontentalignment": false,

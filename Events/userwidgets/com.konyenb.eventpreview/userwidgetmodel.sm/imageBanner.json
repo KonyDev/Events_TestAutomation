@@ -9,7 +9,7 @@
     },
     "_left_": {
         "type": "string",
-        "value": "0.00%"
+        "value": "0%"
     },
     "_margin_": [
         0,
@@ -23,11 +23,11 @@
         0,
         0
     ],
-    "_skin_": "s320f5398c044d7482e42abcaf9d8a97",
+    "_skin_": "s88b56ff724d41ba810874734ecc8df4",
     "_src_": "bootcamp.jpg",
     "_top_": {
         "type": "string",
-        "value": "0.00%"
+        "value": "0%"
     },
     "_width_": {
         "type": "string",

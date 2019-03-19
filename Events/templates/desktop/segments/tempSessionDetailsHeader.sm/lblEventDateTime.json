@@ -25,8 +25,8 @@
     "_skin_": "sd67358208a04468a1dfed4dde370f3f",
     "_text_": "Monday, 10 AM-5 PM",
     "_top_": {
-        "type": "string",
-        "value": "4%"
+        "type": "number",
+        "value": "4"
     },
     "_width_": {
         "type": "string",

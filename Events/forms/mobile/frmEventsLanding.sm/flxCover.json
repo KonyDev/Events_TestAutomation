@@ -47,6 +47,7 @@
     "kuid": "je27879b2be444218181402b8f081e2e",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_g3cf32200e0e4f7f8df42fafbff6cef0",
     "parent": "frmEventsLanding",
     "pf": "frmEventsLanding",
     "retaincontentalignment": false,

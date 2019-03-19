@@ -20,7 +20,8 @@ var EVENT_CONSTANS = {
         SEARCHBACK: "searchback",
         PROFILE: "profile",
         DETAILS: "details",
-        PUSH: "push"
+        PUSH: "push",
+        USERROLE: "consumer"
     },
     IMAGES: {
         ONLINEIMAGE: "onlineicon.png",
@@ -31,6 +32,16 @@ var EVENT_CONSTANS = {
     },
     SKINS: {},
     KMS: {
-        SENDERID: ""
+        SENDERID: "150665757263"
+    },
+    USERROLE: {
+        ADMIN: "admin",
+        CONSUMER: "consumer"
+    },
+    BREAKPOINT: {
+        MOBILE: 480,
+        TABLET: 771,
+        DESKTOP: 1366,
+        DESKTOPL: 1920
     }
 };

@@ -124,7 +124,7 @@ define("frmSearch", function() {
                 "left": "-0.03%",
                 "pagingEnabled": false,
                 "scrollDirection": kony.flex.SCROLL_VERTICAL,
-                "skin": "CopyslFSbox0hb6d056472c44f",
+                "skin": "sknflxf0f1f3BG100",
                 "top": "8.00%",
                 "verticalScrollIndicator": true,
                 "width": "100%",
@@ -141,7 +141,7 @@ define("frmSearch", function() {
                 "layoutType": kony.flex.FLOW_HORIZONTAL,
                 "left": "23dp",
                 "isModalContainer": false,
-                "skin": "CopyslFbox0f19e39ce35304c",
+                "skin": "sknflexBR00a0dd1CS100",
                 "top": "5%",
                 "width": "93%",
                 "zIndex": 1
@@ -168,7 +168,6 @@ define("frmSearch", function() {
                 "id": "lblStrip",
                 "isVisible": true,
                 "left": "3%",
-                "skin": "CopydefLabel0f734bc0caec042",
                 "textStyle": {
                     "letterSpacing": 0,
                     "strikeThrough": false
@@ -186,7 +185,6 @@ define("frmSearch", function() {
             var txtSearch = new kony.ui.TextBox2({
                 "autoCapitalize": constants.TEXTBOX_AUTO_CAPITALIZE_NONE,
                 "centerY": "50.00%",
-                "focusSkin": "CopydefTextBoxFocus0ed91cb18e37d4c",
                 "height": "100%",
                 "id": "txtSearch",
                 "isVisible": true,
@@ -195,7 +193,7 @@ define("frmSearch", function() {
                 "onTextChange": controller.AS_TextField_f32a139024244acabf5ab1bcd58134d5,
                 "placeholder": "Event name..",
                 "secureTextEntry": false,
-                "skin": "CopydefTextBoxNormal0d904edf9311143",
+                "skin": "skntxt3f51b5AM107",
                 "textInputMode": constants.TEXTBOX_INPUT_MODE_ANY,
                 "top": "10dp",
                 "width": "76.93%",
@@ -208,7 +206,6 @@ define("frmSearch", function() {
             }, {
                 "autoFilter": false,
                 "keyboardActionLabel": constants.TEXTBOX_KEYBOARD_LABEL_DEFAULT,
-                "placeholderSkin": "CopydefTextBoxPlaceholder0c4cc23bc296e4b",
                 "viewType": constants.TEXTBOX_VIEW_TYPE_DEFAULT
             });
             var btnCross = new kony.ui.Button({
@@ -246,7 +243,7 @@ define("frmSearch", function() {
                 "pageOnDotImage": "pageondot.png",
                 "retainSelection": false,
                 "rowFocusSkin": "seg2Focus",
-                "rowSkin": "Copyseg0g95b203d0e4a44",
+                "rowSkin": "seg2Normal",
                 "rowTemplate": "flexMainSearchTemp",
                 "scrollingEvents": {},
                 "selectionBehavior": constants.SEGUI_DEFAULT_BEHAVIOR,
@@ -259,7 +256,7 @@ define("frmSearch", function() {
                     "lblHorDivider": "lblHorDivider",
                     "lblResult": "lblResult"
                 },
-                "widgetSkin": "Copyseg0cf8e2c2c0bf543",
+                "widgetSkin": "sknsegBRFFFBR1CS15",
                 "width": "90%",
                 "zIndex": 1
             }, {
@@ -291,6 +288,7 @@ define("frmSearch", function() {
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "5%",
                 "isModalContainer": false,
+                "skin": "slFbox",
                 "top": "10%",
                 "width": "90%",
                 "zIndex": 1

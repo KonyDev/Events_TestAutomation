@@ -113,7 +113,7 @@ define("flxSegSpeakerRoot", function() {
             "id": "lblVerticalLine",
             "isVisible": true,
             "left": "5dp",
-            "skin": "CopydefLabel0d6babf11138d40",
+            "skin": "sknlblBG00a0dd100",
             "text": " ",
             "textStyle": {
                 "letterSpacing": 0,

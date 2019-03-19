@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var menuItem2 = new kony.ui.FlexContainer({
+        var menuItem2 = new kony.ui.FlexContainer(extendConfig({
             "clipBounds": true,
             "isMaster": true,
             "height": "100%",
@@ -12,9 +12,9 @@ define(function() {
             "skin": "slFbox",
             "top": "0dp",
             "width": "17.50%"
-        }, {}, {});
+        }, controller.args[0], "menuItem2"), extendConfig({}, controller.args[1], "menuItem2"), extendConfig({}, controller.args[2], "menuItem2"));
         menuItem2.setDefaultUnit(kony.flex.DP);
-        var flexCreateEventMain = new kony.ui.FlexContainer({
+        var flexCreateEventMain = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
@@ -27,9 +27,9 @@ define(function() {
             "top": "0%",
             "width": "100%",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flexCreateEventMain"), extendConfig({}, controller.args[1], "flexCreateEventMain"), extendConfig({}, controller.args[2], "flexCreateEventMain"));
         flexCreateEventMain.setDefaultUnit(kony.flex.DP);
-        var flexEventLogo = new kony.ui.FlexContainer({
+        var flexEventLogo = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -42,9 +42,9 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flexEventLogo"), extendConfig({}, controller.args[1], "flexEventLogo"), extendConfig({}, controller.args[2], "flexEventLogo"));
         flexEventLogo.setDefaultUnit(kony.flex.DP);
-        var imgLogo = new kony.ui.Image2({
+        var imgLogo = new kony.ui.Image2(extendConfig({
             "bottom": "12dp",
             "centerY": "50%",
             "height": "47px",
@@ -55,13 +55,13 @@ define(function() {
             "src": "eventstitlw.png",
             "width": "169px",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgLogo"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "imgLogo"), extendConfig({}, controller.args[2], "imgLogo"));
         flexEventLogo.add(imgLogo);
-        var lblUnderLineLogo = new kony.ui.Label({
+        var lblUnderLineLogo = new kony.ui.Label(extendConfig({
             "centerX": "50.00%",
             "height": "1px",
             "id": "lblUnderLineLogo",
@@ -74,103 +74,14 @@ define(function() {
             "top": "0px",
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblUnderLineLogo"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblUnderLineLogo"), extendConfig({
             "textCopyable": false
-        });
-        var flexProfile = new kony.ui.FlexContainer({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
-            "centerX": "50%",
-            "clipBounds": true,
-            "height": "66px",
-            "id": "flexProfile",
-            "isVisible": false,
-            "layoutType": kony.flex.FREE_FORM,
-            "isModalContainer": false,
-            "skin": "slFbox",
-            "top": "2px",
-            "width": "90%",
-            "zIndex": 5
-        }, {}, {});
-        flexProfile.setDefaultUnit(kony.flex.DP);
-        var flexProfilePhotoANdTitle = new kony.ui.FlexContainer({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
-            "centerY": "50%",
-            "clipBounds": true,
-            "height": "100%",
-            "id": "flexProfilePhotoANdTitle",
-            "isVisible": true,
-            "layoutType": kony.flex.FLOW_HORIZONTAL,
-            "left": "0dp",
-            "isModalContainer": false,
-            "skin": "slFbox",
-            "top": "0dp",
-            "width": "100%",
-            "zIndex": 5
-        }, {}, {});
-        flexProfilePhotoANdTitle.setDefaultUnit(kony.flex.DP);
-        var imgProfile = new kony.ui.Image2({
-            "centerY": "50%",
-            "height": "35dp",
-            "id": "imgProfile",
-            "isVisible": true,
-            "left": "5px",
-            "skin": "slImage",
-            "src": "profile_1.png",
-            "top": "0%",
-            "width": "35dp",
-            "zIndex": 1
-        }, {
-            "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {});
-        var lblUserName = new kony.ui.Label({
-            "centerY": "50%",
-            "id": "lblUserName",
-            "isVisible": true,
-            "left": "10px",
-            "skin": "lblUserName",
-            "text": "John Mathew",
-            "textStyle": {
-                "letterSpacing": 0,
-                "strikeThrough": false
-            },
-            "width": "82%",
-            "zIndex": 1
-        }, {
-            "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {
-            "textCopyable": false
-        });
-        flexProfilePhotoANdTitle.add(imgProfile, lblUserName);
-        flexProfile.add(flexProfilePhotoANdTitle);
-        var lblUnderLineProfile = new kony.ui.Label({
-            "bottom": "2px",
-            "height": "1dp",
-            "id": "lblUnderLineProfile",
-            "isVisible": false,
-            "left": "0%",
-            "skin": "sknheaderlblLine",
-            "textStyle": {
-                "letterSpacing": 0,
-                "strikeThrough": false
-            },
-            "width": "100%",
-            "zIndex": 5
-        }, {
-            "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {
-            "textCopyable": false
-        });
-        var flexAllNewEvent = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblUnderLineLogo"));
+        var flexAllNewEvent = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -184,9 +95,9 @@ define(function() {
             "top": "10px",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flexAllNewEvent"), extendConfig({}, controller.args[1], "flexAllNewEvent"), extendConfig({}, controller.args[2], "flexAllNewEvent"));
         flexAllNewEvent.setDefaultUnit(kony.flex.DP);
-        var imgAllNewEvent = new kony.ui.Image2({
+        var imgAllNewEvent = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgAllNewEvent",
@@ -196,12 +107,12 @@ define(function() {
             "src": "alleventsicon.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgAllNewEvent"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblAllEvent = new kony.ui.Label({
+        }, controller.args[1], "imgAllNewEvent"), extendConfig({}, controller.args[2], "imgAllNewEvent"));
+        var lblAllEvent = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblAllEvent",
@@ -215,15 +126,15 @@ define(function() {
             },
             "width": "70%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblAllEvent"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblAllEvent"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblAllEvent"));
         flexAllNewEvent.add(imgAllNewEvent, lblAllEvent);
-        var lblUnderLineHam = new kony.ui.Label({
+        var lblUnderLineHam = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "height": "1px",
             "id": "lblUnderLineHam",
@@ -237,14 +148,14 @@ define(function() {
             "top": "0px",
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblUnderLineHam"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblUnderLineHam"), extendConfig({
             "textCopyable": false
-        });
-        var flxCreateNewEvent = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblUnderLineHam"));
+        var flxCreateNewEvent = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -259,9 +170,9 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flxCreateNewEvent"), extendConfig({}, controller.args[1], "flxCreateNewEvent"), extendConfig({}, controller.args[2], "flxCreateNewEvent"));
         flxCreateNewEvent.setDefaultUnit(kony.flex.DP);
-        var imgCreateNewEvent = new kony.ui.Image2({
+        var imgCreateNewEvent = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgCreateNewEvent",
@@ -271,12 +182,12 @@ define(function() {
             "src": "neweventicon.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgCreateNewEvent"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblCreateNewEvent = new kony.ui.Label({
+        }, controller.args[1], "imgCreateNewEvent"), extendConfig({}, controller.args[2], "imgCreateNewEvent"));
+        var lblCreateNewEvent = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblCreateNewEvent",
@@ -290,15 +201,15 @@ define(function() {
             },
             "width": "70%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblCreateNewEvent"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblCreateNewEvent"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblCreateNewEvent"));
         flxCreateNewEvent.add(imgCreateNewEvent, lblCreateNewEvent);
-        var lblUnderLineHam2 = new kony.ui.Label({
+        var lblUnderLineHam2 = new kony.ui.Label(extendConfig({
             "bottom": "0%",
             "centerX": "50%",
             "height": "1px",
@@ -313,14 +224,14 @@ define(function() {
             "top": "0px",
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblUnderLineHam2"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblUnderLineHam2"), extendConfig({
             "textCopyable": false
-        });
-        var flxManageUser = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblUnderLineHam2"));
+        var flxManageUser = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -335,9 +246,9 @@ define(function() {
             "top": "0px",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flxManageUser"), extendConfig({}, controller.args[1], "flxManageUser"), extendConfig({}, controller.args[2], "flxManageUser"));
         flxManageUser.setDefaultUnit(kony.flex.DP);
-        var imgManageUser = new kony.ui.Image2({
+        var imgManageUser = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgManageUser",
@@ -347,12 +258,12 @@ define(function() {
             "src": "manageusers.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgManageUser"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblManageUser = new kony.ui.Label({
+        }, controller.args[1], "imgManageUser"), extendConfig({}, controller.args[2], "imgManageUser"));
+        var lblManageUser = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblManageUser",
@@ -366,15 +277,15 @@ define(function() {
             },
             "width": "70%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblManageUser"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblManageUser"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblManageUser"));
         flxManageUser.add(imgManageUser, lblManageUser);
-        var lblLine3 = new kony.ui.Label({
+        var lblLine3 = new kony.ui.Label(extendConfig({
             "bottom": "0%",
             "centerX": "50%",
             "height": "1px",
@@ -388,14 +299,14 @@ define(function() {
             },
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblLine3"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblLine3"), extendConfig({
             "textCopyable": false
-        });
-        var flxNotification = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblLine3"));
+        var flxNotification = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -410,9 +321,9 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flxNotification"), extendConfig({}, controller.args[1], "flxNotification"), extendConfig({}, controller.args[2], "flxNotification"));
         flxNotification.setDefaultUnit(kony.flex.DP);
-        var imgNotification = new kony.ui.Image2({
+        var imgNotification = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgNotification",
@@ -422,12 +333,12 @@ define(function() {
             "src": "notificationicon.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgNotification"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblNotification = new kony.ui.Label({
+        }, controller.args[1], "imgNotification"), extendConfig({}, controller.args[2], "imgNotification"));
+        var lblNotification = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblNotification",
@@ -441,15 +352,15 @@ define(function() {
             },
             "width": "70%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblNotification"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblNotification"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblNotification"));
         flxNotification.add(imgNotification, lblNotification);
-        var lblLine4 = new kony.ui.Label({
+        var lblLine4 = new kony.ui.Label(extendConfig({
             "bottom": "0%",
             "centerX": "50%",
             "height": "1px",
@@ -463,14 +374,14 @@ define(function() {
             },
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblLine4"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblLine4"), extendConfig({
             "textCopyable": false
-        });
-        var flxMyCalendar = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblLine4"));
+        var flxMyCalendar = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -485,9 +396,9 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flxMyCalendar"), extendConfig({}, controller.args[1], "flxMyCalendar"), extendConfig({}, controller.args[2], "flxMyCalendar"));
         flxMyCalendar.setDefaultUnit(kony.flex.DP);
-        var imgCalendar = new kony.ui.Image2({
+        var imgCalendar = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgCalendar",
@@ -497,12 +408,12 @@ define(function() {
             "src": "calender.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgCalendar"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblMyCalendar = new kony.ui.Label({
+        }, controller.args[1], "imgCalendar"), extendConfig({}, controller.args[2], "imgCalendar"));
+        var lblMyCalendar = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblMyCalendar",
@@ -516,15 +427,15 @@ define(function() {
             },
             "width": "75%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblMyCalendar"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblMyCalendar"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblMyCalendar"));
         flxMyCalendar.add(imgCalendar, lblMyCalendar);
-        var lblLine5 = new kony.ui.Label({
+        var lblLine5 = new kony.ui.Label(extendConfig({
             "bottom": "0%",
             "centerX": "50%",
             "height": "1px",
@@ -538,14 +449,14 @@ define(function() {
             },
             "width": "90%",
             "zIndex": 5
-        }, {
+        }, controller.args[0], "lblLine5"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblLine5"), extendConfig({
             "textCopyable": false
-        });
-        var flxSetting = new kony.ui.FlexContainer({
+        }, controller.args[2], "lblLine5"));
+        var flxSetting = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "centerX": "50%",
             "clipBounds": true,
@@ -560,9 +471,9 @@ define(function() {
             "top": "0%",
             "width": "90%",
             "zIndex": 5
-        }, {}, {});
+        }, controller.args[0], "flxSetting"), extendConfig({}, controller.args[1], "flxSetting"), extendConfig({}, controller.args[2], "flxSetting"));
         flxSetting.setDefaultUnit(kony.flex.DP);
-        var imgSetting = new kony.ui.Image2({
+        var imgSetting = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "38dp",
             "id": "imgSetting",
@@ -572,12 +483,12 @@ define(function() {
             "src": "settingsicon.png",
             "width": "38dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "imgSetting"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var lblSetting = new kony.ui.Label({
+        }, controller.args[1], "imgSetting"), extendConfig({}, controller.args[2], "imgSetting"));
+        var lblSetting = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "45%",
             "id": "lblSetting",
@@ -591,61 +502,15 @@ define(function() {
             },
             "width": "75%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblSetting"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblSetting"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblSetting"));
         flxSetting.add(imgSetting, lblSetting);
-        var SegOptions = new kony.ui.SegmentedUI2({
-            "autogrowMode": kony.flex.AUTOGROW_NONE,
-            "data": [{
-                "imgIcon": "alleventsicon.png",
-                "lblText": "All Events",
-                "lblUnderLineHam": "test"
-            }, {
-                "imgIcon": "neweventicon.png",
-                "lblText": "Create New Events",
-                "lblUnderLineHam": "test"
-            }],
-            "groupCells": false,
-            "height": "75%",
-            "id": "SegOptions",
-            "isVisible": false,
-            "left": "5%",
-            "needPageIndicator": true,
-            "onRowClick": controller.AS_Segment_ade71abaef944d1684c7397098a54f7d,
-            "pageOffDotImage": "pageoffdot_2.png",
-            "pageOnDotImage": "pageondot_2.png",
-            "retainSelection": true,
-            "rowFocusSkin": "Copyseg0e11ad42646774a",
-            "rowSkin": "Copyseg0ac11cef0a7d248",
-            "scrollingEvents": {},
-            "sectionHeaderSkin": "sliPhoneSegmentHeader",
-            "selectionBehavior": constants.SEGUI_DEFAULT_BEHAVIOR,
-            "separatorColor": "aaaaaa00",
-            "separatorRequired": true,
-            "separatorThickness": 0,
-            "showScrollbars": false,
-            "top": "0%",
-            "viewType": constants.SEGUI_VIEW_TYPE_TABLEVIEW,
-            "widgetDataMap": {
-                "flexHamImgLable": "flexHamImgLable",
-                "flexHamManuMain": "flexHamManuMain",
-                "flexHamMenu": "flexHamMenu",
-                "imgIcon": "imgIcon",
-                "lblText": "lblText",
-                "lblUnderLineHam": "lblUnderLineHam"
-            },
-            "width": "90%",
-            "zIndex": 5
-        }, {
-            "padding": [0, 0, 0, 0],
-            "paddingInPixel": false
-        }, {});
-        flexCreateEventMain.add(flexEventLogo, lblUnderLineLogo, flexProfile, lblUnderLineProfile, flexAllNewEvent, lblUnderLineHam, flxCreateNewEvent, lblUnderLineHam2, flxManageUser, lblLine3, flxNotification, lblLine4, flxMyCalendar, lblLine5, flxSetting, SegOptions);
+        flexCreateEventMain.add(flexEventLogo, lblUnderLineLogo, flexAllNewEvent, lblUnderLineHam, flxCreateNewEvent, lblUnderLineHam2, flxManageUser, lblLine3, flxNotification, lblLine4, flxMyCalendar, lblLine5, flxSetting);
         menuItem2.add(flexCreateEventMain);
         return menuItem2;
     }

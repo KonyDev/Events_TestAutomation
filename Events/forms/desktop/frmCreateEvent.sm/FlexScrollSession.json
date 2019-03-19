@@ -26,7 +26,7 @@
     "_skin_": "s9c0daef32ea440689e03b200284a988",
     "_top_": {
         "type": "string",
-        "value": "21%"
+        "value": "185dp"
     },
     "_width_": {
         "type": "string",
@@ -55,11 +55,41 @@
     "iscustomlayout": false,
     "isvisible": false,
     "kuid": "a0a8b3c7d2b94551b01b57238aa122f6",
-    "layouttype": 2,
+    "layouttype": 4,
     "name": "kony.ui.FlexScrollContainer",
     "pagingenabled": false,
     "parent": "frmCreateEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b3": {
+            "height": {
+                "type": "string",
+                "value": "715dp"
+            },
+            "left": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        },
+        "b4": {
+            "height": {
+                "type": "string",
+                "value": "715dp"
+            },
+            "left": {
+                "type": "string",
+                "value": "0%"
+            },
+            "width": {
+                "type": "string",
+                "value": "100%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "scrolldirection": 2,

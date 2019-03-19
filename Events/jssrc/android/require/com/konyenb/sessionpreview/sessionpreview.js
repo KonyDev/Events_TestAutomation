@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var sessionpreview = new kony.ui.FlexContainer({
+        var sessionpreview = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
             "clipBounds": true,
             "isMaster": true,
@@ -12,9 +12,9 @@ define(function() {
             "skin": "sknFlexBorderDesk00a0dd",
             "top": "0dp",
             "width": "50%"
-        }, {}, {});
+        }, controller.args[0], "sessionpreview"), extendConfig({}, controller.args[1], "sessionpreview"), extendConfig({}, controller.args[2], "sessionpreview"));
         sessionpreview.setDefaultUnit(kony.flex.DP);
-        var flexDateandStrip = new kony.ui.FlexContainer({
+        var flexDateandStrip = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "200dp",
@@ -23,40 +23,40 @@ define(function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
             "isModalContainer": false,
-            "skin": "CopyslFbox0bfefff3a169d4b",
+            "skin": "slFbox",
             "top": "0dp",
             "width": "20%",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flexDateandStrip"), extendConfig({}, controller.args[1], "flexDateandStrip"), extendConfig({}, controller.args[2], "flexDateandStrip"));
         flexDateandStrip.setDefaultUnit(kony.flex.DP);
-        var lblVertStrip = new kony.ui.Label({
+        var lblVertStrip = new kony.ui.Label(extendConfig({
             "centerY": "50%",
             "height": "95%",
             "id": "lblVertStrip",
             "isVisible": true,
             "left": "95%",
-            "skin": "CopydefLabel0e560cf677d9047",
+            "skin": "sknlblBG00a0dd100",
             "textStyle": {
                 "letterSpacing": 0,
                 "strikeThrough": false
             },
             "width": "1px",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblVertStrip"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblVertStrip"), extendConfig({
             "textCopyable": false
-        });
-        var lblDateMonth = new kony.ui.Label({
+        }, controller.args[2], "lblVertStrip"));
+        var lblDateMonth = new kony.ui.Label(extendConfig({
             "centerX": "50%",
             "centerY": "50%",
             "height": "100%",
             "id": "lblDateMonth",
             "isVisible": true,
             "left": "32dp",
-            "skin": "CopydefLabel0baed6bcf608249",
+            "skin": "sknlbl00a0ddAM110",
             "text": "13 MAY",
             "textStyle": {
                 "letterSpacing": 0,
@@ -65,15 +65,15 @@ define(function() {
             "top": "68dp",
             "width": "35%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblDateMonth"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_CENTER,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblDateMonth"), extendConfig({
             "textCopyable": false
-        });
+        }, controller.args[2], "lblDateMonth"));
         flexDateandStrip.add(lblVertStrip, lblDateMonth);
-        var segSessionandSpeaker = new kony.ui.SegmentedUI2({
+        var segSessionandSpeaker = new kony.ui.SegmentedUI2(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
             "groupCells": false,
             "id": "segSessionandSpeaker",
@@ -111,10 +111,10 @@ define(function() {
             },
             "width": "80%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "segSessionandSpeaker"), extendConfig({
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "segSessionandSpeaker"), extendConfig({}, controller.args[2], "segSessionandSpeaker"));
         sessionpreview.add(flexDateandStrip, segSessionandSpeaker);
         return sessionpreview;
     }

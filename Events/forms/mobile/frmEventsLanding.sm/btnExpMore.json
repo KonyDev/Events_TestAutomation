@@ -48,6 +48,7 @@
     "isvisible": true,
     "kuid": "b69966b877f144649419c3b899154256",
     "name": "kony.ui.Button",
+    "onclick": "AS_Button_j7106d7987854dba8a0d5d50a73eb7c0",
     "parent": "flexEventConfSub",
     "pf": "frmEventsLanding",
     "retaincontentalignment": false,

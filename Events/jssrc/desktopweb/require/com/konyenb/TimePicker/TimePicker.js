@@ -9,8 +9,9 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "postShow": controller.AS_FlexContainer_ebdfac7a238d4155960ebea12303ebf9,
-            "skin": "CopyslFbox0ad3fd5034e684a",
+            "skin": "sknCmpSt",
             "top": "0dp",
             "width": "10%"
         }, {}, {});
@@ -42,9 +43,8 @@ define(function() {
             "pageOffDotImage": "pageoffdot_2.png",
             "pageOnDotImage": "pageondot_2.png",
             "retainSelection": false,
-            "rowFocusSkin": "Copyseg0d4469cccfafb41",
-            "rowSkin": "Copyseg0f2b467f51d5141",
-            "rowTemplate": "Flex0f0f365ad7e374e",
+            "rowSkin": "seg2Normal",
+            "rowTemplate": "flexTimeMain",
             "sectionHeaderSkin": "sliPhoneSegmentHeader",
             "selectionBehavior": constants.SEGUI_DEFAULT_BEHAVIOR,
             "separatorColor": "aaaaaa00",
@@ -57,7 +57,6 @@ define(function() {
                 "Flex0f0f365ad7e374e": "Flex0f0f365ad7e374e",
                 "lblTime": "lblTime"
             },
-            "widgetSkin": "Copyseg0i6fc36d047bc40",
             "width": "100%",
             "zIndex": 1
         }, {
@@ -72,8 +71,9 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_f77703059019443c9b2ba841b14ce64f,
-            "skin": "CopyslFbox0bee0a5a4002e45",
+            "skin": "sknflexfffBR1",
             "top": "0%",
             "width": "100%",
             "zIndex": 1
@@ -84,7 +84,7 @@ define(function() {
             "id": "lblTime",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0d1ec1647fcf24d",
+            "skin": "sknlbl343e48AL100",
             "text": "00:00",
             "top": "0%",
             "width": "100%",

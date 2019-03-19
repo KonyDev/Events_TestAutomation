@@ -1,6 +1,6 @@
 define(function() {
     return function(controller) {
-        var TimePicker = new kony.ui.FlexContainer({
+        var TimePicker = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "isMaster": true,
@@ -11,12 +11,12 @@ define(function() {
             "left": "0dp",
             "isModalContainer": false,
             "postShow": controller.AS_FlexContainer_ebdfac7a238d4155960ebea12303ebf9,
-            "skin": "CopyslFbox0ad3fd5034e684a",
+            "skin": "sknCmpSt",
             "top": "0dp",
             "width": "10%"
-        }, {}, {});
+        }, controller.args[0], "TimePicker"), extendConfig({}, controller.args[1], "TimePicker"), extendConfig({}, controller.args[2], "TimePicker"));
         TimePicker.setDefaultUnit(kony.flex.DP);
-        var segTimingList = new kony.ui.SegmentedUI2({
+        var segTimingList = new kony.ui.SegmentedUI2(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "groupCells": false,
             "height": "80%",
@@ -28,8 +28,7 @@ define(function() {
             "pageOffDotImage": "pageoffdot_2.png",
             "pageOnDotImage": "pageondot_2.png",
             "retainSelection": false,
-            "rowFocusSkin": "Copyseg0d4469cccfafb41",
-            "rowSkin": "Copyseg0f2b467f51d5141",
+            "rowSkin": "seg2Normal",
             "scrollingEvents": {},
             "sectionHeaderSkin": "sliPhoneSegmentHeader",
             "selectionBehavior": constants.SEGUI_DEFAULT_BEHAVIOR,
@@ -43,14 +42,13 @@ define(function() {
                 "Flex0f0f365ad7e374e": "Flex0f0f365ad7e374e",
                 "lblTime": "lblTime"
             },
-            "widgetSkin": "Copyseg0i6fc36d047bc40",
             "width": "100%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "segTimingList"), extendConfig({
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
-        var flexTimePicker = new kony.ui.FlexContainer({
+        }, controller.args[1], "segTimingList"), extendConfig({}, controller.args[2], "segTimingList"));
+        var flexTimePicker = new kony.ui.FlexContainer(extendConfig({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "16.50%",
@@ -60,18 +58,18 @@ define(function() {
             "left": "0%",
             "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_f77703059019443c9b2ba841b14ce64f,
-            "skin": "CopyslFbox0bee0a5a4002e45",
+            "skin": "sknflexfffBR1",
             "top": "0%",
             "width": "100%",
             "zIndex": 1
-        }, {}, {});
+        }, controller.args[0], "flexTimePicker"), extendConfig({}, controller.args[1], "flexTimePicker"), extendConfig({}, controller.args[2], "flexTimePicker"));
         flexTimePicker.setDefaultUnit(kony.flex.DP);
-        var lblTime = new kony.ui.Label({
+        var lblTime = new kony.ui.Label(extendConfig({
             "height": "100%",
             "id": "lblTime",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0d1ec1647fcf24d",
+            "skin": "sknlbl343e48AL100",
             "text": "00:00",
             "textStyle": {
                 "letterSpacing": 0,
@@ -80,14 +78,14 @@ define(function() {
             "top": "0%",
             "width": "100%",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblTime"), extendConfig({
             "contentAlignment": constants.CONTENT_ALIGN_MIDDLE_LEFT,
             "padding": [11, 0, 0, 0],
             "paddingInPixel": false
-        }, {
+        }, controller.args[1], "lblTime"), extendConfig({
             "textCopyable": false
-        });
-        var lblDownArrow = new kony.ui.Image2({
+        }, controller.args[2], "lblTime"));
+        var lblDownArrow = new kony.ui.Image2(extendConfig({
             "centerY": "50%",
             "height": "15dp",
             "id": "lblDownArrow",
@@ -98,11 +96,11 @@ define(function() {
             "top": "14dp",
             "width": "15dp",
             "zIndex": 1
-        }, {
+        }, controller.args[0], "lblDownArrow"), extendConfig({
             "imageScaleMode": constants.IMAGE_SCALE_MODE_MAINTAIN_ASPECT_RATIO,
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
-        }, {});
+        }, controller.args[1], "lblDownArrow"), extendConfig({}, controller.args[2], "lblDownArrow"));
         flexTimePicker.add(lblTime, lblDownArrow);
         TimePicker.add(segTimingList, flexTimePicker);
         return TimePicker;

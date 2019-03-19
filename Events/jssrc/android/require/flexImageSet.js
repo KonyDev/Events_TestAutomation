@@ -9,7 +9,7 @@ define("flexImageSet", function() {
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
             "isModalContainer": false,
-            "skin": "CopyslFbox0fc0e4734319348",
+            "skin": "slFbox",
             "top": "0dp",
             "width": "100%"
         }, {}, {});

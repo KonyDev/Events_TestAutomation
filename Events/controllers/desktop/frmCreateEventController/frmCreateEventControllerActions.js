@@ -2,6 +2,17 @@ define({
     /*
       This is an auto generated file and any modifications to it may result in corruption of the action sequence.
     */
+    /** onClick defined for flxProfile **/
+    AS_FlexContainer_e3528929001243eab8a07b6082e56662: function AS_FlexContainer_e3528929001243eab8a07b6082e56662(eventobject) {
+        var self = this;
+        this.showProfileOptions()
+    },
+    /** onClick defined for btnUser **/
+    AS_Button_a55900dc4596483f88dfdfae647e2e4c: function AS_Button_a55900dc4596483f88dfdfae647e2e4c(eventobject) {
+        var self = this;
+        var ntf = new kony.mvc.Navigation("frmLogin");
+        ntf.navigate();
+    },
     /** onTextChange defined for txtEventName **/
     AS_TextField_g2660a93a12c4cec88fd22d34bb3ff91: function AS_TextField_g2660a93a12c4cec88fd22d34bb3ff91(eventobject, changedtext) {
         var self = this;
@@ -68,6 +79,12 @@ define({
         var self = this;
         this.setLocationOnMap(this.setLocationDataOnMap);
     },
+    /** onClick defined for CopybtnProceedToSession0b2f7789aa68447 **/
+    AS_Button_d56966a3f3864e5c85862ffc690d8a0f: function AS_Button_d56966a3f3864e5c85862ffc690d8a0f(eventobject) {
+        var self = this;
+        this.doTabActions("btnSessions");
+        //this.onClickProceed();
+    },
     /** onClick defined for btnProceedToSession **/
     AS_Button_a77c9e4b46584c6a8031b138ae67ca28: function AS_Button_a77c9e4b46584c6a8031b138ae67ca28(eventobject) {
         var self = this;
@@ -93,7 +110,7 @@ define({
     AS_UWI_b2e48b82de6542e9a993c35d16740932: function AS_UWI_b2e48b82de6542e9a993c35d16740932(result) {
         var self = this;
         kony.application.dismissLoadingScreen();
-        this.boxUploadSuccess(JSON.parse(result), 1);
+        this.boxUploadSuccess((result), 1);
     },
     /** onUploadFailure defined for boxfileupload **/
     AS_UWI_b698b758da5246cca68a1611f293c6d7: function AS_UWI_b698b758da5246cca68a1611f293c6d7(result) {
@@ -117,7 +134,7 @@ define({
     AS_UWI_f9d79019ba8b4613a3aee9c0be3d2dae: function AS_UWI_f9d79019ba8b4613a3aee9c0be3d2dae(result) {
         var self = this;
         kony.application.dismissLoadingScreen();
-        this.boxUploadSuccess(JSON.parse(result), 2);
+        this.boxUploadSuccess((result), 2);
     },
     /** onUploadFailure defined for boxUploadGallery **/
     AS_UWI_f44ee808c39341bd9d75d78f8530eab1: function AS_UWI_f44ee808c39341bd9d75d78f8530eab1(result) {
@@ -137,18 +154,49 @@ define({
         });
         this.view.boxUploadGallery.uploadFile();
     },
-    /** onAllEventClick defined for menuItem **/
-    AS_UWI_f469ac9b9a024db796e076520c5a25cb: function AS_UWI_f469ac9b9a024db796e076520c5a25cb() {
+    /** onClick defined for btnSessions **/
+    AS_Button_ab525dabde4e4a9f84f28a47cfaa9de4: function AS_Button_ab525dabde4e4a9f84f28a47cfaa9de4(eventobject) {
         var self = this;
-        this.askForConfirmation("Your changes will be lost. Do you want to proceed?", "Are you Sure?", this.navigateToAllEventsPage);
+        this.doTabActions(eventobject.id);
     },
-    /** onManageUserClick defined for menuItem **/
-    AS_UWI_j20ebb89b6e14c99b335e65b22dbc12f: function AS_UWI_j20ebb89b6e14c99b335e65b22dbc12f() {
+    /** onClick defined for flxMenuClose **/
+    AS_FlexContainer_c4e40824d8584d7ea4e16bd0b4af402d: function AS_FlexContainer_c4e40824d8584d7ea4e16bd0b4af402d(eventobject) {
         var self = this;
-        this.navigateToManageUser();
+        this.setHamVisibility();
+    },
+    /** onClick defined for flxCreateNewEvent **/
+    AS_FlexContainer_a9cbe7715d854147933b86c6afd4e064: function AS_FlexContainer_a9cbe7715d854147933b86c6afd4e064(eventobject) {
+        var self = this;
+        this.view.menuItem.createEvent(this.option1SelectionCallback());
+    },
+    /** onClick defined for flexAllNewEvent **/
+    AS_FlexContainer_h302947c26074dafb3a088b6f24cdd2f: function AS_FlexContainer_h302947c26074dafb3a088b6f24cdd2f(eventobject) {
+        var self = this;
+        this.view.menuItem.getEvents(this.option2SelectionCallback());
+    },
+    /** onClick defined for flxManageUser **/
+    AS_FlexContainer_c13c98ae9aca410fb8a3774a616e4b70: function AS_FlexContainer_c13c98ae9aca410fb8a3774a616e4b70(eventobject) {
+        var self = this;
+        this.view.menuItem.manageUser(this.option3SelectionCallback());
+    },
+    /** onClick defined for flxLogout **/
+    AS_FlexContainer_ied429e8a15348e6b1fe2eef3a561374: function AS_FlexContainer_ied429e8a15348e6b1fe2eef3a561374(eventobject) {
+        var self = this;
+        if (EVENT_CONSTANS.MODE.USERROLE == EVENT_CONSTANS.USERROLE.CONSUMER) {
+            this.logout();
+        } else {
+            Events.consumerLogin.logout(this.logout)
+        }
+    },
+    /** init defined for frmCreateEvent **/
+    AS_Form_f455a90f27bb4daa825aa05ed8ce1689: function AS_Form_f455a90f27bb4daa825aa05ed8ce1689(eventobject) {
+        var self = this;
+        this.view.onBreakpointChange = function(eventobject, breakpoint) {
+            self.onBreakPointChangeCallback(breakpoint);
+        };
     },
     /** postShow defined for frmCreateEvent **/
-    AS_Form_ca376d275d4044acb27f9df6b4bc063b: function AS_Form_ca376d275d4044acb27f9df6b4bc063b(eventobject) {
+    AS_Form_g69bea18fd2f4907a531f756a43e6372: function AS_Form_g69bea18fd2f4907a531f756a43e6372(eventobject) {
         var self = this;
         this.view.startTime.setTimeListUI();
         this.view.startTime.height = "5%";
@@ -158,5 +206,10 @@ define({
         this.view.calEventStartDate.dateEditable = false;
         this.view.calEventEndDate.dateEditable = false;
         postshow();
+    },
+    /** onBreakpointChange defined for frmCreateEvent **/
+    AS_Form_b751c3fafed343e48dbf9fbbcb468981: function AS_Form_b751c3fafed343e48dbf9fbbcb468981(eventobject, breakpoint) {
+        var self = this;
+        this.onBreakPointChangeCallback(breakpoint);
     }
 });

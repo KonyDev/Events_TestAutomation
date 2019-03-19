@@ -11,6 +11,7 @@ define("frmImageGallery", function() {
                 "id": "flxRoot",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxWhite",
                 "width": "100%",
                 "zIndex": 1
@@ -24,6 +25,7 @@ define("frmImageGallery", function() {
                 "id": "flxHeader",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxHeaderGredient",
                 "top": "0dp",
                 "width": "100%",
@@ -39,6 +41,7 @@ define("frmImageGallery", function() {
                 "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_j2df2bb65fde4c37940993b4efab5748,
                 "skin": "slFbox",
                 "width": "60dp",
@@ -69,6 +72,7 @@ define("frmImageGallery", function() {
                 "id": "flxClose",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_c5fd64bf578c471b9670d3fc67fc8031,
                 "right": "0dp",
                 "skin": "slFbox",
@@ -76,11 +80,11 @@ define("frmImageGallery", function() {
                 "zIndex": 1
             }, {}, {});
             flxClose.setDefaultUnit(kony.flex.DP);
-            var CopyimgClose0b5d019ef07b44c = new kony.ui.Image2({
+            var imgClose = new kony.ui.Image2({
                 "centerX": "50%",
                 "centerY": "50%",
                 "height": "20dp",
-                "id": "CopyimgClose0b5d019ef07b44c",
+                "id": "imgClose",
                 "isVisible": true,
                 "skin": "slImage",
                 "src": "closeicon.png",
@@ -91,7 +95,7 @@ define("frmImageGallery", function() {
                 "padding": [0, 0, 0, 0],
                 "paddingInPixel": false
             }, {});
-            flxClose.add(CopyimgClose0b5d019ef07b44c);
+            flxClose.add(imgClose);
             var lblHeader = new kony.ui.Label({
                 "centerX": "50%",
                 "centerY": "50%",
@@ -111,7 +115,7 @@ define("frmImageGallery", function() {
                 "wrapping": constants.WIDGET_TEXT_WORD_WRAP
             });
             flxHeader.add(flxBack, flxClose, lblHeader);
-            var ImageGallery = new com.konysa.ImageGallery({
+            var ImageGallery = new com.konyenb.ImageGallery({
                 "clipBounds": true,
                 "height": "91%",
                 "id": "ImageGallery",
@@ -119,10 +123,27 @@ define("frmImageGallery", function() {
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
-                "skin": "sknFlxImageGalleryComponentRoot",
+                "isModalContainer": false,
+                "skin": "sknCompBG00080",
                 "top": "9%",
-                "width": "100%"
-            }, {}, {});
+                "width": "100%",
+                "overrides": {
+                    "ImageGallery": {
+                        "right": "viz.val_cleared",
+                        "bottom": "viz.val_cleared",
+                        "minWidth": "viz.val_cleared",
+                        "minHeight": "viz.val_cleared",
+                        "maxWidth": "viz.val_cleared",
+                        "maxHeight": "viz.val_cleared",
+                        "centerX": "viz.val_cleared",
+                        "centerY": "viz.val_cleared"
+                    }
+                }
+            }, {
+                "overrides": {}
+            }, {
+                "overrides": {}
+            });
             ImageGallery.appUserID = "null";
             ImageGallery.rootFolderID = "0";
             flxRoot.add(flxHeader, ImageGallery);

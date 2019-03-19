@@ -129,12 +129,23 @@ define({
       this.view.flxLoading.setVisibility(true);
       var controllerScope=this;
       var client = kony.sdk.getCurrentInstance();
-      var intgService;
       showLoading(this);
-      intgService = client.getIntegrationService("EventsOrchService");
-      intgService.invokeOperation("getEventWithRegisteredUser",{},{"$filter":"event_id eq "+eventID+" and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))"},
-                                  this.fetchEventDetailsWithIDSuccessCallBack.bind(this),
-                                  this.fetchEventDetailsWithIDFailureCallBack.bind(this));
+       var objSvc = kony.sdk.getCurrentInstance().getObjectService("EventsSOS", {
+					"access": "online"
+				});
+          
+			var dataObject = new kony.sdk.dto.DataObject("event");
+			var options = {
+				"dataObject": dataObject,
+              	"queryParams": {
+                  	"$filter":"event_id eq "+eventID+" and ((SoftDeleteFlag ne true) or (SoftDeleteFlag eq null))",
+               		"$expand":"location,event_banners,presenter,event_metrics,event_registration"
+                }
+			};
+
+			objSvc.fetch(options,
+				this.fetchEventDetailsWithIDSuccessCallBack.bind(this),
+				this.fetchEventDetailsWithIDFailureCallBack.bind(this));
     }catch(excp){
       this.dismissLoading();
       kony.print(JSON.stringify(excp));
@@ -149,8 +160,8 @@ define({
   fetchEventDetailsWithIDSuccessCallBack:function(response){
     try{
     this.dismissLoading();
-    this.selectedEvent=response;
-    this.setEvent(response);
+    this.selectedEvent=response.records[0];
+    this.setEvent(response.records[0]);
     }catch(error){
       kony.print("FrmManageUser Controller"+JSON.stringify(error));
     }
@@ -175,7 +186,7 @@ define({
   setEvent:function(record){
     try{
     if(this.eventList===null)return;
-    this.view.lblEventTitle.text=checkValue(record.event[0].name);
+      this.view.lblEventTitle.text=checkValue(record.name);
     var registeredUser=record.event_registration;
     var bannerURL=record.event_banners;
     if(bannerURL.length>0){
@@ -183,11 +194,12 @@ define({
     }else{
       this.view.imgEventBanner.src="event01.jpg";
     }
-    this.view.lblRegisteredUserCount.text=checkValue(registeredUser.length);
-    this.view.lblEventDescCategoryText.text=getEventCategory(record.event[0].event_category);
-    if(record.event[0].event_type==="1"){
+   this.view.lblRegisteredUserCountTM.text = this.view.lblRegisteredUserCount.text=checkValue(registeredUser.length);
+     
+      this.view.lblEventDescCategoryText.text=getEventCategory(record.event_category);
+      if(record.event_type==="1"){
       this.view.lblEventDescLocationText.text="online";
-    }else if(record.event[0].event_type==="2"){
+        }else if(record.event_type==="2"){
       var locations=record.location ;
       if(locations.length>0){
         this.view.lblEventDescLocationText.text=locations[0].addressLine1+" "+locations[0].cityname ;
@@ -197,7 +209,7 @@ define({
     }else{
       this.view.lblEventDescLocationText.text="Info not available";
     }
-    var dateRange=getDateRange(record.event[0].start_date, record.event[0].end_date);
+     var dateRange=getDateRange(record.start_date, record.end_date);
     this.view.lblEventDescDateText.text=dateRange;
     this.view.flxEventDetailContainer.setVisibility(true);
     this.view.forceLayout();
@@ -317,6 +329,7 @@ define({
     this.view.segUserList.removeAll();
     this.view.segUserList.addAll(segDataList);
     this.view.flxLoading.setVisibility(false);
+     this.view.forceLayout();
     }catch(error){
       kony.print("FrmManageUser Controller"+JSON.stringify(error));
     }
@@ -396,9 +409,10 @@ define({
       }
     var animationObject=getRemoveAnimation();
     this.view.segUserList.removeAt(this.selectedRowIndexToDelete, 0, animationObject);
-    var count=this.view.lblRegisteredUserCount.text;
+    var count=this.view.lblRegisteredUserCount.text = this.view.lblRegisteredUserCountTM.text;    
     count=parseInt(count);
     this.view.lblRegisteredUserCount.text=count-1;
+    this.view.lblRegisteredUserCountTM.text = count-1;
     this.setSubscriber();
   },
   /**
@@ -435,10 +449,26 @@ define({
    * @private
    */
    setProfile : function(){
-    if(glbUserAttributes!==undefined && glbUserAttributes !==null && glbUserAttributes !== {}){
-      this.view.dashboard.text = glbUserAttributes.firstname;
-      this.view.dashboard.Title = "";
-    }
+   if (glbIsLoggedIn) {
+            this.view.profileheader.flexProfilePhotoANdTitle.isVisible = true;
+			this.view.profileheader.btnUser.isVisible = false;
+			if (glbProfile !== undefined && glbProfile !== null && glbProfile !== {}) {
+				if (glbProfile.first_name !== undefined) {
+					this.view.profileheader.lblUserName.isVisible = true;
+					this.view.profileheader.lblUserName.text = glbProfile.first_name;
+				}
+				if (glbProfile.profile !== undefined) {
+					this.view.profileheader.imgProfile.src = glbProfile.profile;
+				} else {
+					this.view.profileheader.imgProfile.src = "profile.png";
+				}
+				this.view.profileheader.flxProfile.isVisible = true;
+			}
+		} else {
+			this.view.profileheader.btnUser.isVisible = true;
+			this.view.profileheader.flexProfilePhotoANdTitle.isVisible = false;
+		}
+
    },
   /**
    * @function navigateToAllEvents
@@ -513,5 +543,125 @@ define({
   displayEventViewAndShare : function(views,shares){
     this.view.lblViewedEventCount.text = views;
     this.view.lblSharedEventCount.text = shares;
-  }
+    this.view.lblViewedEventCountTM.text = views;
+    this.view.lblSharedEventCountTM.text = shares;
+  },
+  
+   /**
+  * @function checkBreakpointAndSetUI
+  * @description - this function will check breakpoint and set sidemenu and change layout for sessions
+  **/
+   checkBreakpointAndSetUI : function(breakpoint){
+      this.breakpoint = breakpoint;
+      if(isTablet(breakpoint)){
+          this.setMenuItem(false);
+          this.isCloseAvailableForMenu = true;
+      }else if(isDesktop(breakpoint)){
+          this.setMenuItem(true);
+          this.isCloseAvailableForMenu = false;
+      }else if(isDesktopLarge(breakpoint)){
+          this.setMenuItem(true);
+          this.isCloseAvailableForMenu = false;
+      }else if(isMobile(breakpoint)){
+          this.setMenuItem(false);
+          this.isCloseAvailableForMenu = true;
+      }
+    },
+    
+  /**
+  * @function setMenuItem
+  * @description - this function will set menu Item visibility and handles menu click on different break point
+  **/
+   setMenuItem : function(visibility){
+     if(!visibility){
+       this.view.profileheader.flxMenuIcon.onClick = function(){
+         this.setHamVisibility();
+       }.bind(this);
+       this.setMenuVisbility(false);
+     }else{
+       this.view.profileheader.flxMenuIcon.onClick = null;
+       this.setMenuVisbility(true);
+     }
+   },
+   
+  /**
+  * @function setMenuVisbility
+  * @description - this function will sets the visibility of menuItem
+  **/
+   setMenuVisbility : function(visibility){
+     this.view.menuItem.setVisibility(visibility);
+     this.view.forceLayout();
+   },
+   
+  /**
+  * @function setHamVisibility
+  * @description - this function will check the visibility ot the menu bar, 
+  * if the menu bar is visible then it makes the menubar visibility false else true
+  **/
+   setHamVisibility : function(){
+     var menubarVisibity = this.view.menuItem.isVisible;
+     if(menubarVisibity){
+       if(this.isCloseAvailableForMenu){
+          this.view.flxMenuClose.isVisible = false;
+          this.setMenuVisbility(false);
+       }
+     }else{
+       if(this.isCloseAvailableForMenu){
+         this.view.flxMenuClose.isVisible = true;
+       }
+       this.setMenuVisbility(true);
+     }
+   },
+  
+  /**
+  * @function option1SelectionCallback
+  * @description - this function is the callback of onclick of create new event on the menubar
+  * this function sets the menubar visibilty false and set the selected flex to create event
+  **/
+  option1SelectionCallback : function(){
+    this.setHamVisibility();
+    this.navigateToCreateEvent();
+  },
+  
+  /**
+  * @function option2SelectionCallback
+  * @description - this function is the callback of onclick of All Event on the menubar
+  * this function sets the menubar visibilty false and navigate to all events page
+  **/
+  option2SelectionCallback : function(){
+    this.setHamVisibility();
+    this.navigateToAllEvents();
+  },
+  
+ /**
+  * @function option2SelectionCallback
+  * @description - this function is the callback of onclick of All Event on the menubar
+  * this function sets the menubar visibilty false and navigate to all events page
+  **/
+  option3SelectionCallback : function(){
+    this.setHamVisibility();
+    this.getAllEvent();
+  },
+  
+  showProfileOptions : function(){
+    if(this.view.flexProfileOptions.isVisible){
+       this.view.flexProfileOptions.isVisible = false;
+    }else{
+       this.view.flexProfileOptions.isVisible = true;
+    }
+  },
+
+    /**
+  * @function logout
+  * @description - this function will reset the UI back to logout state
+  **/   
+ logout : function(){
+    glbIsLoggedIn = false;
+    EVENT_CONSTANS.MODE.USERROLE = EVENT_CONSTANS.USERROLE.CONSUMER;
+    var navObj = new kony.mvc.Navigation("frmAllEvents");
+    navObj.navigate(EVENT_CONSTANS.MODE.ALLEVENTS);
+ }
+  
+  
+  
 });

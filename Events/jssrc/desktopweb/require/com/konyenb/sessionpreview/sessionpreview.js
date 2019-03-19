@@ -8,6 +8,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknFlexBorderDesk00a0dd",
             "top": "0dp",
             "width": "50%"
@@ -21,7 +22,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0dp",
-            "skin": "CopyslFbox0bfefff3a169d4b",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "top": "0dp",
             "width": "20%",
             "zIndex": 1
@@ -33,7 +35,7 @@ define(function() {
             "id": "lblVertStrip",
             "isVisible": true,
             "left": "95%",
-            "skin": "CopydefLabel0e560cf677d9047",
+            "skin": "sknlblBG00a0dd100",
             "width": "1px",
             "zIndex": 1
         }, {
@@ -48,7 +50,7 @@ define(function() {
             "id": "lblDateMonth",
             "isVisible": true,
             "left": "32dp",
-            "skin": "CopydefLabel0baed6bcf608249",
+            "skin": "sknlbl00a0ddAM110",
             "text": "13 MAY",
             "top": "68dp",
             "width": "35%",

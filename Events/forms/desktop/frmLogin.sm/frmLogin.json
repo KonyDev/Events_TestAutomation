@@ -27,13 +27,16 @@
     },
     "breakpointInfo": {
         "b1": {
-            "width": 1400
+            "width": 1366
         },
         "b2": {
-            "width": 1024
+            "width": 771
         },
         "b3": {
-            "width": 640
+            "width": 480
+        },
+        "b4": {
+            "width": 1920
         }
     },
     "canUpdateUI": true,
@@ -117,7 +120,7 @@
     "titlebar": true,
     "type": 3,
     "vizProps": {
-        "globalRespDesignEnabled": true
+        "globalRespDesignEnabled": false
     },
     "wType": "Form",
     "windows8": {

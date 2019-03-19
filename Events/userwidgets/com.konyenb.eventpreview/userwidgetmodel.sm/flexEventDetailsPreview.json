@@ -40,10 +40,10 @@
         "btnShowMore",
         "lblGalleryTitle",
         "flxGalleryCompConatiner",
-        "CopylblGalleryTitle0b1a4c0d9e57341",
+        "lblSessionTitleDet",
         "flexSessionsandSpeakers",
-        "CopybtnRegister0j46a868969fb48",
-        "FlexContainer0h9e3b693ead144"
+        "btnRegisterBottom",
+        "flexDummyForSpace"
     ],
     "clipbounds": true,
     "containerweight": 100,

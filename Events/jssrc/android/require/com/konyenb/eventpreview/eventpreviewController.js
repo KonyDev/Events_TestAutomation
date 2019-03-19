@@ -47,9 +47,11 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
                 this.eventImages = [];
                 this.eventImages = data;
                 if (!data.length) {
+                    this.view.lblGalleryTitle.isVisible = false;
                     this.view.flxGalleryCompConatiner.isVisible = false;
                     return;
                 }
+                this.view.lblGalleryTitle.isVisible = true;
                 this.view.flxGalleryCompConatiner.isVisible = true;
                 for (var i = 0; i < data.length; i++) {
                     if (i <= 5) {
@@ -72,6 +74,8 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
          */
         resetImageData: function() {
             try {
+                this.view.flxGalleryCompConatiner.isVisible = false;
+                this.view.lblGalleryTitle.isVisible = false;
                 this.view["flexRemainingImageCount"].isVisible = false;
                 for (var i = 0; i < 6; i++) {
                     this.view["flexItem" + i].isVisible = false;
@@ -102,7 +106,8 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
          */
         setDateRangeOnBanner: function(dateRange) {
             try {
-                this.view.lblDateRange.text = dateRange;
+                this.view.lblDateRange.text = dateRange.split("T")[0];
+                this.view.lblMonthYear.text = dateRange.split("T")[1];
             } catch (err) {
                 kony.print("Events Preview Controller" + JSON.stringify(err));
             }
@@ -129,6 +134,10 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
                 kony.print("Events Preview Controller" + JSON.stringify(err));
             }
         },
+        /**
+         * @function setShowMore
+         * @description - This function is used to set showmore button text
+         */
         setShowMore: function(text, isVisible) {
             try {
                 this.view.btnShowMore.text = text;
@@ -137,16 +146,21 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
                 kony.print("Events Preview Controller" + JSON.stringify(err));
             }
         },
+        /**
+         * @function showMoreOnClick
+         * @description - This function is used to set the description
+         * based on show more and show less click
+         */
         showMoreOnClick: function(text) {
             try {
                 switch (text) {
                     case "Show more":
-                        this.setDescription(desc);
-                        this.setShowMore("Show Less", true);
+                        this.setDescription(this.longDescription);
+                        this.setShowMore("Show less", true);
                         break;
                     case "Show less":
-                        this.setDescription(desc);
-                        this.setShowMore("Show More", true);
+                        this.setDescription(this.shortDescription);
+                        this.setShowMore("Show more", true);
                         break;
                 }
             } catch (err) {
@@ -157,76 +171,106 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
          * @function setLocationOnMap
          * @description - This function is used to set location on Map
          */
-        setLocationOnMap: function(lat, long) {
-            this.view.mapGoogleMap.locationData = [{
-                "lat": lat,
-                "lon": long,
-            }];
-            this.view.mapGoogleMap.isVisible = true;
+        setLocationOnMap: function(lat, long, address) {
+            try {
+                this.view.mapGoogleMap.locationData = [{
+                    "lat": lat,
+                    "lon": long,
+                    "name": address,
+                    "desc": ""
+                }];
+                this.view.flexGoogleMap.isVisible = true;
+            } catch (err) {
+                kony.print("event preview controller" + JSON.stringify(err));
+            }
         },
         /**
          * @function setEventDetails
          * @description - This function is used to set Eventdetails
          */
         setEventDetails: function(eventDetails) {
-            this.eventData = eventDetails;
-            this.resetImageData();
-            if (eventDetails.name !== undefined) {
-                this.setTitle(eventDetails.name);
-            } else {
-                this.setTitle("")
-            }
-            if (eventDetails.event_category !== undefined) {
-                this.setSubTitle(eventDetails.event_category);
-            } else {
-                this.setSubTitle("");
-            }
-            if (eventDetails.event_date !== undefined) {
-                this.setDateRangeOnDetails(eventDetails.event_date);
-            } else {
-                this.setDateRangeOnDetails("");
-            }
-            if (eventDetails.event_date !== undefined) {
-                this.setDateRangeOnBanner(eventDetails.event_date);
-            } else {
-                this.setDateRangeOnBanner("");
-            }
-            if (eventDetails.event_images !== undefined) {
-                this.setGalleryImage(eventDetails.event_images);
-            } else {
+            try {
+                this.eventData = eventDetails;
                 this.resetImageData();
-            }
-            if (eventDetails.event_banners !== undefined && eventDetails.event_banners.length > 0 && eventDetails.event_banners[0].banner_url !== undefined && eventDetails.event_banners[0].banner_url !== "") {
-                this.setBannerImage(eventDetails.event_banners[0].banner_url);
-            } else {
-                this.setBannerImage(EVENT_CONSTANS.IMAGES.EVENTPLACEHOLDERIMAGE);
-            }
-            if (eventDetails.short_desc !== undefined) {
-                this.setDescription(eventDetails.short_desc + " " + eventDetails.long_desc);
-            } else {
-                this.setDescription("");
-            }
-            if (eventDetails.event_type == 2) {
-                if (eventDetails.location !== undefined && eventDetails.location[0] !== undefined && eventDetails.location[0].location !== undefined) {
-                    this.setLocation(eventDetails.location[0].location);
-                    this.view.lblLocationPrev.text = "Event Location";
-                    this.setLocationOnMap(eventDetails.location[0].latitude, eventDetails.location[0].latitude);
+                if (eventDetails.name !== undefined) {
+                    this.setTitle(eventDetails.name);
                 } else {
-                    this.view.mapGoogleMap.isVisible = false;
+                    this.setTitle("")
+                }
+                if (eventDetails.event_category !== undefined) {
+                    this.setSubTitle(eventDetails.event_category);
+                } else {
+                    this.setSubTitle("");
+                }
+                if (eventDetails.event_date !== undefined) {
+                    this.setDateRangeOnDetails(eventDetails.event_date);
+                } else {
+                    this.setDateRangeOnDetails("");
+                }
+                if (eventDetails.event_date !== undefined) {
+                    date = eventDetails.st_date + " - " + eventDetails.ed_date + "T" + eventDetails.start_month + " " + eventDetails.start_year;
+                    this.setDateRangeOnBanner(date);
+                } else {
+                    this.setDateRangeOnBanner("");
+                }
+                if (eventDetails.event_images !== undefined) {
+                    this.setGalleryImage(eventDetails.event_images);
+                } else {
+                    this.resetImageData();
+                }
+                if (eventDetails.event_banners !== undefined && eventDetails.event_banners.length > 0 && eventDetails.event_banners[0].banner_url !== undefined && eventDetails.event_banners[0].banner_url !== "") {
+                    this.setBannerImage(eventDetails.event_banners[0].banner_url);
+                } else {
+                    this.setBannerImage(EVENT_CONSTANS.IMAGES.EVENTPLACEHOLDERIMAGE);
+                }
+                if (eventDetails.short_desc !== undefined) {
+                    this.shortDescription = eventDetails.short_desc;
+                    if (eventDetails.long_desc !== undefined) {
+                        this.longDescription = eventDetails.short_desc + " " + eventDetails.long_desc;
+                    } else {
+                        this.longDescription = "";
+                    }
+                    this.setDescription(this.shortDescription);
+                    this.setShowMore("Show more", true);
+                } else {
+                    this.setDescription("");
+                }
+                if (eventDetails.event_type == "2") {
+                    if (eventDetails.location_processed !== undefined) {
+                        this.setLocation(eventDetails.location_processed);
+                        this.view.lblLocationPrev.text = "Event Location";
+                        this.setLocationOnMap(eventDetails.location[0].latitude, eventDetails.location[0].longitude, eventDetails.location_processed);
+                    } else {
+                        this.view.lblLocationPrev.text = "";
+                        this.view.flexGoogleMap.isVisible = false;
+                    }
+                } else {
+                    this.view.flexGoogleMap.isVisible = false;
                     this.view.lblLocationPrev.text = "Online Event";
-                    this.setLocation(eventDetails.location[0].location);
+                    this.setLocation(eventDetails.location_processed);
                 }
-            }
-            if (eventDetails.event_sessions !== undefined && eventDetails.event_sessions.length) {
-                var response = {};
-                response.records = [{}];
-                response.records[0].event_sessions = JSON.parse(JSON.stringify(eventDetails.event_sessions));
-                if (eventDetails.presenter !== undefined && eventDetails.presenter.length) {
-                    response.records[0].presenter = JSON.parse(JSON.stringify(eventDetails.presenter));
+                if (eventDetails.event_sessions !== undefined && eventDetails.event_sessions.length) {
+                    this.view.lblSessionTitleDet.isVisible = true;
+                    var response = {};
+                    response.records = [{}];
+                    response.records[0].event_sessions = JSON.parse(JSON.stringify(eventDetails.event_sessions));
+                    if (eventDetails.presenter !== undefined && eventDetails.presenter.length) {
+                        response.records[0].presenter = JSON.parse(JSON.stringify(eventDetails.presenter));
+                    }
+                    this.createSessionAndPresenter(processSessionAndPresenters(response));
+                } else {
+                    this.view.lblSessionTitleDet.isVisible = false;
+                    this.view.flexSessionsandSpeakers.removeAll();
                 }
-                this.createSessionAndPresenter(processSessionAndPresenters(response));
+            } catch (err) {
+                kony.print("event preview controller" + JSON.stringify(err));
             }
         },
+        /**
+         * @function createSessionAndPresenter
+         * @description - This function is used to call groupSessionAndSpeker to group it to reuired format
+         * this function also call createSessionPreviewComponentDynamically to create the sessionpreview component
+         */
         createSessionAndPresenter: function(sessions) {
             kony.print(sessions);
             var sessionAndSpeaker = this.groupSessionAndSpeker(sessions);
@@ -235,23 +279,31 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
                 this.createSessionPreviewComponentDynamically(i, sessionAndSpeaker[i]);
             }
         },
+        /**
+         * @function createSessionPreviewComponentDynamically
+         * @description - This function is used to crete sessionpreview component dynamically
+         */
         createSessionPreviewComponentDynamically: function(id, data) {
-            var sessionPreview = new com.konyenb.sessionpreview({
-                "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
-                "clipBounds": true,
-                "id": "compSessionPreview" + id,
-                "isVisible": true,
-                "layoutType": kony.flex.FREE_FORM,
-                "left": "0dp",
-                "masterType": constants.MASTER_TYPE_USERWIDGET,
-                "skin": "sknFlexBorderDesk00a0dd",
-                "top": "15dp",
-                "width": "100%"
-            }, {
-                "containerWeight": 0
-            }, {});
-            sessionPreview.setData(data);
-            this.view.flexSessionsandSpeakers.add(sessionPreview);
+            try {
+                var sessionPreview = new com.konyenb.sessionpreview({
+                    "autogrowMode": kony.flex.AUTOGROW_HEIGHT,
+                    "clipBounds": true,
+                    "id": "compSessionPreview" + id,
+                    "isVisible": true,
+                    "layoutType": kony.flex.FREE_FORM,
+                    "left": "0dp",
+                    "masterType": constants.MASTER_TYPE_USERWIDGET,
+                    "skin": "sknFlexBorderDesk00a0dd",
+                    "top": "15dp",
+                    "width": "100%"
+                }, {
+                    "containerWeight": 0
+                }, {});
+                sessionPreview.setData(data);
+                this.view.flexSessionsandSpeakers.add(sessionPreview);
+            } catch (err) {
+                kony.print("Event Preview controler")
+            }
         },
         /**
          * @function groupSessionAndSpeker
@@ -311,25 +363,33 @@ define("com/konyenb/eventpreview/usereventpreviewController", function() {
                 kony.print("Create EventController" + JSON.stringify(error));
             }
         },
+        /**
+         * @function groupSessionByDate
+         * @description - This function is used to group session by date
+         */
         groupSessionByDate: function(session) {
-            var groupedSession = [];
-            var tempSessionArrayforFormatting = [];
-            kony.print(session);
-            var currentDate = session[0].date;
-            for (var i = 0; i < session.length; i++) {
-                if (session[i].date == currentDate) {
-                    tempSessionArrayforFormatting.push(session[i]);
-                } else {
-                    groupedSession.push(tempSessionArrayforFormatting);
-                    currentDate = session[i].date;
-                    tempSessionArrayforFormatting = [];
-                    tempSessionArrayforFormatting.push(session[i]);
+            try {
+                var groupedSession = [];
+                var tempSessionArrayforFormatting = [];
+                kony.print(session);
+                var currentDate = session[0].date;
+                for (var i = 0; i < session.length; i++) {
+                    if (session[i].date == currentDate) {
+                        tempSessionArrayforFormatting.push(session[i]);
+                    } else {
+                        groupedSession.push(tempSessionArrayforFormatting);
+                        currentDate = session[i].date;
+                        tempSessionArrayforFormatting = [];
+                        tempSessionArrayforFormatting.push(session[i]);
+                    }
+                    if (i == session.length - 1) {
+                        groupedSession.push(tempSessionArrayforFormatting);
+                    }
                 }
-                if (i == session.length - 1) {
-                    groupedSession.push(tempSessionArrayforFormatting);
-                }
+                return groupedSession;
+            } catch (err) {
+                kony.print("preview EventController" + JSON.stringify(error));
             }
-            return groupedSession;
         }
     };
 });
@@ -337,6 +397,11 @@ define("com/konyenb/eventpreview/eventpreviewControllerActions", {
     /*
       This is an auto generated file and any modifications to it may result in corruption of the action sequence.
     */
+    /** onClick defined for btnShowMore **/
+    AS_Button_cdb25ed7935b4398948c269e15e17292: function AS_Button_cdb25ed7935b4398948c269e15e17292(eventobject) {
+        var self = this;
+        this.showMoreOnClick(eventobject.text);
+    }
 });
 define("com/konyenb/eventpreview/eventpreviewController", ["com/konyenb/eventpreview/usereventpreviewController", "com/konyenb/eventpreview/eventpreviewControllerActions"], function() {
     var controller = require("com/konyenb/eventpreview/usereventpreviewController");
@@ -345,6 +410,18 @@ define("com/konyenb/eventpreview/eventpreviewController", ["com/konyenb/eventpre
         controller[key] = actions[key];
     }
     controller.initializeProperties = function() {
+        defineSetter(this, "isTopRegisterVisible", function(val) {
+            this.view.btnRegister.isVisible = val;
+        });
+        defineGetter(this, "isTopRegisterVisible", function() {
+            return this.view.btnRegister.isVisible;
+        });
+        defineSetter(this, "isBottomRegisterVisible", function(val) {
+            this.view.btnRegisterBottom.isVisible = val;
+        });
+        defineGetter(this, "isBottomRegisterVisible", function() {
+            return this.view.btnRegisterBottom.isVisible;
+        });
         if (this.initGettersSetters) {
             this.initGettersSetters.apply(this, arguments);
         }
@@ -352,6 +429,16 @@ define("com/konyenb/eventpreview/eventpreviewController", ["com/konyenb/eventpre
     controller.AS_onPrevBack_c30194728dc24fd0b83c3685661b3346 = function() {
         if (this.onPrevBack) {
             this.onPrevBack.apply(this, arguments);
+        }
+    }
+    controller.AS_onBottomRegisterClick_e2c365202c834bb4ab655dd92829e638 = function() {
+        if (this.onBottomRegisterClick) {
+            this.onBottomRegisterClick.apply(this, arguments);
+        }
+    }
+    controller.AS_onTopRegisterClick_db3e186ec15241deb6b920cea620ed02 = function() {
+        if (this.onTopRegisterClick) {
+            this.onTopRegisterClick.apply(this, arguments);
         }
     }
     return controller;

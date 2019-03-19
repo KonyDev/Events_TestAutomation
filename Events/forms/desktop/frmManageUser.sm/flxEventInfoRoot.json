@@ -42,11 +42,6 @@
     "children": [
         "flxRootEventTitle",
         "lblLine0",
-        "flxRegisteredUser",
-        "lblLine2",
-        "flxEventShared",
-        "lblLine3",
-        "flxEventView",
         "flxMenuIcon"
     ],
     "clipbounds": true,

@@ -35,6 +35,10 @@
     "allboxes": [],
     "autogrowmode": 0,
     "canUpdateUI": true,
+    "centerx": {
+        "type": "number",
+        "value": ""
+    },
     "children": [
         "btnProceedToSession"
     ],
@@ -50,6 +54,40 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flexScrollEvent",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b2": {
+            "top": {
+                "type": "string",
+                "value": "174%"
+            }
+        },
+        "b3": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "isVisible": false,
+            "top": {
+                "type": "string",
+                "value": "335%"
+            }
+        },
+        "b4": {
+            "centerX": {
+                "type": "string",
+                "value": "50%"
+            },
+            "isVisible": false,
+            "top": {
+                "type": "string",
+                "value": "328%"
+            },
+            "width": {
+                "type": "string",
+                "value": "50%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

@@ -2,8 +2,8 @@
     "DNDConfig": null,
     "__parentReadjusting__": false,
     "_height_": {
-        "type": "string",
-        "value": "100%"
+        "type": "ref",
+        "value": "preferred"
     },
     "_left_": {
         "type": "string",
@@ -24,21 +24,22 @@
     ],
     "_percent_": true,
     "_skin_": "sd1421164da64fc0aea0355e19e3a7a4",
+    "_top_": {
+        "type": "string",
+        "value": "5dp"
+    },
     "_width_": {
         "type": "string",
-        "value": "65%"
+        "value": "85.32%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
+    "autogrowmode": 1,
     "canUpdateUI": true,
-    "centery": {
-        "type": "string",
-        "value": "50%"
-    },
     "children": [
         "lblSpeakerName",
         "lblDesignation",
-        "lblLinkedIn"
+        "lblLinkedIn",
+        "FlexContainer0bdbd5db7ecce4f"
     ],
     "clipbounds": true,
     "containerId": true,
@@ -55,6 +56,7 @@
     "pf": "tempSpeakerDetails",
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
+    "reverselayoutdirection": false,
     "snapgridsize": 10,
     "snaptogrid": true,
     "wType": "FlexContainer",

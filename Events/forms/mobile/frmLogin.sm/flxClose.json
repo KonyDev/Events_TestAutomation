@@ -49,6 +49,7 @@
     "kuid": "cf3a7c2e6fa54e90a290c94c0f9628e6",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_f39f3886172f45abbc2c94b1f5b58cb7",
     "parent": "flxBrowserHeader",
     "pf": "frmLogin",
     "retaincontentalignment": false,

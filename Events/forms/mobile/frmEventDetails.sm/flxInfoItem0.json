@@ -55,6 +55,7 @@
     "kuid": "dda1c9488f47434fbbadbf4879765305",
     "layouttype": 4,
     "name": "kony.ui.FlexContainer",
+    "onclick": "AS_FlexContainer_de6b2f25b99640fe94ac9af2a5e48576",
     "parent": "flxInfo",
     "pf": "frmEventDetails",
     "retaincontentalignment": false,

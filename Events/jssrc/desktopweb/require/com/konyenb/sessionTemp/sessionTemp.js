@@ -7,9 +7,10 @@ define(function() {
             "id": "sessionTemp",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
-            "left": "56dp",
+            "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
-            "top": "-3dp",
+            "top": "0dp",
             "width": "100%"
         }, {}, {});
         sessionTemp.setDefaultUnit(kony.flex.DP);
@@ -21,7 +22,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0.00%",
-            "skin": "CopyslFbox0d3fdb68891b346",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "top": "0.00%",
             "width": "49%",
             "zIndex": 1
@@ -35,6 +37,7 @@ define(function() {
             "id": "flexBasicInfoTitl2",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "1%",
             "width": "90%",
@@ -46,7 +49,7 @@ define(function() {
             "id": "lblBasicInfo2",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0b372d409de4b4d",
+            "skin": "sknlbl333333AM130",
             "text": "Event Sessions",
             "top": "0%",
             "width": "100%",
@@ -93,12 +96,13 @@ define(function() {
             "padding": [3, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         var txtSessionSDesc = new kony.ui.TextArea2({
             "autoCapitalize": constants.TEXTAREA_AUTO_CAPITALIZE_NONE,
             "centerX": "50.00%",
-            "focusSkin": "CopydefTextAreaNormal0a37ae04b1e1246",
+            "focusSkin": "skntxt343e48AB100",
             "height": "11.67%",
             "id": "txtSessionSDesc",
             "isVisible": true,
@@ -106,7 +110,7 @@ define(function() {
             "left": "8dp",
             "numberOfVisibleLines": 3,
             "placeholder": "Short Description",
-            "skin": "CopydefTextAreaNormal0a37ae04b1e1246",
+            "skin": "skntxt343e48AB100",
             "textInputMode": constants.TEXTAREA_INPUT_MODE_ANY,
             "top": "45.56%",
             "width": "90%",
@@ -116,12 +120,13 @@ define(function() {
             "padding": [2, 2, 2, 2],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextAreaPlaceholder"
         });
         var txtSesionLDesc = new kony.ui.TextArea2({
             "autoCapitalize": constants.TEXTAREA_AUTO_CAPITALIZE_NONE,
             "centerX": "50%",
-            "focusSkin": "CopydefTextAreaNormal0a37ae04b1e1246",
+            "focusSkin": "skntxt343e48AB100",
             "height": "25.00%",
             "id": "txtSesionLDesc",
             "isVisible": true,
@@ -129,7 +134,7 @@ define(function() {
             "left": "8dp",
             "numberOfVisibleLines": 3,
             "placeholder": "Long Description",
-            "skin": "CopydefTextAreaNormal0a37ae04b1e1246",
+            "skin": "skntxt343e48AB100",
             "textInputMode": constants.TEXTAREA_INPUT_MODE_ANY,
             "top": "62%",
             "width": "90%",
@@ -139,7 +144,8 @@ define(function() {
             "padding": [2, 2, 2, 2],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextAreaPlaceholder"
         });
         var flexSessionDate = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
@@ -150,6 +156,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "1%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "24%",
             "width": "90%",
@@ -164,6 +171,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "40%",
@@ -175,7 +183,7 @@ define(function() {
             "id": "lblSessionStartDate",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0haee3806c4cd44",
+            "skin": "sknlbl333AM120",
             "text": "Start Date",
             "top": "10%",
             "width": "90%",
@@ -193,6 +201,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "90%",
@@ -232,6 +241,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "30%",
@@ -243,7 +253,7 @@ define(function() {
             "id": "lblSessionStartTime",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0haee3806c4cd44",
+            "skin": "sknlbl333AM120",
             "text": "Start Time",
             "top": "10%",
             "width": "90%",
@@ -261,6 +271,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "90%",
@@ -290,7 +301,8 @@ define(function() {
             "padding": [5, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         flexSessionSelectStartTime.add(txtSessionStartTime);
         flexSessionStartTime.add(lblSessionStartTime, flexSessionSelectStartTime);
@@ -302,6 +314,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "2%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "30%",
@@ -313,7 +326,7 @@ define(function() {
             "id": "lblSessionEndTime",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0haee3806c4cd44",
+            "skin": "sknlbl333AM120",
             "text": "End Time",
             "top": "10%",
             "width": "90%",
@@ -331,6 +344,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "90%",
@@ -360,7 +374,8 @@ define(function() {
             "padding": [3, 0, 0, 0],
             "paddingInPixel": false
         }, {
-            "autoCorrect": false
+            "autoCorrect": false,
+            "placeholderSkin": "defTextBoxPlaceholder"
         });
         FlexSelectSessionEndTime.add(txtSessionEndTime);
         flexSessionEndTime.add(lblSessionEndTime, FlexSelectSessionEndTime);
@@ -389,6 +404,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "0%",
             "width": "49.50%",
@@ -403,6 +419,7 @@ define(function() {
             "id": "flexAddSpeakerDetailsTitle",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "1%",
             "width": "90%",
@@ -414,7 +431,7 @@ define(function() {
             "id": "lblAddSpeakerDetailsTitle",
             "isVisible": true,
             "left": "0%",
-            "skin": "CopydefLabel0b372d409de4b4d",
+            "skin": "sknlbl333333AM130",
             "text": "Speaker Details",
             "top": "0%",
             "width": "100%",
@@ -447,6 +464,7 @@ define(function() {
             "isVisible": false,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "5%",
+            "isModalContainer": false,
             "onClick": controller.AS_FlexContainer_eb09808c6760487f8a96f25b1a582ec5,
             "skin": "slFbox",
             "top": "1%",
@@ -472,12 +490,11 @@ define(function() {
         }, {});
         var btnAddNewSpeakerIni = new kony.ui.Button({
             "centerY": "50%",
-            "focusSkin": "CopydefBtnNormal0if79d279d95444",
             "height": "80%",
             "id": "btnAddNewSpeakerIni",
             "isVisible": true,
             "left": "3%",
-            "skin": "CopydefBtnNormal0b9e9900b16d74b",
+            "skin": "sknbtn00a0ddAL80",
             "text": "Add New Speaker",
             "top": "0%",
             "width": "90%",
@@ -518,7 +535,7 @@ define(function() {
             "pageOnDotImage": "pageondot_2.png",
             "retainSelection": false,
             "rowFocusSkin": "seg2Focus",
-            "rowSkin": "Copyseg0h316896864ca41",
+            "rowSkin": "sknsegfff0",
             "rowTemplate": "flexTempSessionSpeakerMain",
             "sectionHeaderSkin": "sliPhoneSegmentHeader",
             "selectionBehavior": constants.SEGUI_DEFAULT_BEHAVIOR,

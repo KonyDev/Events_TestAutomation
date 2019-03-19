@@ -11,6 +11,7 @@ define("frmLogin", function() {
                 "id": "flxRoot",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
+                "isModalContainer": false,
                 "skin": "sknFlxLogin",
                 "width": "100%",
                 "zIndex": 1
@@ -23,6 +24,7 @@ define("frmLogin", function() {
                 "id": "flxHeader",
                 "isVisible": true,
                 "layoutType": kony.flex.FLOW_VERTICAL,
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "0dp",
                 "width": "100%",
@@ -88,7 +90,7 @@ define("frmLogin", function() {
                 "height": "115dp",
                 "id": "btnPleaseWait",
                 "isVisible": false,
-                "skin": "CopysknBtnLinkedIn0efaf2a8e34e446",
+                "skin": "sknbtnBG0173b2100FFFAL140",
                 "text": "Please wait.. we are processing..",
                 "top": "50dp",
                 "width": "270dp",
@@ -107,7 +109,7 @@ define("frmLogin", function() {
                 "height": "45dp",
                 "id": "btnOffice365",
                 "isVisible": false,
-                "skin": "CopydefBtnNormal0fc1fde11d8f343",
+                "skin": "sknbtnBGf36c21100",
                 "text": "Sign In with Office365",
                 "top": "20dp",
                 "width": "260dp",
@@ -129,6 +131,7 @@ define("frmLogin", function() {
                 "id": "flxBrowserContainer",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "slFbox",
                 "top": "100%",
                 "width": "100%",
@@ -143,6 +146,7 @@ define("frmLogin", function() {
                 "id": "flxBrowserHeader",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "skin": "sknFlxHeaderGredient",
                 "top": "0dp",
                 "width": "100%",
@@ -158,6 +162,7 @@ define("frmLogin", function() {
                 "isVisible": false,
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_i63f2df2498847a4af7778c31ab453a8,
                 "right": "0dp",
                 "skin": "slFbox",
@@ -189,6 +194,7 @@ define("frmLogin", function() {
                 "id": "flxClose",
                 "isVisible": true,
                 "layoutType": kony.flex.FREE_FORM,
+                "isModalContainer": false,
                 "onClick": controller.AS_FlexContainer_f39f3886172f45abbc2c94b1f5b58cb7,
                 "right": "0dp",
                 "skin": "slFbox",
@@ -252,6 +258,7 @@ define("frmLogin", function() {
                 "layoutType": kony.flex.FREE_FORM,
                 "left": "0dp",
                 "masterType": constants.MASTER_TYPE_USERWIDGET,
+                "isModalContainer": false,
                 "skin": "headerContainerSknMaster",
                 "top": "0dp",
                 "width": "100%",
@@ -330,8 +337,7 @@ define("frmLogin", function() {
             },
             "needsIndicatorDuringPostShow": false,
             "retainScrollPosition": false,
-            "titleBar": false,
-            "titleBarSkin": "CopyslTitleBar0j28a1134248f45"
+            "titleBar": false
         }]
     }
 });

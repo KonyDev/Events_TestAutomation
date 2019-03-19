@@ -35,18 +35,14 @@
         "type": "string",
         "value": "50%"
     },
-    "children": [
-        "flxUserContainer",
-        "flxLoading",
-        "flxNoUser"
-    ],
+    "children": [],
     "clipbounds": true,
     "containerweight": 100,
     "enablescrolling": true,
     "id": "flxRegisteredUserContainer",
     "info": null,
     "iscustomlayout": false,
-    "isvisible": true,
+    "isvisible": false,
     "kuid": "dd68376bdf8e4970a50fb298b155cddf",
     "layouttype": 2,
     "name": "kony.ui.FlexContainer",

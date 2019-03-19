@@ -8,7 +8,7 @@ define("userfrmEventsLandingController", {
     activityName: null,
     segmentData: [],
     user_event_data: [],
-    /**
+    /**reloadFromServer
      * @member of  frmEventsLandingController.js
      * @function onNavigate
      * @param params - The params from navigate Object
@@ -16,7 +16,6 @@ define("userfrmEventsLandingController", {
      * This method checks the origin and loads the event list accordingly
      **/
     onNavigate: function(params) {
-        debugger;
         try {
             if (params !== undefined) {
                 switch (params.origin) {
@@ -247,12 +246,15 @@ define("userfrmEventsLandingController", {
         try {
             this.view.lblNoEvents.isVisible = false;
             this.startLoadingScreen();
-            var objSvc = kony.sdk.getCurrentInstance().getObjectService("EventOrchSDO", {
+            var objSvc = kony.sdk.getCurrentInstance().getObjectService("EventsSOS", {
                 "access": "online"
             });
-            var dataObject = new kony.sdk.dto.DataObject("events_view");
+            var dataObject = new kony.sdk.dto.DataObject("event");
             var options = {
-                "dataObject": dataObject
+                "dataObject": dataObject,
+                "queryParams": {
+                    "$expand": "location,event_banners"
+                }
             };
             objSvc.fetch(options, this.eventFetchSuccessCallback.bind(this), this.eventFetchFailureCallback.bind(this));
         } catch (error) {
@@ -267,7 +269,7 @@ define("userfrmEventsLandingController", {
     eventFetchSuccessCallback: function(response) {
         try {
             this.stopLoadingScreen();
-            if (response.records[0].event.length > 0) {
+            if (response.records.length > 0) {
                 var eventList = processEventsOrchResponse(response);
                 switch (this.currentMode) {
                     case EVENT_CONSTANS.MODE.MYEVENTS:
@@ -1293,7 +1295,7 @@ define("frmEventsLandingControllerActions", {
         this.listMenuClick();
     },
     /** onClick defined for flexHamburger **/
-    AS_FlexContainer_gb5761efbfc44d20b771346e8e0f0e17: function AS_FlexContainer_gb5761efbfc44d20b771346e8e0f0e17(eventobject) {
+    AS_FlexContainer_i287c93385dc4ed89ebd0efef9e5bc92: function AS_FlexContainer_i287c93385dc4ed89ebd0efef9e5bc92(eventobject) {
         var self = this;
         this.listMenuClick();
     },

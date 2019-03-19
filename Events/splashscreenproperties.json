@@ -29,8 +29,11 @@
             "spawindowstablet": {}
         },
         "desktop": {
-            "desktopweb": {},
-            "kiosk": {}
+            "desktopweb": {
+                "backgroundColor": "ffffff"
+            },
+            "kiosk": {},
+            "splashImage": "eventslogohorizontal.png"
         }
     }
 }

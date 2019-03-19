@@ -1,5 +1,5 @@
  /*
-  * kony-sdk-ide Version 8.3.1
+  * kony-sdk-ide Version 8.3.10
   */
  /**
   * Kony namespace
@@ -159,7 +159,7 @@
  kony.sdk.currentInstance = null;
  kony.sdk.isLicenseUrlAvailable = true;
  kony.sdk.constants = kony.sdk.constants || {};
- kony.sdk.version = "8.3.1";
+ kony.sdk.version = "8.3.10";
  kony.sdk.logsdk = new konySdkLogger();
  kony.sdk.syncService = null;
  kony.sdk.dataStore = kony.sdk.dataStore || new konyDataStore();
@@ -289,7 +289,7 @@
          if (kony.sdk.offline.isOfflineEnabled && kony.sdk.offline.isOfflineEnabled == true) {
              kony.sdk.offline.updateAuthToken(data);
          }
-         if (kony.sdk.offline.persistToken) {
+         if (kony.sdk.offline.persistToken || kony.sdk.util.isPersistentLoginResponseEnabled()) {
              kony.sdk.offline.updatePersistedToken(data);
          }
      }
@@ -373,7 +373,6 @@
          var processServiceDocResult = konyRef.initWithServiceDoc(appKey, appSecret, data);
          if (processServiceDocResult === true) {
              kony.sdk.logsdk.info("### init::_doInit processing service document successful");
-             var svcDataStr = JSON.stringify(data);
              kony.sdk.logsdk.debug("### init::_doInit saving done. Calling success callback", data);
              kony.sdk.initiateSession(konyRef);
              if (typeof(KNYMetricsService) !== "undefined" && kony.sdk.currentInstance.getMetricsService) {
@@ -1445,6 +1444,7 @@
  function IdentityService(konyRef, rec) {
      kony.sdk.logsdk.trace("Entering IdentityService");
      var networkProvider = new konyNetworkProvider();
+     var dataStore = new konyDataStore();
      var serviceObj = rec;
      konyRef.rec = rec;
      var mainRef = konyRef.mainRef;
@@ -1500,6 +1500,7 @@
          }
          if (options && options["loginOptions"] && options["loginOptions"]["persistLoginResponse"] === true) {
              persistToken = true;
+             dataStore.setItem("persistLoginResponseFlag", true);
              kony.sdk.offline.persistToken = true;
          }
          if (options && options["loginOptions"]) {
@@ -1823,8 +1824,10 @@
                  }
                  kony.sdk.offline.saveUserAuthInformation("authResponse", data);
              }
-             if (persistToken || kony.sdk.offline.persistToken) {
-                 kony.sdk.offline.saveUserAuthInformation("persistedAuthResponse", data);
+             if (_type !== "anonymous") {
+                 if (persistToken || kony.sdk.offline.persistToken || kony.sdk.util.isPersistentLoginResponseEnabled()) {
+                     kony.sdk.offline.saveUserAuthInformation("persistedAuthResponse", data);
+                 }
              }
          }
          kony.logger.setClaimsToken();
@@ -2004,11 +2007,13 @@
                  kony.sdk.offline.removeUserAuthInformation();
                  kony.sdk.offline.removeUserCredentials(_providerName);
              }
-             if (persistToken) {
+             if (persistToken || kony.sdk.offline.persistToken || kony.sdk.util.isPersistentLoginResponseEnabled()) {
                  kony.sdk.offline.removePersistedUserAuthInformation();
+                 persistToken = false;
                  kony.sdk.offline.persistToken = false;
+                 dataStore.setItem("persistLoginResponseFlag", false);
              }
-             if (slo != false && kony.sdk.sso.isSSOEnabled == true) {
+             if (slo === true) {
                  kony.sdk.util.deleteSSOToken();
              }
              kony.sdk.verifyAndCallClosure(successCallback, {});
@@ -2077,7 +2082,7 @@
                  if (kony.sdk.offline.isOfflineEnabled && kony.sdk.offline.isOfflineEnabled == true) {
                      kony.sdk.offline.updateAuthToken(token);
                  }
-                 if (persistToken || kony.sdk.offline.persistToken) {
+                 if (persistToken || kony.sdk.offline.persistToken || kony.sdk.util.isPersistentLoginResponseEnabled()) {
                      kony.sdk.offline.updatePersistedToken("persistedAuthResponse", token);
                  }
              }
@@ -4988,6 +4993,19 @@
      }
      return false;
  };
+ /**
+  * Utility method to get persistToken flag from data store
+  *
+  * @returns {boolean}
+  */
+ kony.sdk.util.isPersistentLoginResponseEnabled = function() {
+     var dataStore = new konyDataStore();
+     var persistTokenFlag = dataStore.getItem("persistLoginResponseFlag");
+     if (!kony.sdk.isNullOrUndefined(persistTokenFlag) && persistTokenFlag === true) {
+         return true;
+     }
+     return false;
+ }
  kony.sdk.serviceDoc = function() {
      kony.sdk.logsdk.trace("Entering into kony.sdk.serviceDoc");
      var appId = "";
@@ -5364,6 +5382,16 @@
          loggerObj = new kony.logger.createNewLogger(kony.sdk.constants.APP_LOGGER_NAME, null);
          return loggerObj;
      },
+     isValidJSTable: function(inputTable) {
+         if (kony.sdk.isNullOrUndefined(inputTable)) {
+             return false;
+         }
+         if (typeof inputTable === "object" || typeof inputTable === "Object" || typeof inputTable === "Array" || typeof inputTable === "array") {
+             return true;
+         } else {
+             return false;
+         }
+     }
  };
  kony.sdk.KNYObj = function(name, objectServiceName, namespace) {
      var LOG_PREFIX = "KNYObj";
@@ -5406,6 +5434,10 @@
      this.getBinary = function(options, fileDownloadStartedCallback, chunkDownloadCompletedCallback, streamDownloadCompletedCallback, fileDownloadCompletedCallback, downloadFailureCallback) {
          kony.sdk.logsdk.debug(LOG_PREFIX + ": Get binary for " + this.name + " object");
          kony.sdk.KNYObj.getBinary(this, options, fileDownloadStartedCallback, chunkDownloadCompletedCallback, streamDownloadCompletedCallback, fileDownloadCompletedCallback, downloadFailureCallback);
+     };
+     this.getBinaryStatus = function(options, successCallback, failureCallback) {
+         kony.sdk.logsdk.debug(LOG_PREFIX + ": getBinaryStatus for " + this.name + " object");
+         kony.sdk.KNYObj.getBinaryStatus(this, options, successCallback, failureCallback);
      };
      this.rollback = function(primaryKeyValueMap, successCallback, failureCallback) {
          kony.sdk.logsdk.debug(LOG_PREFIX + ": Rollback for " + this.name + " object");
@@ -5540,9 +5572,14 @@
          kony.sdk.OfflineObjects.executeSelectQuery(query, successCallback, failureCallback);
      }
  };
- /*
- JS Bindings to SyncV2 native classes
- */
+ kony.sdk.OfflineObjects.BinaryStatus = {
+         "pending": 2,
+         "completed": 4,
+         "errored": 8
+     }
+     /*
+     JS Bindings to SyncV2 native classes
+     */
  kony.sdk.SyncV2Classes = (function() {
      var instance = null;
      var LOG_PREFIX = "kony.sdk.SyncV2Classes";
@@ -6006,6 +6043,25 @@
      function onDownloadFailure(error) {
          kony.sdk.logsdk.error(LOG_PREFIX + ": File download failed with error: " + JSON.stringify(error));
          downloadFailureCompletionBlock(error);
+     }
+ }
+ kony.sdk.KNYObj.getBinaryStatus = function(knyObj, options, successCallback, failureCallback) {
+     var LOG_PREFIX = "kony.sdk.KNYObj.getBinaryStatus";
+     kony.sdk.logsdk.trace("Entering " + LOG_PREFIX);
+     var syncCallback = kony.sdk.OfflineObjects.createSyncCallback("getBinaryStatus on " + knyObj.name + " object success", onSuccess, "getBinaryStatus on " + knyObj.name + " object failed", onFailure);
+     var optionsMap = kony.sdk.OfflineObjects.createHashMapFromJSONObject(options, "getBinaryStatus with options");
+     var sdkObjectSync = knyObj.getSdkObjectSync();
+     sdkObjectSync.getBinaryStatus(optionsMap, syncCallback);
+
+     function onSuccess(obj) {
+         kony.sdk.logsdk.info(LOG_PREFIX + ": getBinaryStatus success");
+         var jsonObject = kony.sdk.OfflineObjects.createJSONObjectFromHashMap(obj, "getBinaryStatusSuccessCallBack");
+         successCallback(jsonObject);
+     }
+
+     function onFailure(error) {
+         kony.sdk.logsdk.error(LOG_PREFIX + ": getBinaryStatus failed with error: " + JSON.stringify(error));
+         failureCallback(error);
      }
  }
  kony.sdk.KNYObj.markForUpload = function(knyObj, options, successCallback, failureCallback) {
@@ -6521,6 +6577,9 @@
              if (callerInformation.length == 3) {
                  return callerInformation[1];
              }
+             // MFSDK-3910
+             // Temporary Fix to send line number as null if not present instead of undefined(<null>)
+             return "";
          };
          formatFileInfo = function(callerInformation) {
              if (callerInformation.length >= 1) {
@@ -6571,7 +6630,7 @@
                  var metaData = {};
                  params = (typeof(params) === "undefined") ? "" : params;
                  //Stringify object
-                 if (kony.sync.isValidJSTable(params)) {
+                 if (kony.logger.isValidJSTable(params)) {
                      params = JSON.stringify(params, null, " ");
                  }
                  metaData.message = msg + params;

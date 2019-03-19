@@ -33,14 +33,13 @@
         "value": "95%"
     },
     "allboxes": [],
-    "autogrowmode": 0,
     "canUpdateUI": true,
     "children": [
         "txtAddressLine1",
         "txtAddressLine2",
         "txtCity",
         "lblGoogleMapPreview",
-        "FlexContainer0e2eaae99897443"
+        "flexMapMain"
     ],
     "clipbounds": true,
     "containerweight": 100,
@@ -54,6 +53,30 @@
     "name": "kony.ui.FlexContainer",
     "parent": "flexEventRight",
     "pf": "frmCreateEvent",
+    "responsiveData": {
+        "b3": {
+            "height": {
+                "type": "string",
+                "value": "50%"
+            },
+            "isVisible": false,
+            "width": {
+                "type": "string",
+                "value": "90%"
+            }
+        },
+        "b4": {
+            "height": {
+                "type": "string",
+                "value": "50%"
+            },
+            "isVisible": true,
+            "width": {
+                "type": "string",
+                "value": "90%"
+            }
+        }
+    },
     "retaincontentalignment": false,
     "retainflexpositionproperties": false,
     "snapgridsize": 10,

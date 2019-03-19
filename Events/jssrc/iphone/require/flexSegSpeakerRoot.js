@@ -9,6 +9,7 @@ define("flexSegSpeakerRoot", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "sknFlxBorderBlue",
             "top": "0dp",
             "width": "100%"
@@ -23,6 +24,7 @@ define("flexSegSpeakerRoot", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "width": "35%",
             "zIndex": 1
@@ -36,6 +38,7 @@ define("flexSegSpeakerRoot", function() {
             "id": "flxImageContainer",
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
+            "isModalContainer": false,
             "skin": "sknFlxImageContainerCircular",
             "top": "7%",
             "width": "80dp",
@@ -87,6 +90,7 @@ define("flexSegSpeakerRoot", function() {
             "isVisible": true,
             "layoutType": kony.flex.FLOW_VERTICAL,
             "left": "0dp",
+            "isModalContainer": false,
             "skin": "slFbox",
             "width": "65%",
             "zIndex": 1

@@ -9,6 +9,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "17.50%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "10%",
             "width": "82.50%"
@@ -22,6 +23,7 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
+            "isModalContainer": false,
             "skin": "slFbox",
             "top": "-2%",
             "width": "100%",
@@ -33,7 +35,7 @@ define(function() {
             "id": "LblTitle",
             "isVisible": true,
             "left": "5%",
-            "skin": "CopysknLblHeader1",
+            "skin": "sknlbl00a0ddAL28px",
             "text": "Create New Event",
             "top": "0dp",
             "width": "40%",
@@ -58,20 +60,21 @@ define(function() {
             "padding": [0, 0, 0, 0],
             "paddingInPixel": false
         }, {});
-        var FlexContainer0b6eb885d5c014c = new kony.ui.FlexContainer({
+        var flexOperations = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
             "height": "100%",
-            "id": "FlexContainer0b6eb885d5c014c",
+            "id": "flexOperations",
             "isVisible": true,
             "layoutType": kony.flex.FLOW_HORIZONTAL,
+            "isModalContainer": false,
             "right": "5%",
             "skin": "slFbox",
             "top": "0%",
             "width": "31.43%",
             "zIndex": 7
         }, {}, {});
-        FlexContainer0b6eb885d5c014c.setDefaultUnit(kony.flex.DP);
+        flexOperations.setDefaultUnit(kony.flex.DP);
         var flexBasic = new kony.ui.FlexContainer({
             "autogrowMode": kony.flex.AUTOGROW_NONE,
             "clipBounds": true,
@@ -80,7 +83,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
-            "skin": "CopyslFbox0e504b685997547",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "top": "-7%",
             "width": "50%",
             "zIndex": 6
@@ -144,7 +148,8 @@ define(function() {
             "isVisible": true,
             "layoutType": kony.flex.FREE_FORM,
             "left": "0%",
-            "skin": "CopyslFbox0e504b685997547",
+            "isModalContainer": false,
+            "skin": "slFbox",
             "top": "-6%",
             "width": "50%",
             "zIndex": 6
@@ -200,8 +205,8 @@ define(function() {
             "paddingInPixel": false
         }, {});
         flxSessions.add(lblundSes, btnSessions, lblstep2);
-        FlexContainer0b6eb885d5c014c.add(flexBasic, flxSessions);
-        flexHeader.add(LblTitle, lblUnderLineEventMain, FlexContainer0b6eb885d5c014c);
+        flexOperations.add(flexBasic, flxSessions);
+        flexHeader.add(LblTitle, lblUnderLineEventMain, flexOperations);
         EventsHeader.add(flexHeader);
         return EventsHeader;
     }
