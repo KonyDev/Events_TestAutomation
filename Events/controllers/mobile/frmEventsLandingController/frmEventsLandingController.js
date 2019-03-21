@@ -52,7 +52,15 @@ define({
 				}
 			} else {
 				this.view.flexEventRegConformation.isVisible = false;
-				this.checkIsLogin();
+				KNYMobileFabric = new kony.sdk();
+                KNYMobileFabric.init("cd80056207d95ac5b4192a191209f4d1", 
+                                     "825d96a6df1af4fe912c11ed3e13b2ba", 
+                                     "https://100005088.auth.konycloud.com/appconfig",
+                function(){
+                  this.checkIsLogin();
+                }.bind(this), function(error){
+                  kony.print("Error in Init "+error);
+                });
 			}
 			this.setProfileData();
 			this.activityName = null;
