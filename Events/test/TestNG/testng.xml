@@ -17,26 +17,27 @@
      <include name = "test_AllEventsTitle"/> 
      <include name = "test_AllEventsEvent"/>
      <include name = "test_UpcomingEvents"/>
-     <!--<include name = "test_Loginmenu"/> 
+     <include name = "test_Loginmenu"/> 
      <include name = "test_myEventsmenu"/>
      <include name = "test_profilesmenu"/>
-     <include name = "test_offlineEvent"/> -->    	       	    
+     <include name = "test_offlineEvent"/>     	       	    
       </methods>
       </class>
-     <!--<class name="test.EventsApp.tests.EventDetailsTests" >
-     <methods>  
-     <include name = "test_AllEventsPresenter"/>
-     <include name = "test_AllEventsSchedular"/>  	       	    
-      </methods>
-      </class>
-      <class name="test.EventsApp.tests.SearchTests" >
+	  <class name="test.EventsApp.tests.SearchTests" >
      <methods>  
      <include name = "test_searchWithEmptyValue"/>
      <include name = "test_searchWithEventName"/> 
      <include name = "test_searchClearWithCrossBtn"/>
      <include name = "test_searchWithNonExistingEventName"/>  	       	    
       </methods>
-      </class>-->
+      </class>
+     <class name="test.EventsApp.tests.EventDetailsTests" >
+     <methods>  
+     <include name = "test_AllEventsPresenter"/>
+     <include name = "test_AllEventsSchedular"/>  	       	    
+      </methods>
+      </class>
+      
           
             
     </classes>
